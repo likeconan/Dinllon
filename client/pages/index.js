@@ -1,4 +1,6 @@
-import Home from './home.pages'
+import Home from './home.pages';
+import Other from './other.pages';
 module.exports = {
-    'Home': Home
+    'Home': Home,
+    'Other': Other
 }
