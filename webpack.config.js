@@ -1,11 +1,10 @@
-var glob = require("glob");
 var webpack = require('webpack');
 var PROD = process.env.NODE_ENV === "production";
 
 module.exports = {
-    entry: glob.sync("./client/entry.js"),
+    entry: ['./client/app.client.js'],
     output: {
-        path: './public/build',
+        path: './build',
         filename: 'bundle.js'
     },
     resolve: {
