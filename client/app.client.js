@@ -24,7 +24,9 @@ const customMui = getMuiTheme({
 ReactDOM.render(
     <MuiThemeProvider muiTheme={customMui}>
         <Router history={browserHistory}>
-            <Route path="/" component={pages.Home} />
+            <Route component={pages.Layout}>
+                <Route path="/" component={pages.Home} />
+            </Route>
             <Route path="/other" component={pages.Other} />
         </Router>
     </MuiThemeProvider>,
