@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 class FullBackImage extends Component {
     render() {
         return (
-            <div style={Object.assign(ImageStyle.backCover, General.fullBack, this.backImage,this.props.style)}>
+            <div>
+                123
                 {this.props.children}
             </div>
         );
