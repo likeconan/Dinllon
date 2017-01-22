@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
+require("./full-back-image.less")
 class FullBackImage extends Component {
     render() {
         return (
-            <div>
-                123
+            <full-back-image style={this.props.backImage}>
                 {this.props.children}
-            </div>
+            </full-back-image>
         );
     }
     constructor(props) {

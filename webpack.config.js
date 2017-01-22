@@ -1,7 +1,6 @@
 var webpack = require('webpack');
 var PROD = process.env.NODE_ENV === "production";
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
     entry: ['./client/app.client.js'],
     output: {
@@ -29,14 +28,14 @@ module.exports = {
             },
             {
                 test: /\.less$/,
-                loader: ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader', { publicPath: '../' }),
+                loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader!less-loader"),
                 include: /(client)/
             }
         ]
 
     },
     plugins: [
-        new ExtractTextPlugin('./css/test.css')
+        new ExtractTextPlugin("bundle.css")
     ],
     debug: true
 }

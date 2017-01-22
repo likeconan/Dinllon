@@ -5,6 +5,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import pages from './pages';
+require("./styles/layout.less");
 injectTapEventPlugin();
 
 const authTransition = function authTransition(nextState, replaceWith) {
