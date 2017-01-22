@@ -22,6 +22,7 @@ you can try to merge to the develop branch by these commands:
         git checkout develop
         git pull
         git merge feature/[name]  (merge the feature/[name] branch to develop)
+        git push -u origin develop (push the merged code to develop)
         git push origin --delete feature/[name] (delete the remote one)
         git branch -d feature/[name] (delete the local feature/[name] branch )
 
