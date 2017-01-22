@@ -6,9 +6,14 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <FullBackImage backSrc='./client/assets/images/home-back-big.jpg' className='search-mid'>
-                    <h2 className='white-text mont-font'>Enjoy，Meet the ones you like</h2>
-                    <SearchBar></SearchBar>
+                <FullBackImage backSrc='./client/assets/images/home-back-big.jpg' className='search-mid center-flex'>
+                    <div style={{ marginTop: '-10vh' }}>
+                        <h2 className='white-text mont-font home-title'>
+                            <span>Enjoy,</span>
+                            <span>Meet the ones you like</span>
+                        </h2>
+                        <SearchBar></SearchBar>
+                    </div>
                 </FullBackImage>
             </div>
         );

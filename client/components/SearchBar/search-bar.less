@@ -1,3 +1,12 @@
-search-bar{
+search-bar {
     display: block;
+    justify-content: center;
+    input {
+        width: 360px;
+    }
+    @media screen and (max-width:600px) {
+        input {
+            width: calc(~'100vw - 110px')
+        }
+    }
 }
