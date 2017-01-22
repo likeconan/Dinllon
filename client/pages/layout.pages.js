@@ -4,7 +4,6 @@ class Layout extends Component {
     render() {
         return (
             <div>
-                this is layout
                 {this.props.children}
             </div>
         );

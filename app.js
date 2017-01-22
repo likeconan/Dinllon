@@ -8,6 +8,7 @@ var history = require('connect-history-api-fallback');
 var api = require('./server/api');
 
 var app = express();
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
