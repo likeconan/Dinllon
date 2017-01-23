@@ -1,0 +1,29 @@
+data-display {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    justify-content: center;
+    .data-con {
+        flex-direction: column;
+        justify-content: center;
+        width: 120px;
+        height: 100px;
+        margin: 10px;
+        background-color: rgba(255, 255, 255, 0.2);
+        color: white;
+        h5.data-num {
+            font-family: Arial, Helvetica, sans-serif;
+            margin-top: -2px;
+        }
+    }
+}
+
+@media screen and (max-width:600px) {
+    data-display {
+        flex-wrap: wrap;
+        .data-con{
+            width: 120px;
+            height: 80px;
+        }
+    }
+}
