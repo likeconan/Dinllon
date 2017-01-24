@@ -8,7 +8,7 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <FullBackImage backSrc='./client/assets/images/home-back-big.jpg' className='search-mid center-flex'>
+                <FullBackImage backSrc='./client/assets/images/home-back-big.jpg' className='column-center center-flex'>
                     <div style={{ marginTop: '-20vh' }}>
                         <h2 className='white-text mont-font home-title'>
                             <span>Enjoy,</span>

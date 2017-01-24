@@ -27,8 +27,11 @@ ReactDOM.render(
         <Router history={browserHistory}>
             <Route component={pages.Layout}>
                 <Route path="/" component={pages.Home} />
+                <Route component={pages.AccountLayout}>
+                    <Route path='/login' component={pages.Login} />
+                    <Route path='/register' component={pages.Register} />
+                </Route>
             </Route>
-            <Route path="/other" component={pages.Other} />
         </Router>
     </MuiThemeProvider>,
 
