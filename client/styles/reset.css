@@ -85,6 +85,18 @@ a{
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Roboto';
+    src:  url('/client/assets/fonts/roboto/Roboto-Regular.woff2') format('woff2'),  url('/client/assets/fonts/roboto/Roboto-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
 .mont-font{
   font-family: 'montserratregular','Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+.roboto-font{
+  font-family: 'Roboto', sans-serif;
 }

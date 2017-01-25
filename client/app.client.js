@@ -27,6 +27,7 @@ ReactDOM.render(
         <Router history={browserHistory}>
             <Route component={pages.Layout}>
                 <Route path="/" component={pages.Home} />
+                <Route path="/life" component={pages.SocialLife} />
                 <Route component={pages.AccountLayout}>
                     <Route path='/login' component={pages.Login} />
                     <Route path='/register' component={pages.Register} />
