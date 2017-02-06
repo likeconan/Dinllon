@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 require('./data-display.less')
+
 class DataDisplay extends Component {
+
     render() {
         return (
             <data-display class='center-flex'>

@@ -1,0 +1,36 @@
+top-loading {
+    position: fixed;
+    display: block;
+    height: 2px;
+    width: 0;
+    z-index: 999;
+    background-color: #ff4081;
+    top: 0;
+    &.active {
+        animation: loading 0.5s forwards;
+    }
+    &.last {
+        animation: last 0.5s forwards;
+    }
+}
+
+@keyframes loading {
+    from {
+        width: 0;
+    }
+    to {
+        width: 30%;
+    }
+}
+
+@keyframes last {
+    0% {
+        width: 30%;
+    }
+    99% {
+        width: 100%;
+    }
+    100% {
+        width: 0;
+    }
+}

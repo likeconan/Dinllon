@@ -5,12 +5,18 @@ import RaisedButton from 'material-ui/RaisedButton';
 import IconButton from 'material-ui/IconButton';
 import { grey50 } from 'material-ui/styles/colors';
 import { Navigate } from '../../utilities'
-
+import { connect } from 'react-redux';
 require('./search-bar.less');
+
+@connect((store) => {
+    return {
+
+    }
+})
 
 class SearchBar extends Component {
     render() {
-        const active = this.props.active;
+        const {active} = this.props;
         return (
             <search-bar class={Classnames('center-flex', this.props.className, { 'top-search-bar': active })} >
                 <AlphaTextField />

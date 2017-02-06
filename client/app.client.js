@@ -5,6 +5,9 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import pages from './pages';
+import store from './store';
+import { Provider } from 'react-redux';
+
 require("./styles/layout.less");
 injectTapEventPlugin();
 
@@ -23,18 +26,20 @@ const customMui = getMuiTheme({
 
 
 ReactDOM.render(
-    <MuiThemeProvider muiTheme={customMui}>
-        <Router history={browserHistory}>
-            <Route component={pages.Layout}>
-                <Route path="/" component={pages.Home} />
-                <Route path="/life" component={pages.SocialLife} />
-                <Route component={pages.AccountLayout}>
-                    <Route path='/login' component={pages.Login} />
-                    <Route path='/register' component={pages.Register} />
+    <Provider store={store}>
+        <MuiThemeProvider muiTheme={customMui}>
+            <Router history={browserHistory}>
+                <Route component={pages.Layout}>
+                    <Route path="/" component={pages.Home} />
+                    <Route path="/life" component={pages.SocialLife} />
+                    <Route component={pages.AccountLayout}>
+                        <Route path='/login' component={pages.Login} />
+                        <Route path='/register' component={pages.Register} />
+                    </Route>
                 </Route>
-            </Route>
-        </Router>
-    </MuiThemeProvider>,
+            </Router>
+        </MuiThemeProvider>
+    </Provider>,
 
     document.getElementById('root')
 );

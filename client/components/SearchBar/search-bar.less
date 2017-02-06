@@ -9,15 +9,18 @@ search-bar {
             width: calc(~'100vw - 110px')
         }
     }
+    &.top-search-bar input {
+        border-radius: 2px;
+    }
     @media screen and (max-width:600px) {
-       &.top-search-bar {
-           justify-content: flex-end;
-           >button{
-               position: fixed !important;
-           }
-           input {
-            width: calc(~'100vw - 180px')
-           }
+        &.top-search-bar {
+            justify-content: flex-end;
+            >button {
+                position: fixed !important;
+            }
+            input {
+                width: calc(~'100vw - 180px');
+            }
         }
     }
 }

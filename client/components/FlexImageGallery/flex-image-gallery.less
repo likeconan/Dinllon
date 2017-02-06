@@ -1,0 +1,22 @@
+@import "../../../node_modules/react-image-gallery/styles/css/image-gallery.css";
+.image-gallery-con {
+    background-size: contain;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    height: 65vh;
+    width: 100%;
+    background-color: #e0e0e0;
+}
+.image-gallery-left-nav,
+.image-gallery-right-nav{
+    opacity: 0.4;
+    &:hover{
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .image-gallery-con{
+       height: 50vh;
+    }
+}

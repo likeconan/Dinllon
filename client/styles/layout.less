@@ -2,19 +2,59 @@
 
 /******* Common ********/
 
+.width-100p {
+    width: 100%;
+}
+
 .center-flex {
     display: flex;
     align-items: center;
 }
-.sans-font{
-    font-family: sans-serif;
+
+.clear-both {
+    clear: both;
 }
-.margin-2vh2vw{
+
+.space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mirror-transform {
+    transform: scaleX(-1);
+}
+
+.all-center-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle {
+    border-radius: 50%;
+}
+
+.circle-con-img {
+    img {
+        border-radius: 50%;
+    }
+}
+
+.active-text {
+    transition: color 0.5s cubic-bezier(0.39, 0.575, 0.565, 1);
+    &:hover {
+        color: #1976d2;
+    }
+}
+
+.margin-2vh2vw {
     margin: 2vh 2vw;
 }
-.cursor-pointer{
+
+.cursor-pointer {
     cursor: pointer;
 }
+
 .column-center {
     flex-direction: column;
     justify-content: center;
@@ -93,21 +133,94 @@ h6 {
     }
 }
 
+.z-depth-1 {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.z-depth-2 {
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.z-depth-3 {
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.z-depth-4 {
+    box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21);
+}
+
+.z-depth-5 {
+    box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2), 0 40px 77px 0 rgba(0, 0, 0, 0.22);
+}
+
+.img-content-container {
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
 
 /******** Home ***********/
 
-
-
 @media screen and (max-width:768px) {
     .home-title {
-      display: flex;
-      flex-direction: column;
-      text-align: center;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
     }
 }
 
+
 /********** Login ***********/
-.account-btn{
+
+.account-btn {
     width: 100%;
     margin: 20px 0;
+}
+
+
+/**********Social Life***********/
+
+.life-container {
+    margin: auto;
+    width: 1102px;
+    padding: 15px 54px;
+    .life-left-con,
+    .life-right-con {
+        width: 290px;
+        overflow: hidden;
+        align-self: flex-start;
+    }
+    .life-center-con {
+        margin: 0 10px;
+        height: 8000px;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .life-container {
+        width: 812px;
+        justify-content: flex-start;
+    }
+    .life-right-con {
+        position: absolute;
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 812px) {
+    .life-container {
+        justify-content: center;
+        width: auto;
+        padding: 15px 0;
+        .life-right-con,
+        .life-left-con {
+            display: none;
+        }
+    }
+}
+
+.add-status {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
 }

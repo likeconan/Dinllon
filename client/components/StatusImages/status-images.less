@@ -1,0 +1,37 @@
+status-images {
+    display: block;
+    .primary-img {
+        height: 300px;
+        width: 500px;
+        cursor: pointer;
+    }
+    .thumbnail-img-container {
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        margin-top: -72px;
+        padding: 5px 0;
+        background: linear-gradient(to right, rgba(19, 19, 19, 0.2) 0%, rgba(28, 28, 28, 0.24) 9%, rgba(43, 43, 43, 0.31) 24%, rgba(17, 17, 17, 0.38) 40%, rgba(44, 44, 44, 0.65) 100%);
+        .img-content-container {
+            height: 60px;
+            width: 100px;
+            border: 1px solid white;
+            border-radius: 2px;
+            margin: 0 4px;
+            opacity: 0.7;
+        }
+    }
+    @media screen and (max-width: 600px) {
+        .primary-img {
+            width: 96vw;
+            height: 35vh;
+        }
+        .thumbnail-img-container {
+            margin-top: -52px;
+            .img-content-container {
+                height: 40px;
+                width: 65px;
+            }
+        }
+    }
+}

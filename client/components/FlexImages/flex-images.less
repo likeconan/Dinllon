@@ -1,0 +1,41 @@
+flex-images {
+    display: block;
+    height: 150px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 10px;
+    .img-content-container {
+        width: 100%;
+        height: 100%;
+        float: left;
+        box-shadow: 0 0 0 2px white
+    }
+    &.flex-images-1 {
+        .img-content-container {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &.flex-images-2 {
+        .img-content-container {
+            width: 100%;
+            height: 50%;
+        }
+    }
+    &.flex-images-3 {
+        .img-content-container {
+            width: 50%;
+            height: 50%;
+        }
+        .img-content-container:first-child {
+            width: 50%;
+            height: 100%;
+        }
+    }
+    &.flex-images-4 {
+        .img-content-container {
+            width: 50%;
+            height: 50%;
+        }
+    }
+}

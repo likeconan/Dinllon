@@ -92,11 +92,16 @@ a{
     font-style: normal;
 }
 
-
+textarea {
+    resize: none;
+}
 
 .mont-font{
   font-family: 'montserratregular','Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 .roboto-font{
   font-family: 'Roboto', sans-serif;
+}
+.sans-font {
+    font-family: sans-serif;
 }

@@ -8,7 +8,7 @@ class TopMenu extends Component {
     render() {
         const active = this.props.active;
         return (
-            <top-menu class={Classnames('center-flex white-text', { 'active-back': active })}>
+            <top-menu class={Classnames('center-flex white-text', { 'active-back z-depth-1': active })}>
                 <strong className='margin-2vh2vw mont-font cursor-pointer'>
                     <Link to='/'>Dinllon</Link>
                 </strong>
