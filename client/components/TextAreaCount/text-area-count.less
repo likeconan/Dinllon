@@ -6,6 +6,9 @@
      border: 1px solid #e1e8ed;
      background-color: white;
      min-height: 24px;
+     &>div[contenteditable] {
+         width: 100%;
+     }
      &.is-show-placeholder:before {
          content: attr(data-placeholder-default);
          color: #ccd6dd;
