@@ -23,7 +23,14 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
-input{
+small{
+  font-size: 14px;
+}
+p{
+  font-size: 16px;
+}
+
+input,div[contenteditable]{
   outline: 0;
 }
 /* HTML5 display-role reset for older browsers */
@@ -33,6 +40,9 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+}
+html{
+  font-size: 16px;
 }
 ol, ul {
 	list-style: none;

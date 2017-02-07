@@ -3,6 +3,7 @@ import Classnames from 'classnames';
 import { ImagesModel } from '../../models';
 import { showImageDialog } from '../../actions/images-dialog.action';
 import { connect } from 'react-redux';
+import DivBackImage from '../DivBackImage/DivBackImage';
 
 require('./flex-images.less');
 
@@ -14,7 +15,7 @@ class FlexImages extends Component {
         this.imgArray = new ImagesModel(this.props.imgContent).getImgsArray();
         this.imgEles = this.imgArray.map((val, key) => {
             return (
-                <div style={{ backgroundImage: 'url(' + val + ')' }} key={key} className='img-content-container'></div>
+                <DivBackImage imgSrc={val} key={key}></DivBackImage>
             )
         })
     }

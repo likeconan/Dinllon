@@ -11,18 +11,28 @@ add-status {
     }
     .add-status-con {
         position: relative;
-        .add-text {
-            width: 380px;
-            font-size: 14px;
-            line-height: 24px;
-            padding-left: 5px;
+        .add-text-con {
+            width: 370px;
             padding-right: 35px;
         }
         .add-photo {
             position: absolute !important;
             bottom: 0;
             right: 0;
-            margin: -4px !important;
+            margin: -8px !important;
+        }
+    }
+    .photo-con {
+        display: flex;
+        justify-content: flex-end;
+        .dp-thumnail-con {
+            border: 1px solid #70c3ff;
+            width: 422px;
+            background-color: #f1f1f1;
+            .dptc {
+                height: 120px;
+                border-radius: 6px;
+            }
         }
     }
 }

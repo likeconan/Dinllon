@@ -18,7 +18,7 @@ class QuickActivity extends Component {
                 </div>
                 <div className='qa-user-con space-between'>
                     <UserBrief className='qa-user-brief' />
-                    <span className='grey-text text-darken-1'>3 mins</span>
+                    <small className='grey-text text-darken-1'>3 mins</small>
                 </div>
                 <div className='activity-con amber lighten-4'>
                     <p className='grey-text text-darken-3'>I am going to have a jog around in central park.Anyone who wants to share the workout?</p>

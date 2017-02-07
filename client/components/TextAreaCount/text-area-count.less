@@ -1,0 +1,15 @@
+ .text-edit-con {
+     font-size: 14px;
+     line-height: 24px;
+     padding: 8px 10px;
+     border-radius: 3px;
+     border: 1px solid #e1e8ed;
+     background-color: white;
+     min-height: 24px;
+     &.is-show-placeholder:before {
+         content: attr(data-placeholder-default);
+         color: #ccd6dd;
+         pointer-events: none;
+         position: absolute;
+     }
+ }

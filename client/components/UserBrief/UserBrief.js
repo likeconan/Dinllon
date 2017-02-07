@@ -13,7 +13,7 @@ class UserBrief extends Component {
                 <img src={user.headPic} className='user-head-img' />
                 <div className='center-flex brief-con column-center'>
                     <p className='white-text mont-font cursor-pointer'>{user.nickName}</p>
-                    <span className='cyan-text text-darken-1'>{user.goingOn}</span>
+                    <small className='cyan-text text-darken-1'>{user.goingOn}</small>
                 </div>
             </user-circle-brief>
         );
