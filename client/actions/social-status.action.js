@@ -32,3 +32,24 @@ export function addStatus(status) {
             });
     }
 }
+
+export function addStatusImage(files) {
+    return {
+        type: 'ADD_STATUS_IMAGE',
+        payload: files
+    }
+}
+
+export function editStatusText(val) {
+    return {
+        type: 'EDIT_STATUS_TEXT',
+        payload: val
+    }
+}
+
+export function deleteStatusImage(key) {
+    return {
+        type: 'DELETE_STATUS_IMAGE',
+        payload: key
+    }
+}

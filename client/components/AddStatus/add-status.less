@@ -14,6 +14,12 @@ add-status {
         .add-text-con {
             padding-right: 35px;
             width: 360px;
+            border: 1px solid #70c3ff;
+            &.active {
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+                border-bottom: 1px solid #e0e0e0;
+            }
         }
         .add-photo {
             position: absolute !important;
@@ -26,16 +32,23 @@ add-status {
         display: flex;
         justify-content: flex-end;
         .dp-thumnail-con {
-            border-left: 1px solid #70c3ff;
-            border-right: 1px solid #70c3ff;
-            border-bottom: 1px solid #70c3ff;
+            border: 1px solid #70c3ff;
+            border-top: 0;
             width: 405px;
             background-color: #f1f1f1;
+            border-radius: 3px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
             .dptc {
                 height: 115px;
                 border-radius: 6px;
             }
         }
+    }
+    .post-btn-con {
+        margin-top: 10px;
+        display: flex;
+        justify-content: flex-end;
     }
 }
 

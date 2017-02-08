@@ -6,6 +6,7 @@ class DivBackImage extends Component {
         return (
             <div className={Classnames('img-content-container', this.props.className)}
                 style={{ backgroundImage: 'url(' + this.props.imgSrc + ')' }}>
+                {this.props.children}
             </div>
         );
     }

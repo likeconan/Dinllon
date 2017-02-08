@@ -1,36 +1,36 @@
 import React, { Component } from 'react';
+import RaisedButton from 'material-ui/RaisedButton';
 import { UserModel } from '../../models';
-import DropzoneImage from '../DropzoneImage/DropzoneImage';
-import IconButton from 'material-ui/IconButton';
-import { blueA400 } from 'material-ui/styles/colors';
+import IconInputImage from '../IconInputImage/IconInputImage';
 import { connect } from 'react-redux';
-import { addStatus } from '../../actions/social-status.action';
+import { addStatus, addStatusImage, editStatusText, deleteStatusImage } from '../../actions/social-status.action';
 import TextAreaCount from '../TextAreaCount/TextAreaCount';
+import DroppedImage from '../DroppedImage/DroppedImage';
 import Classnames from 'classnames';
+import FontIcon from 'material-ui/FontIcon';
+
 
 require('./add-status.less');
 
-@connect()
+@connect((store) => {
+    return {
+        statusObj: store.socialStatus.statusObj,
+        activeEdit: store.socialStatus.activeEdit,
+        textEdited: store.socialStatus.textEdited
+    }
+})
 
 class AddStatus extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            isEdited: false
-        }
+    _onDrop = (files) => {
+        this.props.dispatch(addStatusImage(files));
     }
 
-    onOpenClick = () => {
-        this.dropzoneImg.dropzone.open();
+    _onDelete = (key) => {
+        this.props.dispatch(deleteStatusImage(key));
     }
-
     _textChange = (e) => {
-        if (e.target.value.length) {
-            this.setState({
-                isEdited: true
-            })
-        }
+        this.props.dispatch(editStatusText(e.target.value))
     }
     render() {
         var user = new UserModel();
@@ -40,12 +40,21 @@ class AddStatus extends Component {
                     <img src={user.headPic} className='head-pic' />
                     <div>
                         <div className='add-status-con'>
-                            <TextAreaCount className='add-text-con' isEdited={this.state.isEdited} placeholder="What's happening?" onChange={this._textChange} />
-                            <IconButton iconClassName='material-icons' onClick={this.onOpenClick} className='add-photo' iconStyle={{ color: blueA400 }}>
-                                add_a_photo
-                        </IconButton>
+                            <TextAreaCount className={Classnames('add-text-con', { 'active': this.props.activeEdit })}
+                                isEdited={this.props.textEdited} placeholder="What's happening?" onChange={this._textChange} />
+                            <IconInputImage className='add-photo' onDrop={this._onDrop} />
                         </div>
-                        <DropzoneImage className='photo-con' ref={(node) => { this.dropzoneImg = node; }} />
+                        <DroppedImage images={this.props.statusObj.images} className='photo-con' onClick={this._onDelete} />
+                        {
+                            this.props.textEdited || this.props.activeEdit ?
+                                (
+                                    <div className='post-btn-con'>
+                                        <RaisedButton label="Post" labelPosition="after" primary={true}
+                                            icon={<FontIcon className='material-icons'>send</FontIcon>} />
+                                    </div>
+                                )
+                                : null
+                        }
                     </div>
                 </div>
             </add-status>
