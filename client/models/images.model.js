@@ -7,7 +7,7 @@ class ImagesModel {
             var imgArray = this.imgStr.split(';');
             imgArray.pop();
         } else {
-            var imgArray = ["/Content/Images/menu/img-1.jpg"];
+            var imgArray = ["/client/assets/images/replaced-pic.jpg"];
         }
         var firstImg = imgArray.shift();
         var restImgs = imgArray.slice(0, 3);

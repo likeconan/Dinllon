@@ -32,6 +32,18 @@ class AddStatus extends Component {
     _textChange = (e) => {
         this.props.dispatch(editStatusText(e.target.value))
     }
+
+    _addStatus = () => {
+        var data = {
+            ...this.props.statusObj,
+            user: {
+                nickName: 'TestUser',
+                goingOn: 'palying dota'
+            }
+        };
+        this.props.dispatch(addStatus(data));
+    }
+
     render() {
         var user = new UserModel();
         return (
@@ -49,7 +61,7 @@ class AddStatus extends Component {
                             this.props.textEdited || this.props.activeEdit ?
                                 (
                                     <div className='post-btn-con'>
-                                        <RaisedButton label="Post" labelPosition="after" primary={true}
+                                        <RaisedButton label="Post" labelPosition="after" primary={true} onClick={this._addStatus}
                                             icon={<FontIcon className='material-icons'>send</FontIcon>} />
                                     </div>
                                 )

@@ -16,7 +16,11 @@ export default function reducer(state = {
                 statusList: [...state.statusList, action.payload]
             }
         case 'ADD_STATUS_IMAGE': {
-            const files = state.statusObj.images.concat(action.payload);
+            var temp = action.payload.map((file, key) => {
+                file.id = state.statusObj.images.length + key;
+                return file;
+            });
+            const files = state.statusObj.images.concat(temp);
             return {
                 ...state,
                 statusObj: { ...state.statusObj, images: files },
@@ -34,6 +38,12 @@ export default function reducer(state = {
         }
         case 'DELETE_STATUS_IMAGE': {
             const files = state.statusObj.images.filter(s => s.id !== action.payload)
+            var imgs = { ...state.statusObj, images: files };
+            return {
+                ...state,
+                statusObj: imgs,
+                activeEdit: imgs.length > 0
+            }
         }
 
         default:

@@ -22,7 +22,7 @@ class StatusImages extends Component {
         });
         return (
             <status-images>
-                <div style={{ backgroundImage: 'url(' + statusImgs.firstImg + ')' }} onClick={() => this.showImages(imgArray)} className="primary-img"></div>
+                <div style={{ backgroundImage: 'url(' + statusImgs.firstImg + ')' }} onClick={() => this.showImages(imgArray)} className="primary-img img-content-container"></div>
                 <div className="thumbnail-img-container">
                     {imgsEle}
                 </div>
