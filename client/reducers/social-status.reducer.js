@@ -13,7 +13,10 @@ export default function reducer(state = {
         case 'ADD_STATUS':
             return {
                 ...state,
-                statusList: [...state.statusList, action.payload]
+                statusList: [action.payload, ...state.statusList],
+                textEdited: false,
+                activeEdit: false,
+                statusObj: { textContent: '', images: [] }
             }
         case 'ADD_STATUS_IMAGE': {
             var temp = action.payload.map((file, key) => {

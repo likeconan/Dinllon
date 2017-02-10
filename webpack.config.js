@@ -28,6 +28,10 @@ module.exports = {
                 }
             },
             {
+                test: /\.json$/,
+                loader: 'json-loader'
+            },
+            {
                 test: /\.less$/,
                 loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader!less-loader"),
                 include: /(client)/

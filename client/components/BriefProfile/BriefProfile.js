@@ -27,7 +27,7 @@ class BriefProfile extends Component {
                         <strong className='blue-text text-accent-2'>23</strong>
                     </div>
                     <div className='pdc-con cursor-pointer'>
-                        <p className='grey-text text-darken-2 roboto-font'>Dates</p>
+                        <p className='grey-text text-darken-2 roboto-font'>Parties</p>
                         <strong className='blue-text text-accent-2'>10</strong>
                     </div>
                 </div>

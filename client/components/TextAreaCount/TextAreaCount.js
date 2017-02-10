@@ -6,11 +6,11 @@ require('./text-area-count.less')
 class TextAreaCount extends Component {
 
     render() {
-        var classes=Classnames('text-edit-con grey-text text-darken-2 sans-font', this.props.className,{ 'is-show-placeholder': !this.props.isEdited });
+        var classes = Classnames('text-edit-con grey-text text-darken-2 sans-font', this.props.className, { 'is-show-placeholder': !this.props.isEdited });
         return (
             <div className={classes}
                 data-placeholder-default={this.props.placeholder}>
-                <ContentEditable onChange={this.props.onChange} onFocus={this.props.onFocus} />
+                <ContentEditable html={this.props.text} onChange={this.props.onChange} onFocus={this.props.onFocus} />
             </div>
         );
     }

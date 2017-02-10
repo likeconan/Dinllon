@@ -12,7 +12,7 @@ class DataDisplay extends Component {
                 </div>
                 <div className='center-flex  data-con'>
                     <h5 className='data-num'>32</h5>
-                    <span className='sans-font'>Dates</span>
+                    <span className='sans-font'>Parties</span>
                 </div>
                 <div className='center-flex  data-con'>
                     <h5 className='data-num'>201,323</h5>

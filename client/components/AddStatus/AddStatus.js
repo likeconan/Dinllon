@@ -30,6 +30,8 @@ class AddStatus extends Component {
         this.props.dispatch(deleteStatusImage(key));
     }
     _textChange = (e) => {
+        console.log(150 - e.target.value.length);
+        console.log(e)
         this.props.dispatch(editStatusText(e.target.value))
     }
 
@@ -53,7 +55,8 @@ class AddStatus extends Component {
                     <div>
                         <div className='add-status-con'>
                             <TextAreaCount className={Classnames('add-text-con', { 'active': this.props.activeEdit })}
-                                isEdited={this.props.textEdited} placeholder="What's happening?" onChange={this._textChange} />
+                                isEdited={this.props.textEdited} text={this.props.statusObj.textContent}
+                                placeholder="What's happening?" onChange={this._textChange} />
                             <IconInputImage className='add-photo' onDrop={this._onDrop} />
                         </div>
                         <DroppedImage images={this.props.statusObj.images} className='photo-con' onClick={this._onDelete} />

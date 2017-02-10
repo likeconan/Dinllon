@@ -21,7 +21,7 @@ class ImagesModel {
             var imgArray = this.imgStr.split(';');
             imgArray.pop();
         } else {
-            var imgArray = [];
+            var imgArray = ["/client/assets/images/replaced-pic.jpg"];
         }
         return imgArray;
     }
