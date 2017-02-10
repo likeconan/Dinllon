@@ -40,10 +40,10 @@ export function addStatusImage(files) {
     }
 }
 
-export function editStatusText(val) {
+export function editStatusText(obj) {
     return {
         type: 'EDIT_STATUS_TEXT',
-        payload: val
+        payload: obj
     }
 }
 

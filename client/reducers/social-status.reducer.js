@@ -4,6 +4,7 @@ export default function reducer(state = {
         textContent: '',
         images: [],
     },
+    countdown: 150,
     activeEdit: false,
     textEdited: false
 }, action) {
@@ -16,6 +17,7 @@ export default function reducer(state = {
                 statusList: [action.payload, ...state.statusList],
                 textEdited: false,
                 activeEdit: false,
+                countdown: 150,
                 statusObj: { textContent: '', images: [] }
             }
         case 'ADD_STATUS_IMAGE': {
@@ -31,11 +33,12 @@ export default function reducer(state = {
             }
         }
         case 'EDIT_STATUS_TEXT': {
-            var val = action.payload
-            var textEdited = val.length > 0;
+            var payload = action.payload
+            var textEdited = payload.val.length > 0;
             return {
                 ...state,
-                statusObj: { ...state.statusObj, textContent: val },
+                statusObj: { ...state.statusObj, textContent: payload.val },
+                countdown: payload.countdown,
                 textEdited: textEdited
             }
         }

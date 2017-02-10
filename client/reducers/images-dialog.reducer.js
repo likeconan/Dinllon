@@ -9,7 +9,7 @@ export default function reducer(state = {
                 open: true,
                 images: action.payload
             };
-        case 'CLOSE_DIALOG':
+        case 'CLOSE_IMAGE_DIALOG':
             return {
                 ...state,
                 open: false

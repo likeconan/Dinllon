@@ -16,7 +16,8 @@ require('./add-status.less');
     return {
         statusObj: store.socialStatus.statusObj,
         activeEdit: store.socialStatus.activeEdit,
-        textEdited: store.socialStatus.textEdited
+        textEdited: store.socialStatus.textEdited,
+        countdown: store.socialStatus.countdown,
     }
 })
 
@@ -30,9 +31,7 @@ class AddStatus extends Component {
         this.props.dispatch(deleteStatusImage(key));
     }
     _textChange = (e) => {
-        console.log(150 - e.target.value.length);
-        console.log(e)
-        this.props.dispatch(editStatusText(e.target.value))
+        this.props.dispatch(editStatusText({ val: e.target.value, countdown: 150 - e.currentTarget.innerText.length }))
     }
 
     _addStatus = () => {
@@ -64,8 +63,14 @@ class AddStatus extends Component {
                             this.props.textEdited || this.props.activeEdit ?
                                 (
                                     <div className='post-btn-con'>
-                                        <RaisedButton label="Post" labelPosition="after" primary={true} onClick={this._addStatus}
-                                            icon={<FontIcon className='material-icons'>send</FontIcon>} />
+                                        <div>
+                                            <span className={Classnames('grey-text text-darken-2 margin-right', { 'error-msg': this.props.countdown < 0 })}>
+                                                {this.props.countdown}
+                                            </span>
+                                            <RaisedButton label="Post" labelPosition="after" primary={true} onClick={this._addStatus}
+                                                disabled={this.props.countdown < 0} icon={<FontIcon className='material-icons'>send</FontIcon>} />
+                                        </div>
+
                                     </div>
                                 )
                                 : null

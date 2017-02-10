@@ -16,6 +16,9 @@ class QuickActivity extends Component {
                         reply
                     </IconButton>
                 </div>
+                <div>
+                    <RaisedButton className='width-100p' label='Create my activity' secondary={true}  />
+                </div>
                 <div className='qa-user-con space-between'>
                     <UserBrief className='qa-user-brief' />
                     <small className='grey-text text-darken-1'>3 mins</small>
@@ -27,7 +30,7 @@ class QuickActivity extends Component {
                         <i className='material-icons'>access_time</i>
                         <span>2017-04-01 13:30</span>
                     </div>
-                    <RaisedButton className='width-100p' label='Join in' primary={true} />
+                    <RaisedButton className='width-100p' label='Join in' primary={true}  />
                 </div>
             </quick-activity>
         );

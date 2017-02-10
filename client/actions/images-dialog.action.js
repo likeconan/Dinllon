@@ -7,6 +7,6 @@ export function showImageDialog(images) {
 
 export function closeDialog() {
     return {
-        type: 'CLOSE_DIALOG'
+        type: 'CLOSE_IMAGE_DIALOG'
     }
 }
