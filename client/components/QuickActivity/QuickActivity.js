@@ -4,7 +4,7 @@ import FlexImages from '../FlexImages/FlexImages';
 import RaisedButton from 'material-ui/RaisedButton';
 import IconButton from 'material-ui/IconButton';
 import { connect } from 'react-redux';
-import { openCreateDialog, openJoinDialog } from '../../actions/activity.action';
+import { openCreateDialog, openJoinDialog, searchActivity } from '../../actions/activity.action';
 
 require('./quick-activity.less');
 
@@ -17,12 +17,15 @@ require('./quick-activity.less');
     }
 })
 class QuickActivity extends Component {
+    componentWillMount() {
+        this.props.dispatch(searchActivity());
+    }
+
     _openActivityDialog(flag) {
         flag ? this.props.dispatch(openCreateDialog()) : this.props.dispatch(openJoinDialog())
     }
 
     render() {
-        var imgContent = '';
         return (
             <quick-activity>
                 <div className='space-between center-flex'>
@@ -34,19 +37,32 @@ class QuickActivity extends Component {
                 <div>
                     <RaisedButton className='width-100p' label='Create my activity' onClick={() => { this._openActivityDialog(true) }} secondary={true} />
                 </div>
-                <div className='qa-user-con space-between'>
-                    <UserBrief className='qa-user-brief' user={this.props.activity.user} />
-                    <small className='grey-text text-darken-1'>3 mins</small>
-                </div>
-                <div className='activity-con amber lighten-4'>
-                    <p className='grey-text text-darken-3'>I am going to have a jog around in central park.Anyone who wants to share the workout?</p>
-                    <FlexImages imgContent={imgContent} />
-                    <div className='time-con all-center-flex amber accent-1 grey-text text-darken-2'>
-                        <i className='material-icons'>access_time</i>
-                        <span>2017-04-01 13:30</span>
-                    </div>
-                    <RaisedButton className='width-100p' label='Join in' onClick={() => { this._openActivityDialog(false) }} primary={true} />
-                </div>
+                {
+                    this.props.activity ?
+                        (
+                            <div>
+                                <div className='qa-user-con space-between'>
+                                    <UserBrief className='qa-user-brief' user={this.props.activity.user} />
+                                    <small className='grey-text text-darken-1'>{this.props.activity.createdTime}</small>
+                                </div>
+                                <div className='activity-con amber lighten-4'>
+                                    <p className='grey-text text-darken-3'>{this.props.activity.textContent}</p>
+                                    <FlexImages imgContent={this.props.activity.imgContent} />
+                                    <div className='time-con all-center-flex amber accent-1 grey-text text-darken-2'>
+                                        <i className='material-icons'>access_time</i>
+                                        <span>{this.props.activity.startDate + this.props.activity.startTime}</span>
+                                    </div>
+                                    <RaisedButton className='width-100p' label='Join in' onClick={() => { this._openActivityDialog(false) }} primary={true} />
+                                </div>
+                            </div>
+                        ) :
+                        (
+                            <div className='no-activities grey-text text-darken-3'>
+                                <p>No related activities are created so far.<br />Maybe you can create one. </p>
+                            </div>
+                        )
+                }
+
             </quick-activity>
         );
     }

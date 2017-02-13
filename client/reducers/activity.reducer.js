@@ -74,7 +74,12 @@ export default function reducer(state = {
                 validated: action.payload && state.textEdited
             }
         }
-
+        case 'GET_SEARCHED_ACTIVITY': {
+            return {
+                ...state,
+                activity: action.payload,
+            }
+        }
         default:
             return state;
     }
