@@ -1,10 +1,14 @@
 export default function reducer(state = {
     openCreate: false,
     openJoin: false,
+    activity: null,
     activityObj: {
         textContent: null,
-        images: []
+        images: [],
+        startTime: '12:00',
+        startDate: null,
     },
+    validated: false,
     countdown: 150,
     textEdited: false
 }, action) {
@@ -32,7 +36,8 @@ export default function reducer(state = {
                 ...state,
                 activityObj: { ...state.activityObj, textContent: payload.val },
                 countdown: payload.countdown,
-                textEdited: textEdited
+                textEdited: textEdited,
+                validated: textEdited && state.activityObj.startDate
             }
         case 'ADD_ACTIVITY_IMAGE':
             var temp = action.payload.map((file, key) => {
@@ -55,6 +60,21 @@ export default function reducer(state = {
         case 'ADD_ACTIVITY': {
 
         }
+        case 'EDIT_ACTIVITY_TIME': {
+            return {
+                ...state,
+                activityObj: { ...state.activityObj, startTime: action.payload }
+            }
+        }
+        case 'EDIT_ACTIVITY_DATE': {
+
+            return {
+                ...state,
+                activityObj: { ...state.activityObj, startDate: action.payload },
+                validated: action.payload && state.textEdited
+            }
+        }
+
         default:
             return state;
     }
