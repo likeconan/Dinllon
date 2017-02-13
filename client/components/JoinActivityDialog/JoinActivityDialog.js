@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Dialog from 'material-ui/Dialog';
 import { connect } from 'react-redux';
-import { closeDialog } from '../../actions/images-dialog.action';
+import { closeDialog } from '../../actions/activity.action';
 
-require('.join-activity-dialog.less');
+require('./join-activity-dialog.less');
 
 @connect((store) => {
     return {

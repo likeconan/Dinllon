@@ -3,9 +3,22 @@ import UserBrief from '../UserBrief/UserBrief';
 import FlexImages from '../FlexImages/FlexImages';
 import RaisedButton from 'material-ui/RaisedButton';
 import IconButton from 'material-ui/IconButton';
+import { connect } from 'react-redux';
+import { openCreateDialog, openJoinDialog } from '../../actions/activity.action';
 
 require('./quick-activity.less');
+
+@connect((store) => {
+    return {
+        openCreate: store.activity.openCreate,
+        openJoin: store.activity.openJoin,
+    }
+})
 class QuickActivity extends Component {
+    _openActivityDialog(flag) {
+        flag ? this.props.dispatch(openCreateDialog()) : this.props.dispatch(openJoinDialog())
+    }
+
     render() {
         var imgContent = 'https://testfor.blob.core.chinacloudapi.cn/images/c54f9c75-7bee-4d50-a174-9abda5ddbf6d.jpeg;https://testfor.blob.core.chinacloudapi.cn/images/5959fc21-f68c-4dd2-8a77-074678033799.jpeg;https://testfor.blob.core.chinacloudapi.cn/images/bcae52c5-904c-4e25-8763-bb56342a8329.jpeg;https://testfor.blob.core.chinacloudapi.cn/images/5959fc21-f68c-4dd2-8a77-074678033799.jpeg;';
         return (
@@ -17,7 +30,7 @@ class QuickActivity extends Component {
                     </IconButton>
                 </div>
                 <div>
-                    <RaisedButton className='width-100p' label='Create my activity' secondary={true}  />
+                    <RaisedButton className='width-100p' label='Create my activity' onClick={() => { this._openActivityDialog(true) }} secondary={true} />
                 </div>
                 <div className='qa-user-con space-between'>
                     <UserBrief className='qa-user-brief' />
@@ -30,7 +43,7 @@ class QuickActivity extends Component {
                         <i className='material-icons'>access_time</i>
                         <span>2017-04-01 13:30</span>
                     </div>
-                    <RaisedButton className='width-100p' label='Join in' primary={true}  />
+                    <RaisedButton className='width-100p' label='Join in' onClick={() => { this._openActivityDialog(false) }} primary={true} />
                 </div>
             </quick-activity>
         );

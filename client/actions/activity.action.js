@@ -16,3 +16,31 @@ export function closeDialog(data) {
         payload: data
     }
 }
+
+export function editActivityContent(data) {
+    return {
+        type: 'EDIT_ACTIVITY_CONTENT',
+        payload: data
+    }
+}
+
+export function addActivityImage(files) {
+    return {
+        type: 'ADD_ACTIVITY_IMAGE',
+        payload: files
+    }
+}
+
+export function deleteActivityImage(key) {
+    return {
+        type: 'DELETE_ACTIVITY_IMAGE',
+        payload: key
+    }
+}
+
+export function addActivity(obj) {
+    return {
+        type: 'ADD_ACTIVITY',
+        payload: obj
+    }
+}

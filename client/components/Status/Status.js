@@ -16,7 +16,6 @@ class Status extends Component {
 
     componentWillMount() {
         this.props.dispatch(searchLife());
-        console.log(12);
     }
 
     render() {

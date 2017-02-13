@@ -3,6 +3,8 @@ import Status from '../components/Status/Status';
 import BriefProfile from '../components/BriefProfile/BriefProfile';
 import QuickActivity from '../components/QuickActivity/QuickActivity';
 import ImageDialog from '../components/ImageDialog/ImageDialog';
+import CreateActivityDialog from '../components/CreateActivityDialog/CreateActivityDialog';
+import JoinActivityDialog from '../components/JoinActivityDialog/JoinActivityDialog';
 import AddStatus from '../components/AddStatus/AddStatus';
 
 class SocialLife extends Component {
@@ -20,6 +22,8 @@ class SocialLife extends Component {
                     <QuickActivity />
                 </div>
                 <ImageDialog />
+                <JoinActivityDialog />
+                <CreateActivityDialog />
             </div>
         );
     }

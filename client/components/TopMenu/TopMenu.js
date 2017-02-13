@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import Classnames from 'classnames';
 import SearchBar from '../SearchBar/SearchBar';
+import { IfMobile } from '../../utilities';
+
 require('./top-menu.less');
 
 class TopMenu extends Component {
     render() {
+        console.log(IfMobile)
         const active = this.props.active;
         return (
             <top-menu class={Classnames('center-flex white-text', { 'active-back z-depth-1': active })}>
