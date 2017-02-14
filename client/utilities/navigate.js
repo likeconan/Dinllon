@@ -9,6 +9,10 @@ class Navigate {
         return pathname &&
             (pathname.indexOf('/life') >= 0);
     }
+    goToLogin() {
+        const path = '/login';
+        browserHistory.push(path);
+    }
 
 }
 
