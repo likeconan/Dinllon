@@ -65,7 +65,7 @@ export function editActivityDate(val) {
 export function searchActivity() {
     return function (dispatch) {
         dinaxios
-            .get(dispatch, "http://rest.learncode.academy/api/test123/tweets")
+            .get(dispatch, "")
             .then((response) => {
                 dispatch({
                     type: 'GET_SEARCHED_ACTIVITY',
