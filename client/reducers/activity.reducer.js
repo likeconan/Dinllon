@@ -8,7 +8,8 @@ export default function reducer(state = {
         startTime: '12:00',
         startDate: null,
     },
-    validated: false,
+    validatedJoin: false,
+    validatedCreate: false,
     countdown: 150,
     textEdited: false
 }, action) {
@@ -37,7 +38,7 @@ export default function reducer(state = {
                 activityObj: { ...state.activityObj, textContent: payload.val },
                 countdown: payload.countdown,
                 textEdited: textEdited,
-                validated: textEdited && state.activityObj.startDate
+                validatedCreate: textEdited && state.activityObj.startDate
             }
         case 'ADD_ACTIVITY_IMAGE':
             var temp = action.payload.map((file, key) => {
@@ -71,7 +72,7 @@ export default function reducer(state = {
             return {
                 ...state,
                 activityObj: { ...state.activityObj, startDate: action.payload },
-                validated: action.payload && state.textEdited
+                validatedCreate: action.payload && state.textEdited
             }
         }
         case 'GET_SEARCHED_ACTIVITY': {

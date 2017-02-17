@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Dialog from 'material-ui/Dialog';
+
 import RaisedButton from 'material-ui/RaisedButton';
 import { connect } from 'react-redux';
 import {
@@ -8,6 +8,7 @@ import {
     editActivityTime, editActivityDate
 } from '../../actions/activity.action';
 
+import ResponsiveDialog from '../ResponsiveDialog/ResponsiveDialog';
 import TextAreaCount from '../TextAreaCount/TextAreaCount';
 import IconInputImage from '../IconInputImage/IconInputImage';
 import DroppedImage from '../DroppedImage/DroppedImage';
@@ -19,7 +20,7 @@ require('./create-activity-dialog.less');
     return {
         open: store.activity.openCreate,
         textEdited: store.activity.textEdited,
-        validated: store.activity.validated,
+        validatedCreate: store.activity.validatedCreate,
         activityObj: store.activity.activityObj,
         countdown: store.activity.countdown,
     }
@@ -48,10 +49,10 @@ class CreateActivityDialog extends Component {
     render() {
         const actions = [
             <RaisedButton label="Cancel" className='margin-right' onTouchTap={this.handleClose} />,
-            <RaisedButton label="Create" primary={true} onTouchTap={this.handleClose} disabled={!this.props.validated} />,
+            <RaisedButton label="Create" primary={true} onTouchTap={this.handleClose} disabled={!this.props.validatedCreate} />,
         ];
         return (
-            <Dialog modal={false} className='add-activity-con' actions={actions} title="Create Activity" contentStyle={{ width: '450px' }}
+            <ResponsiveDialog modal={false} className='add-activity-con' actions={actions} title="Create Activity" contentClassName='acc-content'
                 open={this.props.open} onRequestClose={this.handleClose}>
                 <div>
                     <DateTimePicker className='margin-bottom'
@@ -66,7 +67,7 @@ class CreateActivityDialog extends Component {
                     <DroppedImage images={this.props.activityObj.images} className='photo-activity-con' onClick={this._onDelete} />
                 </div>
 
-            </Dialog>
+            </ResponsiveDialog>
         );
     }
 }
