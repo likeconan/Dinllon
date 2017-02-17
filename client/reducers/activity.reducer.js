@@ -26,8 +26,8 @@ export default function reducer(state = {
         case 'CLOSE_ACTIVITY_DIALOG':
             return {
                 ...state,
-                openCreate: action.payload.openCreate,
-                openJoin: action.payload.openJoin,
+                openCreate: false,
+                openJoin: false,
             }
         case 'EDIT_ACTIVITY_CONTENT':
             var payload = action.payload

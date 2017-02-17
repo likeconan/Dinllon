@@ -12,7 +12,7 @@ require('./join-activity-dialog.less');
 })
 class JoinActivityDialog extends Component {
     handleClose = () => {
-        this.props.dispatch(closeDialog({ openJoin: false }));
+        this.props.dispatch(closeDialog());
     }
 
     render() {

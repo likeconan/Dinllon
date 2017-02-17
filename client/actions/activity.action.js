@@ -13,10 +13,9 @@ export function openJoinDialog() {
     }
 }
 
-export function closeDialog(data) {
+export function closeDialog() {
     return {
         type: 'CLOSE_ACTIVITY_DIALOG',
-        payload: data
     }
 }
 
