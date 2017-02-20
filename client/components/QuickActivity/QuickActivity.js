@@ -37,9 +37,9 @@ class QuickActivity extends Component {
                         reply
                     </IconButton>
                 </div>
-                <div>
+                {/*<div>
                     <RaisedButton className='width-100p' label='Create my activity' onClick={() => { this._openActivityDialog(true) }} secondary={true} />
-                </div>
+                </div>*/}
                 {
                     this.props.activity ?
                         (

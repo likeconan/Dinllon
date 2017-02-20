@@ -229,10 +229,24 @@ h6 {
         justify-content: center;
         width: auto;
         padding: 15px 0;
-        .life-right-con,
         .life-left-con {
             display: none;
         }
+        .life-right-con{
+            width: 502px;
+            margin-top: 0;
+            .activity-con{
+                display: none !important;
+            }
+        }
+        .life-center-con{
+            margin-top: 500px;
+        }
+    }
+}
+@media screen and (max-width: 600px){
+    .life-container .life-right-con{
+        width: 96vw;
     }
 }
 

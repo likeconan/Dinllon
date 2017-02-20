@@ -10,6 +10,7 @@ export default function reducer(state = {
         type: 1,
         startDate: null,
     },
+    friendEmail: '',
     validatedJoin: false,
     validatedCreate: false,
     countdown: 150,
@@ -87,6 +88,13 @@ export default function reducer(state = {
             return {
                 ...state,
                 activityObj: { ...state.activityObj, type: action.payload },
+            }
+        }
+        case 'EDIT_ACTIVITY_JOIN_EMAIL': {
+            return {
+                ...state,
+                friendEmail: action.payload.val,
+                validatedJoin: action.payload.isEmail,
             }
         }
 

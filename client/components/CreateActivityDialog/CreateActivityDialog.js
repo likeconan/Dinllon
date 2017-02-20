@@ -6,7 +6,7 @@ import {
     closeDialog, editActivityContent,
     addActivityImage, deleteActivityImage,
     editActivityTime, editActivityDate,
-    editCost
+    editCost, editActivityType
 } from '../../actions/activity.action';
 
 import ResponsiveDialog from '../ResponsiveDialog/ResponsiveDialog';
@@ -52,6 +52,11 @@ class CreateActivityDialog extends Component {
     _dateChange = (tmp, date) => {
         this.props.dispatch(editActivityDate(date));
     }
+
+    _typeChange = (event, index, value) => {
+        this.props.dispatch(editActivityType(value));
+    }
+
     render() {
         const actions = [
             <RaisedButton label="Create" primary={true} onTouchTap={this.handleClose} disabled={!this.props.validatedCreate} />,
@@ -63,7 +68,8 @@ class CreateActivityDialog extends Component {
                     <div className='aac-fee-con center-flex'>
                         <div className='center-flex margin-right'>
                             <label className='margin-right'>Activity Type</label>
-                            <SelectField value={this.props.activityObj.type} onChange={this.handleChange} style={{ width: '100px' }}>
+                            <SelectField value={this.props.activityObj.type} onChange={this._typeChange} style={{ width: '100px' }}
+                                labelStyle={{ paddingRight: 0, textAlign: 'center' }} iconStyle={{ right: '-20px' }}>
                                 <MenuItem value={1} primaryText='AA' />
                                 <MenuItem value={2} primaryText='My treat' />
                                 <MenuItem value={3} primaryText='Free' />

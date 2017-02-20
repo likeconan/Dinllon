@@ -1,5 +1,5 @@
 import { dinaxios } from '../utilities/dinaxios';
-
+import validator from 'validator';
 
 export function openCreateDialog() {
     return {
@@ -77,7 +77,7 @@ export function editActivityType(val) {
 export function editFriendEmail(val) {
     return {
         type: 'EDIT_ACTIVITY_JOIN_EMAIL',
-        payload: val
+        payload: { val: val, isEmail: validator.isEmail(val) }
     }
 }
 
