@@ -61,6 +61,27 @@ export function editActivityDate(val) {
     }
 }
 
+export function editCost(val) {
+    return {
+        type: 'EDIT_ACTIVITY_COST',
+        payload: val
+    }
+}
+export function editActivityType(val) {
+    return {
+        type: 'EDIT_ACTIVITY_TYPE',
+        payload: val
+    }
+}
+
+export function editFriendEmail(val) {
+    return {
+        type: 'EDIT_ACTIVITY_JOIN_EMAIL',
+        payload: val
+    }
+}
+
+
 export function searchActivity() {
     return function (dispatch) {
         dinaxios

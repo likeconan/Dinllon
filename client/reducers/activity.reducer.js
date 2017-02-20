@@ -6,6 +6,8 @@ export default function reducer(state = {
         textContent: null,
         images: [],
         startTime: '12:00',
+        cost: 0,
+        type: 1,
         startDate: null,
     },
     validatedJoin: false,
@@ -75,6 +77,19 @@ export default function reducer(state = {
                 validatedCreate: action.payload && state.textEdited
             }
         }
+        case 'EDIT_ACTIVITY_COST': {
+            return {
+                ...state,
+                activityObj: { ...state.activityObj, cost: action.payload },
+            }
+        }
+        case 'EDIT_ACTIVITY_TYPE': {
+            return {
+                ...state,
+                activityObj: { ...state.activityObj, type: action.payload },
+            }
+        }
+
         case 'GET_SEARCHED_ACTIVITY': {
             return {
                 ...state,

@@ -7,7 +7,7 @@ import Moment from 'react-moment';
 import { TimeFormat } from '../../utilities';
 import { connect } from 'react-redux';
 import { openCreateDialog, openJoinDialog, searchActivity } from '../../actions/activity.action';
-
+import ActivityTypeTag from '../ActivityTypeTag/ActivityTypeTag'
 
 require('./quick-activity.less');
 
@@ -52,6 +52,9 @@ class QuickActivity extends Component {
                                 </div>
                                 <div className='activity-con amber lighten-4'>
                                     <p className='grey-text text-darken-3'>{this.props.activity.textContent}</p>
+                                    <div className='cost-con'>
+                                        <ActivityTypeTag type={this.props.activity.type} cost={this.props.activity.cost} />
+                                    </div>
                                     <FlexImages imgContent={this.props.activity.imgContent} />
                                     <div className='time-con all-center-flex amber accent-1 grey-text text-darken-2'>
                                         <i className='material-icons'>access_time</i>

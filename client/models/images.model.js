@@ -1,14 +1,9 @@
 class ImagesModel {
-    constructor(imgStr) {
-        this.imgStr = imgStr;
+    constructor(imgContent) {
+        this.imgContent = imgContent && imgContent.length ? imgContent : ["/client/assets/images/replaced-pic.jpg"];
     }
     getStatusImgs = () => {
-        if (this.imgStr) {
-            var imgArray = this.imgStr.split(';');
-            imgArray.pop();
-        } else {
-            var imgArray = ["/client/assets/images/replaced-pic.jpg"];
-        }
+        var imgArray = this.imgContent.concat();
         var firstImg = imgArray.shift();
         var restImgs = imgArray.slice(0, 3);
         return {
@@ -17,13 +12,7 @@ class ImagesModel {
         }
     }
     getImgsArray = () => {
-        if (this.imgStr) {
-            var imgArray = this.imgStr.split(';');
-            imgArray.pop();
-        } else {
-            var imgArray = ["/client/assets/images/replaced-pic.jpg"];
-        }
-        return imgArray;
+        return this.imgContent.concat();
     }
 }
 

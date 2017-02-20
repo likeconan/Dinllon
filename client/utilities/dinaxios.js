@@ -32,5 +32,6 @@ export var dinaxios = {
                 reject(err);
             });
         })
+        return p;
     }
 }

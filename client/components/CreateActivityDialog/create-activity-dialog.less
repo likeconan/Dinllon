@@ -8,13 +8,17 @@
             }
         }
     }
-    @media screen and (max-width:600px){
-       .acc-content{
-           width: 100% !important;
-       }
-   } 
-
-
+    @media screen and (max-width:600px) {
+        .acc-content {
+            width: 100% !important;
+            date-time-picker {
+                flex-wrap: wrap;
+                &>div {
+                    margin-bottom: 15px;
+                }
+            }
+        }
+    }
     .add-photo {
         position: absolute !important;
         right: 0;
@@ -25,6 +29,12 @@
             height: 120px;
             width: 180px;
             border-radius: 6px;
+        }
+    }
+    .cost-num {
+        width: 80px !important;
+        input{
+            text-align: center;
         }
     }
 }

@@ -1,0 +1,53 @@
+activity-type-tag {
+    display: block;
+    .tag::before {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+        content: '';
+        height: 6px;
+        left: 10px;
+        position: absolute;
+        width: 6px;
+        top: 10px;
+    }
+    .tag::after {
+        background: #fff;
+        border-bottom: 13px solid transparent;
+        border-left: 10px solid crimson;
+        border-top: 13px solid transparent;
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .tag {
+        background: crimson;
+        border-radius: 3px 0 0 3px;
+        color: white;
+        display: inline-block;
+        height: 26px;
+        line-height: 26px;
+        padding: 0 20px 0 23px;
+        position: relative;
+        text-decoration: none;
+        &.type-1 {
+            background: #ffc107;
+            &::after {
+                border-left-color: #ffc107;
+            }
+        }
+        &.type-2 {
+            background: rgb(255, 64, 129);
+            &::after {
+                 border-left-color: rgb(255, 64, 129);
+            }
+        }
+        &.type-3 {
+            background: #43a047;
+            &::after {
+                 border-left-color: #43a047;
+            }
+        }
+    }
+}

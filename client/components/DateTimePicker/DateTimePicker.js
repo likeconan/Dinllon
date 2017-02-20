@@ -11,7 +11,7 @@ class DateTimePicker extends Component {
     render() {
         return (
             <date-time-picker class={Classnames('center-flex', this.props.className)}>
-                <div className='center-flex'>
+                <div className='center-flex margin-right'>
                     <label className='margin-right'>Start Date</label>
                     <DatePicker hintText='pick a date' value={this.props.value} minDate={new Date()} onChange={this.props.dateChange}
                         textFieldStyle={{ width: '120px' }} />

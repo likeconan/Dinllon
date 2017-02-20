@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import Dialog from 'material-ui/Dialog';
 import { connect } from 'react-redux';
 import { closeDialog } from '../../actions/activity.action';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
+import ResponsiveDialog from '../ResponsiveDialog/ResponsiveDialog';
+
 
 require('./join-activity-dialog.less');
 
@@ -18,6 +19,9 @@ class JoinActivityDialog extends Component {
         this.props.dispatch(closeDialog());
     }
 
+    editFriendEmail = () => {
+        this.props.dispatch(editFriendEmail());
+    }
     render() {
 
         const actions = [
@@ -25,15 +29,19 @@ class JoinActivityDialog extends Component {
         ];
 
         return (
-            <Dialog modal={false} open={this.props.open} title='Join In' actions={actions} onRequestClose={this.handleClose}>
-                <div>
-                    <TextField floatingLabelText="Email" />
+            <ResponsiveDialog modal={false} open={this.props.open} title='Join In Activity'
+                actions={actions} onRequestClose={this.handleClose} contentClassName='jic-content'>
+                <div className='margin-bottom'>
+                    <TextField floatingLabelText="Your friend's email"
+                        onChange={this.editFriendEmail}
+                        errorText={this.props.validatedJoin ? '' : 'Please fill in correct email'} />
                 </div>
                 <div className='caution-msg-con mont-font pink accent-2 margin-top'>
                     <strong className='margin-right'>Caution:</strong>
-                    <p>Please confirm that you are truly free to join this activity and once you are accepted we will inform your friend of your schedule for your safety consideration</p>
+                    <p>Once you are accepted we will inform your friend of your schedule.</p>
                 </div>
-            </Dialog>
+
+            </ResponsiveDialog>
         );
     }
 }
