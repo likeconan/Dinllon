@@ -10,15 +10,8 @@ import Toast from '../components/Toast/Toast'
 class Layout extends Component {
     render() {
         const ifactive = Utilities.Navigate.toggleTopBack(this.props.location.pathname);
-        const iflogin = true;
-        var paddingTop = '';
-        if (Utilities.IfMobile && iflogin && ifactive) {
-            paddingTop = '20vh';
-        } else if (ifactive) {
-            paddingTop = '64px';
-        }
         return (
-            <div style={{ paddingTop: paddingTop, backgroundColor: ifactive ? '#f5f2ed' : '' }}>
+            <div>
                 <TopMenu active={ifactive} />
                 <TopLoading />
                 <Toast />

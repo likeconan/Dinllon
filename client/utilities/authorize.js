@@ -1,11 +1,17 @@
 import Navigate from './navigate'
 
 class Authorize {
-    isLogin = (authorized) => {
+
+    constructor() {
+        this.isAuthorize = true;
+    }
+    
+    isLoginNav = (authorized) => {
         if (!authorized) {
             Navigate.goToLogin();
         }
     }
+
 }
 
 export default new Authorize();

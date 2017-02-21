@@ -5,12 +5,15 @@
 .width-100p {
     width: 100%;
 }
+
 .height-100p {
     height: 100%;
 }
-.text-center{
+
+.text-center {
     text-align: center;
 }
+
 .center-flex {
     display: flex;
     align-items: center;
@@ -55,6 +58,7 @@
 .margin-2vh2vw {
     margin: 2vh 2vw;
 }
+
 .margin-top {
     margin-bottom: 10px;
 }
@@ -200,6 +204,17 @@ h6 {
 
 /**********Social Life***********/
 
+social-life {
+    display: block;
+    padding-top: 64px;
+    background-color: #f5f2ed;
+    @media screen and (max-width: 812px) {
+        &.logged-page {
+            padding-top: 20vh;
+        }
+    }
+}
+
 .life-container {
     margin: auto;
     width: 1102px;
@@ -232,26 +247,20 @@ h6 {
         justify-content: center;
         width: auto;
         padding: 15px 0;
+        flex-direction: column-reverse;
         .life-left-con {
             display: none;
         }
-        .life-right-con{
+        .life-right-con {
             width: 502px;
-            margin-top: 0;
+            position: static;
+            margin: 0 auto;
         }
-        .life-center-con{
-            margin-top: 500px;
-        }
-    }
-}
-@media screen and (max-width: 600px){
-    .life-container .life-right-con{
-        width: 98vw;
     }
 }
 
-.add-status {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
+@media screen and (max-width: 600px) {
+    .life-container .life-right-con {
+        width: 98vw;
+    }
 }
