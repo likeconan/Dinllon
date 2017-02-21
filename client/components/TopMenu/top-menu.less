@@ -4,10 +4,60 @@ top-menu {
     z-index: 9;
     top: 0;
     width: 100%;
-    height: 64px;
-    background-color: transparent;
-    justify-content: space-between;
-    &.active-back {
-        background-color: #2196F3;
+    .tm-con {
+        justify-content: space-between;
+        background-color: transparent;
+        height: 64px;
+        &.active-back {
+            background-color: #2196F3;
+        }
+        @media screen and (max-width:812px) {
+            &.logged {
+                display: none;
+            }
+        }
+    }
+    .mb-login-user-con {
+        height: 20vh;
+        width: 100%;
+        padding: 0 20px;
+        display: none;
+        background-color: rgba(0, 0, 0, 0.3);
+        @media screen and (max-width: 812px) {
+            &.logged {
+                display: block;
+            }
+        }
+        .profile-img-con {
+            width: 75px;
+            height: 75px;
+            margin-right: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            img {
+                width: 65px;
+                height: 65px;
+            }
+        }
+        .profile-nickname {
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 25px;
+            margin: 5px 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .mb-lu-con {
+            .profile-data-con {
+                margin: 0;
+                .pdc-con {
+                    p {
+                        color: #f1f1f1;
+                    }
+                    strong {
+                        color: white;
+                    }
+                }
+            }
+        }
     }
 }

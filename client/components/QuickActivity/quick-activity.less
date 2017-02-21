@@ -9,48 +9,66 @@ quick-activity {
         text-rendering: optimizeLegibility;
         font-family: Arial, Helvetica, sans-serif;
     }
-    .qa-user-con {
-        margin-top: 10px;
-        &>span {
-            width: 50px;
+    .activity-detail-con {
+        @media screen and (max-width: 600px) {
+            display: none;
         }
-        .qa-user-brief {
-            align-items: flex-start;
-            img {
-                width: 60px;
-                height: 60px;
-                border-radius: 5px;
+        .qa-user-con {
+            margin-top: 10px;
+            &>span {
+                width: 50px;
             }
-            p {
-                color: black;
-                margin: 0 10px 5px 10px;
+            .qa-user-brief {
+                align-items: flex-start;
+                img {
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 5px;
+                }
+                p {
+                    color: black;
+                    margin: 0 10px 5px 10px;
+                }
+                small {
+                    margin: 0 10px;
+                }
             }
-            small {
-                margin: 0 10px;
+        }
+        .activity-con {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .time-con {
+            border: 1px solid #d0d0d0;
+            margin: 10px 0;
+            padding: 5px;
+            i {
+                margin-right: 5px;
             }
         }
     }
-    .activity-con {
-        padding: 15px;
-        margin: 10px 0;
-        border-radius: 5px;
-    }
-    .time-con {
-        border: 1px solid #d0d0d0;
-        margin: 10px 0;
-        padding: 5px;
-        i {
-            margin-right: 5px;
-        }
-    }
-    .cost-con{
+    .cost-con {
         display: flex;
         justify-content: flex-end;
-        .tag::after{
+        .tag::after {
             background: #ffecb3;
         }
     }
-    .no-activities{
+    .mb-activity-detail-con {
+        display: none;
+        .qa-user-con {
+            display: flex;
+            img {
+                width: 50px;
+                height: 50px;
+            }
+        }
+        @media screen and (max-width:600px) {
+            display: block;
+        }
+    }
+    .no-activities {
         padding: 10px;
         margin: 10px 0;
     }
