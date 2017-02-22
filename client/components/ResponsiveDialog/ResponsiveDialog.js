@@ -10,7 +10,7 @@ class ResponsiveDialog extends Component {
         return (
             <Dialog title={this.props.title} modal={false} className={Classnames('responsive-dialog', this.props.className)} actions={this.props.actions}
                 open={this.props.open} onRequestClose={this.props.onRequestClose} contentClassName={Classnames('responsive-content', this.props.contentClassName)}>
-                <IconButton className='close-dialog-icon'  iconClassName="material-icons" onClick={this.props.onRequestClose} >
+                <IconButton className='close-dialog-icon' iconClassName="material-icons" onClick={this.props.onRequestClose} >
                     close
                 </IconButton>
 

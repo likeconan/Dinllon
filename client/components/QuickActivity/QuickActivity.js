@@ -6,7 +6,7 @@ import IconButton from 'material-ui/IconButton';
 import Moment from 'react-moment';
 import { TimeFormat } from '../../utilities';
 import { connect } from 'react-redux';
-import { openCreateDialog, openJoinDialog, searchActivity } from '../../actions/activity.action';
+import { openJoinDialog, searchActivity } from '../../actions/activity.action';
 import ActivityTypeTag from '../ActivityTypeTag/ActivityTypeTag'
 import { UserModel } from '../../models';
 
@@ -17,7 +17,6 @@ require('./quick-activity.less');
         openCreate: store.activity.openCreate,
         openJoin: store.activity.openJoin,
         activity: store.activity.activity,
-
     }
 })
 class QuickActivity extends Component {
@@ -25,8 +24,8 @@ class QuickActivity extends Component {
         this.props.dispatch(searchActivity());
     }
 
-    _openActivityDialog(flag) {
-        flag ? this.props.dispatch(openCreateDialog()) : this.props.dispatch(openJoinDialog())
+    _openActivityDialog() {
+        this.props.dispatch(this.props.dispatch(openJoinDialog()))
     }
 
     render() {

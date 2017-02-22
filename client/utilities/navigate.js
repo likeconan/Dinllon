@@ -1,4 +1,6 @@
 import { browserHistory } from 'react-router';
+import store from 'store2';
+
 
 class Navigate {
     goToSocialLife() {
@@ -11,6 +13,11 @@ class Navigate {
     }
     goToLogin() {
         const path = '/login';
+        browserHistory.push(path);
+    }
+    goToProfile(userid) {
+        const path = '/profile';
+        store.session('profile:user:id', userid);
         browserHistory.push(path);
     }
 

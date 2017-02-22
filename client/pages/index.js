@@ -4,6 +4,8 @@ import Login from './login.pages';
 import Register from './register.pages';
 import AccountLayout from './account-layout.pages';
 import SocialLife from './social-life.pages';
+import Profile from './profile.pages';
+
 
 module.exports = {
     'Home': Home,
@@ -11,5 +13,6 @@ module.exports = {
     'Login': Login,
     'Register': Register,
     'AccountLayout': AccountLayout,
-    'SocialLife': SocialLife
+    'SocialLife': SocialLife,
+    'Profile': Profile,
 }

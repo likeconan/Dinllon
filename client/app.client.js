@@ -36,6 +36,7 @@ ReactDOM.render(
                         <Route path='/login' component={pages.Login} />
                         <Route path='/register' component={pages.Register} />
                     </Route>
+                    <Route path="/profile" component={pages.Profile} />
                 </Route>
             </Router>
         </MuiThemeProvider>

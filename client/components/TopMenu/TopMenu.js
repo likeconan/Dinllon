@@ -7,6 +7,7 @@ import DivBackImage from '../DivBackImage/DivBackImage';
 import UserDataCon from '../UserDataCon/UserDataCon';
 import { UserModel } from '../../models';
 import LinkProfileName from '../LinkProfileName/LinkProfileName';
+import UserIconMenu from '../UserIconMenu/UserIconMenu';
 import { connect } from 'react-redux';
 
 require('./top-menu.less');
@@ -16,6 +17,7 @@ require('./top-menu.less');
         isAuthorize: store.user.isAuthorize
     }
 })
+
 class TopMenu extends Component {
     render() {
         console.log(IfMobile)
@@ -30,11 +32,19 @@ class TopMenu extends Component {
                         <Link to='/'>Dinllon</Link>
                     </strong>
                     {active && <SearchBar active={active} />}
-                    <span className='margin-2vh2vw cursor-pointer roboto-font'>
-                        <Link to='/login'>LOGIN</Link>
-                    </span>
-                </div>
+                    {
+                        this.props.isAuthorize ?
+                            (
+                                <UserIconMenu />
+                            ) :
+                            (
+                                <span className='margin-2vh2vw cursor-pointer roboto-font'>
+                                    <Link to='/login'>LOGIN</Link>
+                                </span>
+                            )
+                    }
 
+                </div>
                 <DivBackImage imgSrc={user.backPic} className={Classnames('blue darken-1 mb-login-user-con z-depth-1',
                     { 'logged': this.props.isAuthorize })}>
                     <div className='height-100p center-flex'>
@@ -52,6 +62,7 @@ class TopMenu extends Component {
                             </div>
                         </div>
                     </div>
+                    <UserIconMenu className='mb-icon-menu'/>
                 </DivBackImage>
             </top-menu>
         );

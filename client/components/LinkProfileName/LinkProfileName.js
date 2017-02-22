@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Navigate } from '../../utilities';
 
 require('./link-profile-name.less');
 
@@ -9,7 +10,7 @@ class LinkProfileName extends Component {
     }
 
     _navigateProfile = () => {
-        console.log('goto')
+        Navigate.goToProfile('abc');
     }
     render() {
         return (
