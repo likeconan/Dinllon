@@ -25,7 +25,10 @@ class FlexImages extends Component {
     }
     render() {
         return (
-            <flex-images class={Classnames('cursor-pointer', { [`flex-images-${this.imgArray.length}`]: true })} onClick={this._showImgDialog}>
+            <flex-images class={Classnames('cursor-pointer',
+                { [`flex-images-${this.imgArray.length}`]: true },
+                this.props.className)}
+                onClick={this._showImgDialog}>
                 {this.imgEles}
             </flex-images>
         );

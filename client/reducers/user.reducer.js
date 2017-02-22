@@ -4,9 +4,7 @@ export default function reducer(state = {
         name: 'test',
         goingOn: 'dont\'t do anything,lala ',
     },
-    fetching: false,
-    fetched: false,
-    error: null,
+    isAuthorize: true
 }, action) {
     switch (action.type) {
         case 'GET_USER':

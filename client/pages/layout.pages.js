@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import TopMenu from '../components/TopMenu/TopMenu';
-import MobileTopMenu from '../components/MobileTopMenu/MobileTopMenu';
 import TopLoading from '../components/TopLoading/TopLoading';
 import Utilities from '../utilities';
 import Toast from '../components/Toast/Toast'

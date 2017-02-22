@@ -6,18 +6,26 @@ import { IfMobile } from '../../utilities';
 import DivBackImage from '../DivBackImage/DivBackImage';
 import UserDataCon from '../UserDataCon/UserDataCon';
 import { UserModel } from '../../models';
+import LinkProfileName from '../LinkProfileName/LinkProfileName';
+import { connect } from 'react-redux';
 
 require('./top-menu.less');
 
+@connect((store) => {
+    return {
+        isAuthorize: store.user.isAuthorize
+    }
+})
 class TopMenu extends Component {
     render() {
         console.log(IfMobile)
         const active = this.props.active;
-        const iflogin = true;
         var user = new UserModel(this.props.user);
         return (
             <top-menu>
-                <div className={Classnames('center-flex tm-con white-text', { 'active-back z-depth-1': active }, { 'logged': iflogin })}>
+                <div className={Classnames('center-flex tm-con white-text',
+                    { 'active-back z-depth-1': active },
+                    { 'logged': this.props.isAuthorize })}>
                     <strong className='margin-2vh2vw mont-font cursor-pointer'>
                         <Link to='/'>Dinllon</Link>
                     </strong>
@@ -26,7 +34,9 @@ class TopMenu extends Component {
                         <Link to='/login'>LOGIN</Link>
                     </span>
                 </div>
-                <DivBackImage imgSrc={user.backPic} className={Classnames('blue darken-1 mb-login-user-con', { 'logged': iflogin })}>
+
+                <DivBackImage imgSrc={user.backPic} className={Classnames('blue darken-1 mb-login-user-con z-depth-1',
+                    { 'logged': this.props.isAuthorize })}>
                     <div className='height-100p center-flex'>
                         <div className='center-flex'>
                             <div className='circle profile-img-con all-center-flex'>
@@ -34,11 +44,12 @@ class TopMenu extends Component {
                             </div>
                             <div className='column-center'>
                                 <div className='margin-bottom'>
-                                    <p className='white-text profile-nickname cursor-pointer'>{user.nickName}</p>
+                                    <LinkProfileName>
+                                        <p className='white-text profile-nickname cursor-pointer'>{user.nickName}</p>
+                                    </LinkProfileName>
                                 </div>
                                 <UserDataCon className='mb-lu-con' />
                             </div>
-
                         </div>
                     </div>
                 </DivBackImage>

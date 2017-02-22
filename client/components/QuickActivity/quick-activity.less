@@ -39,13 +39,13 @@ quick-activity {
             margin: 10px 0;
             border-radius: 5px;
         }
-        .time-con {
-            border: 1px solid #d0d0d0;
-            margin: 10px 0;
-            padding: 5px;
-            i {
-                margin-right: 5px;
-            }
+    }
+    .time-con {
+        border: 1px solid #d0d0d0;
+        margin: 10px 0;
+        padding: 5px;
+        i {
+            margin-right: 5px;
         }
     }
     .cost-con {
@@ -64,8 +64,18 @@ quick-activity {
                 height: 50px;
             }
         }
-        .cost-con .tag::after {
-            background: white;
+        .cost-time-con {
+            justify-content: space-between;
+            .time-con {
+                margin: 0;
+                border:0;
+            }
+            .tag::after {
+                background: white;
+            }
+        }
+        .mad-image-con {
+            border-top: 2px solid #66757f;
         }
         @media screen and (max-width:812px) {
             display: block;

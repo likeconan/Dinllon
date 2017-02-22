@@ -66,20 +66,23 @@ class QuickActivity extends Component {
                                         <RaisedButton className='width-100p' label='Join in' onClick={() => { this._openActivityDialog(false) }} primary={true} />
                                     </div>
                                 </div>
-                                <div className='mb-activity-detail-con'>
+                                <div className='mb-activity-detail-con margin-bottom'>
                                     <div className='qa-user-con space-between'>
                                         <img className='circle margin-right' src={user.headPic} />
                                         <div>
                                             <p className='roboto-font'>{this.props.activity.textContent}</p>
                                             <small className='grey-text text-darken-1 sans-font'>by {user.nickName}</small>
                                         </div>
-                                        {/*<small className='grey-text text-darken-1'>
-                                            <Moment toNow ago>{this.props.activity.createdTime}</Moment>
-                                        </small>*/}
                                     </div>
-                                    <div className='cost-con'>
+                                    <div className='cost-time-con center-flex'>
+                                        <div className='time-con all-center-flex grey-text text-darken-2'>
+                                            <i className='material-icons'>access_time</i>
+                                            <span>{TimeFormat.formatDateTime(this.props.activity.startDate, this.props.activity.startTime)}</span>
+                                        </div>
                                         <ActivityTypeTag type={this.props.activity.type} cost={this.props.activity.cost} />
                                     </div>
+                                    <FlexImages imgContent={this.props.activity.imgContent} className='mobile-normal margin-bottom' />
+                                    <RaisedButton className='width-100p' label='Join in' onClick={() => { this._openActivityDialog(false) }} primary={true} />
                                 </div>
                             </div>
 

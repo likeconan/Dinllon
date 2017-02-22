@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Classnames from 'classnames';
 import { UserModel } from '../../models';
 import UserDataCon from '../UserDataCon/UserDataCon';
+import LinkProfileName from '../LinkProfileName/LinkProfileName';
 
 require('./brief-profile.less');
 
@@ -15,7 +16,9 @@ class BriefProfile extends Component {
                 <div className='center-flex profile-con'>
                     <img src={user.headPic} className='profile-user-head' />
                     <div className='profile-text-con'>
-                        <p className='profile-nickname cursor-pointer'>{user.nickName}</p>
+                        <LinkProfileName>
+                            <p className='profile-nickname cursor-pointer'>{user.nickName}</p>
+                        </LinkProfileName>
                         <p className='cyan-text text-darken-1'>{user.goingOn}</p>
                     </div>
                 </div>
