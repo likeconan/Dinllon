@@ -46,7 +46,7 @@ class AddStatus extends Component {
     }
 
     render() {
-        var user = new UserModel();
+        var user = new UserModel().user;
         return (
             <add-status class='cyan lighten-5'>
                 <div className='space-between'>

@@ -9,15 +9,20 @@ search-bar {
             width: calc(~'100vw - 110px')
         }
     }
-    &.top-search-bar input {
-        border-radius: 2px;
+    &.top-search-bar {
+        input {
+            border-radius: 5px;
+            color: #292f33;
+            background-color: #f5f8fa;
+            border: 1px solid #e1e8ed;
+        }
+        justify-content: flex-end;
+        >button {
+            position: fixed !important;
+        }
     }
     @media screen and (max-width:600px) {
         &.top-search-bar {
-            justify-content: flex-end;
-            >button {
-                position: fixed !important;
-            }
             input {
                 width: calc(~'100vw - 180px');
             }

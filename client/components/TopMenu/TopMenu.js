@@ -22,10 +22,10 @@ class TopMenu extends Component {
     render() {
         console.log(IfMobile)
         const active = this.props.active;
-        var user = new UserModel(this.props.user);
+        var user = new UserModel(this.props.user).user;
         return (
             <top-menu>
-                <div className={Classnames('center-flex tm-con white-text',
+                <div className={Classnames('center-flex tm-con',
                     { 'active-back z-depth-1': active },
                     { 'logged': this.props.isAuthorize })}>
                     <strong className='margin-2vh2vw mont-font cursor-pointer'>
@@ -45,9 +45,9 @@ class TopMenu extends Component {
                     }
 
                 </div>
-                <DivBackImage imgSrc={user.backPic} className={Classnames('blue darken-1 mb-login-user-con z-depth-1',
+                <DivBackImage imgSrc={user.backPic} className={Classnames('mb-login-user-con z-depth-1',
                     { 'logged': this.props.isAuthorize })}>
-                    <div className='height-100p center-flex'>
+                    <div className='height-100p center-flex top-profile-con'>
                         <div className='center-flex'>
                             <div className='circle profile-img-con all-center-flex'>
                                 <img src={user.headPic} className='circle' />
@@ -58,7 +58,7 @@ class TopMenu extends Component {
                                         <p className='white-text profile-nickname cursor-pointer'>{user.nickName}</p>
                                     </LinkProfileName>
                                 </div>
-                                <UserDataCon className='mb-lu-con' />
+                                <UserDataCon className='mb-lu-con' invisible={true}/>
                             </div>
                         </div>
                     </div>

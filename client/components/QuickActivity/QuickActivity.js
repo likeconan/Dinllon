@@ -29,7 +29,7 @@ class QuickActivity extends Component {
     }
 
     render() {
-        const user = new UserModel(this.props.activity ? this.props.activity.user : null);
+        const user = new UserModel(this.props.activity ? this.props.activity.user : null).user;
         return (
             <quick-activity class='white'>
                 <div className='space-between center-flex'>
@@ -52,8 +52,8 @@ class QuickActivity extends Component {
                                             <Moment toNow ago>{this.props.activity.createdTime}</Moment>
                                         </small>
                                     </div>
-                                    <div className='activity-con amber lighten-4'>
-                                        <p className='grey-text text-darken-3'>{this.props.activity.textContent}</p>
+                                    <div className='activity-con'>
+                                        <p className='grey-text roboto-font text-darken-3'>{this.props.activity.textContent}</p>
                                         <div className='cost-con'>
                                             <ActivityTypeTag type={this.props.activity.type} cost={this.props.activity.cost} />
                                         </div>

@@ -8,7 +8,7 @@ require('./user-brief.less');
 class UserBrief extends Component {
 
     render() {
-        var user = new UserModel(this.props.user);
+        var user = new UserModel(this.props.user).user;
         return (
             <user-circle-brief class={Classnames('center-flex', this.props.className)}>
                 <img src={user.headPic} className='user-head-img' />

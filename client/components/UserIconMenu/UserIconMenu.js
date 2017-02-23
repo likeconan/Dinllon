@@ -29,7 +29,7 @@ class UserIconMenu extends Component {
         return (
             <user-icon-menu class={Classnames('margin-2vh2vw', this.props.className)}>
                 <IconMenu
-                    iconStyle={{ color: 'white' }}
+                    iconStyle={{ color: '#66757f' }}
                     iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
                     anchorOrigin={{ horizontal: 'left', vertical: 'top' }}
                     targetOrigin={{ horizontal: 'left', vertical: 'top' }} >

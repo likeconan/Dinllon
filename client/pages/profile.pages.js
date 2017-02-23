@@ -3,6 +3,9 @@ import store from 'store2';
 import Classnames from 'classnames';
 import { connect } from 'react-redux';
 import { getProfile } from '../actions/profile.action';
+import ProfileBackPic from '../components/ProfileBackPic/ProfileBackPic'
+import ProfileDetail from '../components/ProfileDetail/ProfileDetail'
+import ProfileUserData from '../components/ProfileUserData/ProfileUserData'
 
 @connect((store) => {
     return {
@@ -18,8 +21,10 @@ class Profile extends Component {
     render() {
         return (
             <profile-page class={Classnames({ 'logged-page': this.props.isAuthorize })}>
-                <div className='123'>
-                    this is profile ok?
+                <ProfileBackPic />
+                <ProfileUserData />
+                <div className='profile-center-con'>
+                    <ProfileDetail />
                 </div>
             </profile-page>
         );

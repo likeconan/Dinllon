@@ -3,16 +3,16 @@ import Classnames from 'classnames';
 import { UserModel } from '../../models';
 import UserDataCon from '../UserDataCon/UserDataCon';
 import LinkProfileName from '../LinkProfileName/LinkProfileName';
+import DivBackImage from '../DivBackImage/DivBackImage';
 
 require('./brief-profile.less');
 
 class BriefProfile extends Component {
     render() {
-        var user = new UserModel(this.props.user);
+        var user = new UserModel(this.props.user).user;
         return (
             <brief-profile class={Classnames(this.props.className)}>
-                <div className='profile-back img-content-container blue darken-1'>
-                </div>
+                <DivBackImage className='profile-back blue darken-1' imgSrc={user.backPic} />
                 <div className='center-flex profile-con'>
                     <img src={user.headPic} className='profile-user-head' />
                     <div className='profile-text-con'>
@@ -22,7 +22,7 @@ class BriefProfile extends Component {
                         <p className='cyan-text text-darken-1'>{user.goingOn}</p>
                     </div>
                 </div>
-                <UserDataCon />
+                <UserDataCon invisible={true} />
             </brief-profile>
         );
     }
