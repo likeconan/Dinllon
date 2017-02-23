@@ -29,7 +29,7 @@ class TopMenu extends Component {
                     { 'active-back z-depth-1': active },
                     { 'logged': this.props.isAuthorize })}>
                     <strong className='margin-2vh2vw mont-font cursor-pointer'>
-                        <Link to='/'>Dinllon</Link>
+                        <Link to='/life'>Dinllon</Link>
                     </strong>
                     {active && <SearchBar active={active} />}
                     {
@@ -62,7 +62,7 @@ class TopMenu extends Component {
                             </div>
                         </div>
                     </div>
-                    <UserIconMenu className='mb-icon-menu'/>
+                    <UserIconMenu className='mb-icon-menu' />
                 </DivBackImage>
             </top-menu>
         );

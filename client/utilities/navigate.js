@@ -9,7 +9,7 @@ class Navigate {
     }
     toggleTopBack(pathname) {
         return pathname &&
-            (pathname.indexOf('/life') >= 0);
+            (pathname.indexOf('/life') >= 0 || pathname.indexOf('/profile') >= 0);
     }
     goToLogin() {
         const path = '/login';
@@ -17,7 +17,7 @@ class Navigate {
     }
     goToProfile(userid) {
         const path = '/profile';
-        store.session('profile:user:id', userid);
+        store.session('ss.profile.user.id', userid);
         browserHistory.push(path);
     }
 

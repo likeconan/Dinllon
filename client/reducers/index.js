@@ -6,6 +6,7 @@ import load from './load.reducer';
 import imagesDialog from './images-dialog.reducer';
 import activity from './activity.reducer';
 import toast from './toast.reducer';
+import profile from './profile.reducer';
 
 
 export default combineReducers({
@@ -15,4 +16,5 @@ export default combineReducers({
     imagesDialog,
     activity,
     toast,
+    profile,
 });

@@ -7,7 +7,7 @@ export default function reducer(state = {
     isAuthorize: true
 }, action) {
     switch (action.type) {
-        case 'GET_USER':
+        case 'USER_LOGIN':
             return { ...state, fetching: true, user: action.payload }
             break;
 

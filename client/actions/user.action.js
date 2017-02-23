@@ -1,6 +1,6 @@
-export function fetchUser() {
+export function userLogin() {
     return {
-        type: 'GET_USER',
+        type: 'USER_LOGIN',
         payload: {
             name: 'Will',
             goingOn: 'haha success'
