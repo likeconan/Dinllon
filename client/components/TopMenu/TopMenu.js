@@ -21,17 +21,17 @@ require('./top-menu.less');
 class TopMenu extends Component {
     render() {
         console.log(IfMobile)
-        const active = this.props.active;
+        const activeObj = this.props.activeObj;
         var user = new UserModel(this.props.user).user;
         return (
             <top-menu>
                 <div className={Classnames('center-flex tm-con',
-                    { 'active-back z-depth-1': active },
-                    { 'logged': this.props.isAuthorize })}>
+                    { 'active-back z-depth-1': activeObj.active },
+                    { 'logged': this.props.isAuthorize && activeObj.mbActive })}>
                     <strong className='margin-2vh2vw mont-font cursor-pointer'>
                         <Link to='/life'>Dinllon</Link>
                     </strong>
-                    {active && <SearchBar active={active} />}
+                    {activeObj.active && <SearchBar active={activeObj.active} />}
                     {
                         this.props.isAuthorize ?
                             (
@@ -46,7 +46,7 @@ class TopMenu extends Component {
 
                 </div>
                 <DivBackImage imgSrc={user.backPic} className={Classnames('mb-login-user-con z-depth-1',
-                    { 'logged': this.props.isAuthorize })}>
+                    { 'logged': this.props.isAuthorize && activeObj.mbActive })}>
                     <div className='height-100p center-flex top-profile-con'>
                         <div className='center-flex'>
                             <div className='circle profile-img-con all-center-flex'>
@@ -58,7 +58,7 @@ class TopMenu extends Component {
                                         <p className='white-text profile-nickname cursor-pointer'>{user.nickName}</p>
                                     </LinkProfileName>
                                 </div>
-                                <UserDataCon className='mb-lu-con' invisible={true}/>
+                                <UserDataCon className='mb-lu-con' invisible={true} />
                             </div>
                         </div>
                     </div>

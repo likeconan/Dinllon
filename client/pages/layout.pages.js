@@ -1,19 +1,24 @@
 import React, { Component } from 'react';
 import TopMenu from '../components/TopMenu/TopMenu';
 import TopLoading from '../components/TopLoading/TopLoading';
-import Utilities from '../utilities';
+import { Navigate } from '../utilities';
 import Toast from '../components/Toast/Toast'
-
+import ImageDialog from '../components/ImageDialog/ImageDialog';
+import CreateActivityDialog from '../components/CreateActivityDialog/CreateActivityDialog';
+import JoinActivityDialog from '../components/JoinActivityDialog/JoinActivityDialog';
 
 
 class Layout extends Component {
     render() {
-        const ifactive = Utilities.Navigate.toggleTopBack(this.props.location.pathname);
+        const obj = Navigate.toggleTopBack(this.props.location.pathname);
         return (
             <div>
-                <TopMenu active={ifactive} />
+                <TopMenu activeObj={obj} />
                 <TopLoading />
                 <Toast />
+                <ImageDialog />
+                <JoinActivityDialog />
+                <CreateActivityDialog />
                 {this.props.children}
             </div>
         );

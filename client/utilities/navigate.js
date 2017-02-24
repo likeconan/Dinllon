@@ -8,8 +8,11 @@ class Navigate {
         browserHistory.push(path);
     }
     toggleTopBack(pathname) {
-        return pathname &&
-            (pathname.indexOf('/life') >= 0 || pathname.indexOf('/profile') >= 0);
+        var obj = {
+            active: pathname && (pathname.indexOf('/life') >= 0 || pathname.indexOf('/profile') >= 0),
+            mbActive: pathname && pathname.indexOf('/life') >= 0
+        };
+        return obj;
     }
     goToLogin() {
         const path = '/login';

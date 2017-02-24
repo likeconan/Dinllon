@@ -210,6 +210,56 @@ profile-page {
     padding-top: 64px;
     background-color: #f5f2ed;
     min-height: calc(~'100vh - 64px');
+    .life-container {
+        margin: auto;
+        width: 1102px;
+        padding: 15px 54px;
+        .life-left-con,
+        .life-right-con {
+            width: 290px;
+            overflow: hidden;
+            align-self: flex-start;
+        }
+        .life-center-con {
+            margin: 0 10px;
+            height: 8000px;
+        }
+    }
+    @media screen and (max-width: 1280px) {
+        .life-container {
+            width: 812px;
+            justify-content: flex-start;
+        }
+        .life-right-con {
+            position: absolute;
+            margin-top: 262px;
+        }
+    }
+    @media screen and (max-width: 812px) {
+        background-color: white;
+        .life-container {
+            justify-content: center;
+            width: auto;
+            padding: 15px 0;
+            flex-direction: column-reverse;
+            .life-left-con {
+                display: none;
+            }
+            .life-right-con {
+                width: 502px;
+                position: static;
+                margin: 0 auto;
+            }
+        }
+    }
+    @media screen and (max-width: 600px) {
+        .life-container .life-right-con {
+            width: 98vw;
+        }
+    }
+}
+
+social-life {
     @media screen and (max-width: 812px) {
         &.logged-page {
             padding-top: 120px;
@@ -217,61 +267,5 @@ profile-page {
     }
 }
 
-.life-container {
-    margin: auto;
-    width: 1102px;
-    padding: 15px 54px;
-    .life-left-con,
-    .life-right-con {
-        width: 290px;
-        overflow: hidden;
-        align-self: flex-start;
-    }
-    .life-center-con {
-        margin: 0 10px;
-        height: 8000px;
-    }
-}
-
-@media screen and (max-width: 1280px) {
-    .life-container {
-        width: 812px;
-        justify-content: flex-start;
-    }
-    .life-right-con {
-        position: absolute;
-        margin-top: 262px;
-    }
-}
-
-@media screen and (max-width: 812px) {
-    .life-container {
-        justify-content: center;
-        width: auto;
-        padding: 15px 0;
-        flex-direction: column-reverse;
-        .life-left-con {
-            display: none;
-        }
-        .life-right-con {
-            width: 502px;
-            position: static;
-            margin: 0 auto;
-        }
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .life-container .life-right-con {
-        width: 98vw;
-    }
-}
-
 
 /**********Profile***********/
-.profile-center-con{
-    width: 1102px;
-    background-color: white;
-    margin: auto;
-    height: 8000px;
-}

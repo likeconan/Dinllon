@@ -2,14 +2,30 @@ profile-user-data {
     display: block;
     background-color: white;
     .pud-con {
-        width: 810px;
+        width: 812px;
         margin: 0 auto;
         padding: 5px;
         padding-left: 290px;
         .profile-udc {
             width: 600px;
-            .profile-data-con{
+            .profile-data-con {
                 margin: 5px 0;
+                .pdc-con {
+                    text-align: center;
+                }
+            }
+        }
+    }
+    @media screen and (max-width:812px) {
+        .pud-con {
+            width: 100vw;
+            margin: 0;
+            padding: 0;
+            .profile-udc {
+                width: 100%;
+                .profile-data-con{
+                    flex-wrap: wrap;
+                }
             }
         }
     }

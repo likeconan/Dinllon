@@ -19,7 +19,7 @@ class SearchBar extends Component {
         const {active} = this.props;
         return (
             <search-bar class={Classnames('center-flex', this.props.className, { 'top-search-bar': active })} >
-                <AlphaTextField className='top-search-input' placeholder='Search interested' />
+                <AlphaTextField className='top-search-input' placeholder='Interested in?' />
                 {active ?
                     (<IconButton iconClassName='material-icons'> search </IconButton>) :
                     (< RaisedButton label="Search" primary={true} onClick={() => this._search()} />)
