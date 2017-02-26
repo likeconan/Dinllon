@@ -15,7 +15,7 @@ require('./status.less');
 class Status extends Component {
 
     componentWillMount() {
-        this.props.dispatch(searchLife());
+        this.props.dispatch(this.props.action());
     }
 
     render() {

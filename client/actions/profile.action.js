@@ -11,8 +11,17 @@ export function getProfile(userid) {
             .then((data) => {
                 dispatch({
                     type: 'GET_PROFILE',
-                    payload: new UserModel(data).user
+                    payload: {
+                        user: new UserModel(data).user,
+                        isOwn: true
+                    }
                 })
             });
+    }
+}
+
+export function toggleEditProfile() {
+    return {
+        type: 'TOGGLE_EDIT_PROFILE'
     }
 }

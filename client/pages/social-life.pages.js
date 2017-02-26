@@ -4,6 +4,7 @@ import BriefProfile from '../components/BriefProfile/BriefProfile';
 import QuickActivity from '../components/QuickActivity/QuickActivity';
 import AddStatus from '../components/AddStatus/AddStatus';
 import Classnames from 'classnames';
+import { searchLife } from '../actions/social-status.action';
 import { connect } from 'react-redux';
 
 @connect((store) => {
@@ -22,7 +23,7 @@ class SocialLife extends Component {
                     </div>
                     <div className='life-center-con'>
                         <AddStatus />
-                        <Status />
+                        <Status action={searchLife} />
                     </div>
                     <div className='life-right-con'>
                         <QuickActivity />

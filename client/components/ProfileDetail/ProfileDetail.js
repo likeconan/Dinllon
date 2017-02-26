@@ -7,14 +7,16 @@ require('./profile-detail.less');
 
 @connect((store) => {
     return {
-        profileUser: store.profile.user
+        profileUser: store.profile.user,
+        enableEdit: store.profile.enableEdit,
     }
 })
 class ProfileDetail extends Component {
     render() {
         return (
             <profile-detail>
-                <BackPicChange className='profile-head-pic' imgSrc={this.props.profileUser.headPic} />
+                <BackPicChange className='profile-head-pic' label='Change your profile photo'
+                    imgSrc={this.props.profileUser.headPic} active={this.props.enableEdit} />
                 <div className='profile-info-con'>
                     <LinkProfileName>
                         <h5 className='mont-font'>{this.props.profileUser.nickName}</h5>

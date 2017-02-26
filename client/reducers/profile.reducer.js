@@ -19,12 +19,18 @@ export default function reducer(state = {
         hobby: '',
     },
     isOwn: true,
+    enableEdit: false
 }, action) {
     switch (action.type) {
         case 'GET_PROFILE':
-            return { ...state, user: action.payload }
-            break;
+            return {
+                ...state,
+                user: action.payload.user,
+                isOwn: action.payload.isOwn
+            };
 
+        case 'TOGGLE_EDIT_PROFILE':
+            return { ...state, enableEdit: !state.enableEdit }
         default:
             return state;
     }

@@ -29,7 +29,7 @@ class Profile extends Component {
                         <ProfileDetail />
                     </div>
                     <div className='life-center-con'>
-                       <ProfileTabs />
+                        <ProfileTabs />
                     </div>
                     <div className='life-right-con'>
                     </div>
