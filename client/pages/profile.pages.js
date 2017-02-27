@@ -23,17 +23,22 @@ class Profile extends Component {
         return (
             <profile-page class={Classnames({ 'logged-page': this.props.isAuthorize })}>
                 <ProfileBackPic />
-                <ProfileUserData />
-                <div className='all-center-flex life-container'>
-                    <div className='life-left-con'>
-                        <ProfileDetail />
+                <div className='pos-relative'>
+                    <ProfileUserData />
+                    <div className='all-center-flex life-container'>
+                        <div className='life-left-con'>
+                            <ProfileDetail />
+                        </div>
+                        <div className='life-center-con'>
+                            <ProfileTabs />
+                        </div>
+                        <div className='life-right-con'>
+                        </div>
                     </div>
-                    <div className='life-center-con'>
-                        <ProfileTabs />
-                    </div>
-                    <div className='life-right-con'>
-                    </div>
+                    {/*<div className='profile-editing-overlay'></div>*/}
                 </div>
+
+
             </profile-page>
         );
     }

@@ -1,20 +1,35 @@
 profile-user-data {
-    display: block;
+    justify-content: space-between;
     background-color: white;
+    .fake-container {
+        width: 1210px;
+        margin: auto;
+        .fake-left-con,
+        .fake-right-con {
+            width: 290px;
+            overflow: hidden;
+        }
+        @media screen and (max-width:1280px) {
+            width: auto;
+            justify-content: flex-start;
+        }
+    }
     .pud-con {
-        width: 812px;
-        margin: 0 auto;
         padding: 5px;
-        padding-left: 290px;
-        justify-content: space-between;
+        .fake-left-con {
+            width: 290px;
+        }
         .profile-udc {
-            width: 550px;
             .profile-data-con {
                 margin: 5px 0;
                 .pdc-con {
                     text-align: center;
                 }
             }
+        }
+        edit-profile-button {
+            position: relative;
+            z-index: 9;
         }
     }
     @media screen and (max-width:812px) {
@@ -24,7 +39,7 @@ profile-user-data {
             padding: 0;
             .profile-udc {
                 width: 100%;
-                .profile-data-con{
+                .profile-data-con {
                     flex-wrap: wrap;
                 }
             }
