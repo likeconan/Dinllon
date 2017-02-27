@@ -8,18 +8,11 @@ require('./profile-user-data.less');
 class ProfileUserData extends Component {
     render() {
         return (
-            <profile-user-data class='center-flex'>
-                <div className='fake-container all-center-flex'>
-                    <div className='fake-left-con'></div>
-                    <div className='pud-con center-flex'>
-                        <UserDataCon className='profile-udc' />
-                    </div>
-                    <div className='fake-right-con'>
-                        <EditProfileButton />
-                    </div>
+            <profile-user-data class='all-center-flex'>
+                <div className='pud-con center-flex'>
+                    <UserDataCon className='profile-udc' />
+                    <EditProfileButton className='pud-epb'/>
                 </div>
-
-
             </profile-user-data>
         );
     }

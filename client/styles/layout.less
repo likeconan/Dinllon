@@ -54,9 +54,11 @@
         color: #1976d2;
     }
 }
-.pos-relative{
+
+.pos-relative {
     position: relative;
 }
+
 .margin-2vh2vw {
     margin: 2vh 2vw;
 }
@@ -224,12 +226,13 @@ profile-page {
         }
         .life-center-con {
             margin: 0 10px;
-            height: 8000px;
+            height: 1200px;
         }
     }
     @media screen and (max-width: 1280px) {
         .life-container {
-            width: auto;
+            width: 812px;
+            padding: 15px 0;
             justify-content: flex-start;
         }
         .life-right-con {
@@ -237,16 +240,12 @@ profile-page {
             margin-top: 262px;
         }
     }
-    @media screen and (max-width: 812px) {
-        background-color: white;
+    @media screen and (max-width: 920px) {
         .life-container {
             justify-content: center;
             width: auto;
             padding: 15px 0;
             flex-direction: column-reverse;
-            .life-left-con {
-                display: none;
-            }
             .life-right-con {
                 width: 502px;
                 position: static;
@@ -262,9 +261,12 @@ profile-page {
 }
 
 social-life {
-    @media screen and (max-width: 812px) {
+    @media screen and (max-width: 920px) {
         &.logged-page {
             padding-top: 120px;
+            .life-container .life-left-con {
+                display: none;
+            }
         }
     }
 }
@@ -285,5 +287,20 @@ profile-page {
         right: 0;
         top: 0;
         background-color: rgba(255, 255, 255, 0.6);
+    }
+    @media screen and (max-width: 920px) {
+        .life-container {
+            flex-direction: column;
+            .life-left-con {
+                width: 502px;
+                margin-top: 0;
+                align-self: center;
+            }
+        }
+    }
+    @media screen and (max-width: 600px) {
+        .life-container .life-left-con {
+            width: 98vw;
+        }
     }
 }

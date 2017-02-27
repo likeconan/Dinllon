@@ -1,25 +1,10 @@
 profile-user-data {
     justify-content: space-between;
     background-color: white;
-    .fake-container {
-        width: 1210px;
-        margin: auto;
-        .fake-left-con,
-        .fake-right-con {
-            width: 290px;
-            overflow: hidden;
-        }
-        @media screen and (max-width:1280px) {
-            width: auto;
-            justify-content: flex-start;
-        }
-    }
     .pud-con {
         padding: 5px;
-        .fake-left-con {
-            width: 290px;
-        }
         .profile-udc {
+            width: 512px;
             .profile-data-con {
                 margin: 5px 0;
                 .pdc-con {
@@ -27,18 +12,32 @@ profile-user-data {
                 }
             }
         }
-        edit-profile-button {
-            position: relative;
+        edit-profile-button.pud-epb {
+            position: absolute;
+            right: 100px;
             z-index: 9;
         }
     }
-    @media screen and (max-width:812px) {
+    @media screen and (max-width:1280px) {
+        .pud-con {
+            width: 812px;
+            justify-content: flex-end;
+            edit-profile-button.pud-epb {
+                right: 20px;
+            }
+            .pud-epb {
+                display: none;
+            }
+        }
+    }
+    @media screen and (max-width:920px) {
         .pud-con {
             width: 100vw;
             margin: 0;
+            justify-content: center;
             padding: 0;
             .profile-udc {
-                width: 100%;
+                margin-left: 0;
                 .profile-data-con {
                     flex-wrap: wrap;
                 }

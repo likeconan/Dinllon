@@ -10,7 +10,8 @@ import ProfileTabs from '../components/ProfileTabs/ProfileTabs';
 
 @connect((store) => {
     return {
-        isAuthorize: store.user.isAuthorize
+        isAuthorize: store.user.isAuthorize,
+        enableEdit: store.profile.enableEdit,
     }
 })
 class Profile extends Component {
@@ -35,10 +36,9 @@ class Profile extends Component {
                         <div className='life-right-con'>
                         </div>
                     </div>
-                    {/*<div className='profile-editing-overlay'></div>*/}
+                    {this.props.enableEdit && (<div className='profile-editing-overlay'></div>)}
+
                 </div>
-
-
             </profile-page>
         );
     }

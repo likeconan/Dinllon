@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import BackPicChange from '../BackPicChange/BackPicChange';
 import LinkProfileName from '../LinkProfileName/LinkProfileName';
+import EditProfileButton from '../EditProfileButton/EditProfileButton';
 import { connect } from 'react-redux';
 
 require('./profile-detail.less');
@@ -15,8 +16,12 @@ class ProfileDetail extends Component {
     render() {
         return (
             <profile-detail>
-                <BackPicChange className='profile-head-pic' label='Change your profile photo'
-                    imgSrc={this.props.profileUser.headPic} active={this.props.enableEdit} />
+                <div className='pd-head-con center-flex'>
+                    <BackPicChange className='profile-head-pic' label='Change your profile photo'
+                        imgSrc={this.props.profileUser.headPic} active={this.props.enableEdit} />
+                    <EditProfileButton />
+                </div>
+
                 <div className='profile-info-con'>
                     <LinkProfileName>
                         <h5 className='mont-font'>{this.props.profileUser.nickName}</h5>
