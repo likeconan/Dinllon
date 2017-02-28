@@ -31,7 +31,7 @@ class EditProfileButton extends Component {
                         (
                             <div className='center-flex'>
                                 <RaisedButton className='margin-right' label="Cancel" onClick={this._cancel} />
-                                <RaisedButton label="Save changes" primary={true} onClick={this._saveChange} />
+                                <RaisedButton label="Save" primary={true} onClick={this._saveChange} />
                             </div>
                         ) :
                         (
