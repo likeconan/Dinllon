@@ -16,16 +16,44 @@ profile-detail {
     .profile-info-con {
         padding: 5px 10px;
         .edit-text-con {
-            padding: 10px 5px;
+            color: #292f33;
+            padding: 2px;
             &[contenteditable='true'] {
+                padding: 10px 5px;
                 border: 2px solid rgb(0, 188, 212);
+                color: #292f33;
                 border-radius: 5px;
+                margin: 5px 0;
             }
         }
         .pic-nickname {
             font-size: 22px;
         }
-        .sex-radios {}
+        .pic-goingOn {
+            color: #00acc1;
+        }
+        .pic-more-info-con {
+            margin: 10px 0;
+            svg {
+                color: #868686 !important;
+            }
+            .edit-text-con {
+                color: #868686;
+                width: 220px;
+            }
+        }
+        .pic-date-con {
+            &.active {
+                border: 2px solid rgb(0, 188, 212);
+                border-radius: 5px;
+            }
+            input {
+                color: #868686 !important;
+            }
+            &>div>div {
+                display: none;
+            }
+        }
     }
     @media screen and (max-width:1280px) {
         .pd-head-con {

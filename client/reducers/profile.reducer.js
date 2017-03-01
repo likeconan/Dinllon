@@ -5,6 +5,9 @@ export default function reducer(state = {
         goingOn: '',
         backPic: '',
         headPic: '',
+        work: '',
+        school: '',
+        birthday: null,
         userData: {
             dinllons: 120,
             activities: 55,
@@ -14,9 +17,10 @@ export default function reducer(state = {
         },
         mobile: '',
         wechat: '',
-        age: 0,
-        sex: true,
         hobby: '',
+    },
+    editingUser: {
+
     },
     isOwn: true,
     enableEdit: false
@@ -31,6 +35,36 @@ export default function reducer(state = {
 
         case 'TOGGLE_EDIT_PROFILE':
             return { ...state, enableEdit: !state.enableEdit }
+
+        case 'EDIT_NICKNAME':
+            return {
+                ...state,
+                editingUser: {
+                    ...state.editingUser, nickName: action.payload
+                }
+            }
+
+        case 'EDIT_GOINGON':
+            return {
+                ...state,
+                editingUser: {
+                    ...state.editingUser, goingOn: action.payload
+                }
+            }
+        case 'EDIT_SCHOOL':
+            return {
+                ...state,
+                editingUser: {
+                    ...state.editingUser, school: action.payload
+                }
+            }
+        case 'EDIT_BIRTHDAY':
+            return {
+                ...state,
+                editingUser: {
+                    ...state.editingUser, birthday: action.payload
+                }
+            }
         default:
             return state;
     }
