@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ContentEditable from 'react-contenteditable';
 import BackPicChange from '../BackPicChange/BackPicChange';
 import LinkProfileName from '../LinkProfileName/LinkProfileName';
 import EditProfileButton from '../EditProfileButton/EditProfileButton';
@@ -12,20 +13,23 @@ require('./profile-detail.less');
         enableEdit: store.profile.enableEdit,
     }
 })
+
 class ProfileDetail extends Component {
     render() {
+        const user = { ...this.props.profileUser }
+        console.log("profile-detail")
         return (
             <profile-detail>
                 <div className='pd-head-con center-flex'>
                     <BackPicChange className='profile-head-pic' label='Change your profile photo'
-                        imgSrc={this.props.profileUser.headPic} active={this.props.enableEdit} />
+                        imgSrc={user.headPic} active={this.props.enableEdit} />
                     <EditProfileButton />
                 </div>
 
                 <div className='profile-info-con'>
-                    <LinkProfileName>
-                        <h5 className='mont-font'>{this.props.profileUser.nickName}</h5>
-                    </LinkProfileName>
+                    <ContentEditable className='pic-nickname mont-font edit-text-con' html={user.nickName}
+                        disabled={!this.props.enableEdit}
+                        onChange={this.props.onChange} />
                 </div>
             </profile-detail>
         );

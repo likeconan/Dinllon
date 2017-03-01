@@ -20,11 +20,11 @@ require('./top-menu.less');
 
 class TopMenu extends Component {
     render() {
-        console.log(IfMobile)
+        //console.log(IfMobile)
         const activeObj = this.props.activeObj;
         var user = new UserModel(this.props.user).user;
         return (
-            <top-menu>
+            <top-menu class={Classnames('logged', this.props.isAuthorize)}>
                 <div className={Classnames('center-flex tm-con',
                     { 'active-back z-depth-1': activeObj.active },
                     { 'logged': this.props.isAuthorize && activeObj.mbActive })}>

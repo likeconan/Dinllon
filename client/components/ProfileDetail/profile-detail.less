@@ -13,6 +13,20 @@ profile-detail {
             display: none;
         }
     }
+    .profile-info-con {
+        padding: 5px 10px;
+        .edit-text-con {
+            padding: 10px 5px;
+            &[contenteditable='true'] {
+                border: 2px solid rgb(0, 188, 212);
+                border-radius: 5px;
+            }
+        }
+        .pic-nickname {
+            font-size: 22px;
+        }
+        .sex-radios {}
+    }
     @media screen and (max-width:1280px) {
         .pd-head-con {
             flex-direction: column;
@@ -37,21 +51,16 @@ profile-detail {
             .profile-head-pic {
                 width: 50px;
                 height: 50px;
-                .cc-con{
+                .cc-con {
                     margin: 0;
-                    svg{
+                    svg {
                         width: 24px !important;
                         height: 24px !important;
                     }
-                    p{
+                    p {
                         display: none;
                     }
                 }
-            }
-        }
-        .profile-info-con {
-            h5 {
-                font-size: 18px;
             }
         }
     }

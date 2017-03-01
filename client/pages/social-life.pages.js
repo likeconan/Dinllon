@@ -7,16 +7,10 @@ import Classnames from 'classnames';
 import { searchLife } from '../actions/social-status.action';
 import { connect } from 'react-redux';
 
-@connect((store) => {
-    return {
-        isAuthorize: store.user.isAuthorize
-    }
-})
-
 class SocialLife extends Component {
     render() {
         return (
-            <social-life class={Classnames({ 'logged-page': this.props.isAuthorize })}>
+            <social-life>
                 <div className='all-center-flex life-container'>
                     <div className='life-left-con'>
                         <BriefProfile />
