@@ -1,29 +1,29 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import StatusChild from '../StatusChild/StatusChild';
-import { searchLife } from '../../actions/social-status.action';
-import { connect } from 'react-redux';
-
+import {searchLife} from '../../actions/social-status.action';
+import {connect} from 'react-redux';
 
 require('./status.less');
 
 @connect((store) => {
-    return {
-        statusList: store.socialStatus.statusList
-    }
+    return {statusList: store.socialStatus.statusList}
 })
 
 class Status extends Component {
 
     componentWillMount() {
-        this.props.dispatch(this.props.action());
+        this
+            .props
+            .dispatch(this.props.action());
     }
 
     render() {
-        var child = this.props.statusList.map((val, key) => {
-            return (
-                <StatusChild data={val} key={key} />
-            )
-        })
+        var child = this
+            .props
+            .statusList
+            .map((val, key) => {
+                return (<StatusChild data={val} key={key}/>)
+            })
         return (
             <status>
                 {child}

@@ -3,7 +3,7 @@ import { dinaxios } from '../utilities/dinaxios';
 export function searchLife() {
     return function (dispatch) {
         dinaxios
-            .get(dispatch, 'statuses')
+            .get(dispatch, 'moments')
             .then((data) => {
                 dispatch({
                     type: 'SEARCH_LIFE',
@@ -16,7 +16,7 @@ export function searchLife() {
 export function addStatus(status) {
     return function (dispatch) {
         dinaxios
-            .post(dispatch, 'statuses')
+            .post(dispatch, 'moments')
             .then((response) => {
                 dispatch({
                     type: 'ADD_STATUS',
