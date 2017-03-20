@@ -10,7 +10,7 @@ class FlexImageGallery extends Component {
     }
     render() {
         var images = this.props.images;
-        images = images ? images.map((val) => { return { original: val } }) : [];
+        images = images ? images.map((val) => { return { original: val.url } }) : [];
         return (
             <ImageGallery items={images} showThumbnails={false} showFullscreenButton={false} showPlayButton={false}
                 renderItem={this._renderItem} />

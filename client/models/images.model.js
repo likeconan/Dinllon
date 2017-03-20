@@ -1,12 +1,27 @@
+import {staticServer} from '../utilities';
+
 class ImagesModel {
     constructor(imgContent) {
         this.imgContent = imgContent && imgContent.length
             ? imgContent
-            : ["/client/assets/images/replaced-pic.jpg"];
+            : [
+                {
+                    url: '/default/replaced-pic.jpg'
+                }
+            ];
+        this.imgContent = this
+            .imgContent
+            .map((val) => {
+                var obj = {
+                    ...val,
+                    url: staticServer + val.url
+                }
+                return obj;
+            })
     }
     getStatusImgs = () => {
         var imgArray = [...this.imgContent];
-        
+
         var firstImg = imgArray
             .shift()
             .url;

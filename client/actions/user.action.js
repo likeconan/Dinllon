@@ -1,9 +1,12 @@
+import {dinaxios} from '../utilities/dinaxios';
+import validator from 'validator';
+
 export function userLogin() {
-    return {
-        type: 'USER_LOGIN',
-        payload: {
-            name: 'Will',
-            goingOn: 'haha success'
-        }
+    return function (dispatch) {
+        dinaxios
+            .get(dispatch, "users")
+            .then((data) => {
+                dispatch({type: 'USER_LOGIN', payload: data})
+            });
     }
 }
