@@ -1,6 +1,6 @@
 import axios from 'axios';
-import 'whatwg-fetch'
 import * as load from '../actions/loading.action';
+import Authorize from './authorize';
 
 //const api_url = 'https://private-29c881-dinllonapi.apiary-mock.com/';
 const api_url = 'http://localhost:9000/';
@@ -9,25 +9,29 @@ export var dinaxios = {
     get: (dispatch, url, data, errMsg) => {
         dispatch(load.loading());
         var p = new Promise((resolve, reject) => {
-            fetch(api_url + url, {
-                method: "GET",
+            axios
+                .get(api_url + url, {
                 params: data,
-                
-            }).then((response) => {
-                dispatch(load.loaded());
-                if (response.data.isSuccess) {
-                    resolve(response.data.data);
-                } else {
-                    //need to be do with toast
-                    console.log(response.data.errors);
-                    reject(response.data.errors);
+                headers: {
+                    'x-access-token': Authorize.getToken()
                 }
-            }).catch((err) => {
-                dispatch(load.loaded());
-                //need to be do with toast
-                console.log(err);
-                reject(err);
-            });
+            })
+                .then((response) => {
+                    dispatch(load.loaded());
+                    if (response.data.isSuccess) {
+                        resolve(response.data.data);
+                    } else {
+                        //need to be do with toast
+                        console.log(response.data.errors);
+                        reject(response.data.errors);
+                    }
+                })
+                .catch((err) => {
+                    dispatch(load.loaded());
+                    //need to be do with toast
+                    console.log(err);
+                    reject(err);
+                });
         })
         return p;
     },
