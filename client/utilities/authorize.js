@@ -4,10 +4,14 @@ import store from 'store2';
 class Authorize {
 
     constructor() {
-        this.isAuthorize = true;
+        this.token = null;
     }
-    loggedUser = () => {
-        
+
+    setToken = (token) => {
+        this.token = token
+    }
+    getToken = () => {
+        return this.token;
     }
 
     isLoginNav = (authorized) => {

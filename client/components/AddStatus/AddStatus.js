@@ -12,7 +12,13 @@ import FontIcon from 'material-ui/FontIcon';
 require('./add-status.less');
 
 @connect((store) => {
-    return {statusObj: store.socialStatus.statusObj, activeEdit: store.socialStatus.activeEdit, textEdited: store.socialStatus.textEdited, countdown: store.socialStatus.countdown}
+    var obj = {
+        statusObj: store.socialStatus.statusObj,
+        activeEdit: store.socialStatus.activeEdit,
+        textEdited: store.socialStatus.textEdited,
+        countdown: store.socialStatus.countdown
+    }
+    return obj
 })
 
 class AddStatus extends Component {
@@ -39,7 +45,7 @@ class AddStatus extends Component {
 
     _addStatus = () => {
         var data = {
-            ...this.props.statusObj,
+            ...this.props.statusObj
         };
         this
             .props
