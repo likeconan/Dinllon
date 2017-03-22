@@ -39,7 +39,12 @@ export var dinaxios = {
         dispatch(load.loading());
         var p = new Promise((resolve, reject) => {
             axios
-                .post(api_url + url, {data: data})
+                .post(api_url + url, {
+                data: data,
+                headers: {
+                    'x-access-token': Authorize.getToken()
+                }
+            })
                 .then((response) => {
                     dispatch(load.loaded());
                     if (response.data.isSuccess) {
