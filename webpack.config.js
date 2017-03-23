@@ -1,37 +1,41 @@
 var webpack = require('webpack');
+var path = require('path');
 var PROD = process.env.NODE_ENV === "production";
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-const extractLess = new ExtractTextPlugin({filename: "./bundle.css"});
+const extractLess = new ExtractTextPlugin({filename: "bundle.css"});
+
+const plguins = PROD
+    ? [
+        extractLess, new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify('production')
+            }
+        }),
+        new webpack
+            .optimize
+            .UglifyJsPlugin()
+    ]
+    : [extractLess]
 
 module.exports = {
     entry: ['./client/app.client.js'],
     output: {
-        path: './build',
+        path: path.resolve(__dirname, 'build'),
         filename: 'bundle.js'
     },
     resolve: {
         // Add `.ts` and `.tsx` as a resolvable extension.
         extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js']
     },
-    plugins: PROD
-        ? [
-            new webpack
-                .optimize
-                .UglifyJsPlugin({
-                    compress: {
-                        warnings: false
-                    }
-                })
-        ]
-        : [],
+
     module: {
         rules: [
             {
                 test: /\.js$/,
                 exclude: /(node_modules|bower_components)/,
                 loader: 'babel-loader',
-                query: {
+                options: {
                     presets: [
                         'es2015', 'react', 'stage-0'
                     ],
@@ -60,5 +64,5 @@ module.exports = {
         ]
 
     },
-    plugins: [extractLess]
+    plugins: plguins
 }

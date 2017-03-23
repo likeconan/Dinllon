@@ -1,15 +1,15 @@
-import { dinaxios } from '../utilities/dinaxios';
+import dinaxios from '../utilities/dinaxios';
 
 export function searchLife() {
     return function (dispatch) {
-        dinaxios
-            .get(dispatch, 'moments')
-            .then((data) => {
-                dispatch({
-                    type: 'SEARCH_LIFE',
-                    payload: data
-                })
-            });
+        dinaxios({
+            url: 'moments'
+        }).then((data) => {
+            dispatch({
+                type: 'SEARCH_LIFE',
+                payload: data
+            })
+        });
     }
 }
 

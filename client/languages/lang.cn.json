@@ -3,5 +3,7 @@
     "my_treat": "我请客",
     "free": "免费",
     "enjoy": "悦，",
-    "meet": "遇你所想。"
+    "meet": "遇你所想。",
+    "login_required":"你还没有登录，请先登录",
+    "unknow_error":"非常抱歉，出现错误了"
 }

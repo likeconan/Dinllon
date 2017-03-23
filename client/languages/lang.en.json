@@ -3,5 +3,7 @@
     "my_treat": "My treat",
     "free": "Free",
     "enjoy": "Enjoy,",
-    "meet":"Meet the ones you like."
+    "meet": "Meet the ones you like.",
+    "login_required": "Please login first",
+    "unknow_error": "Sorry, something error happened"
 }

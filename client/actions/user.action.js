@@ -1,15 +1,16 @@
-import {dinaxios} from '../utilities/dinaxios';
+import dinaxios from '../utilities/dinaxios';
 import validator from 'validator';
-import {Authorize} from '../utilities';
+import { Authorize } from '../utilities';
 
 export function userLogin(user) {
     return function (dispatch) {
-        dinaxios
-            .get(dispatch, "users/mobile", user)
-            .then((data) => {
-                Authorize.setToken(data.token);
-                dispatch({type: 'USER_LOGIN', payload: data.user})
-            });
+        dinaxios({
+            url: 'users/mobile',
+            params: user
+        }).then((data) => {
+            Authorize.setToken(data.token);
+            dispatch({ type: 'USER_LOGIN', payload: data.user })
+        });
     }
 }
 
