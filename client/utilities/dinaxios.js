@@ -1,10 +1,9 @@
 import axios from 'axios';
 import * as load from '../actions/loading.action';
+import { showToast } from '../actions/toast.action';
 import Authorize from './authorize';
+import Translate from './translate';
 import store from '../store';
-
-//const api_url = 'https://private-29c881-dinllonapi.apiary-mock.com/';
-const api_url = 'http://localhost:9000/';
 
 export default (obj) => {
     var p = new Promise((resolve, reject) => {
@@ -23,6 +22,10 @@ export default (obj) => {
                 resolve(response.data.data);
             } else {
                 //need to be do with toast
+                store.dispatch(showToast({
+                    class: 'error-toast',
+                    message: Translate.instant(response.data.errors[0].message)
+                }))
                 console.log(response.data.errors);
                 reject(response.data.errors);
             }

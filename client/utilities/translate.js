@@ -10,7 +10,9 @@ class Translate {
                 break;
 
         }
-
+    }
+    instant = (prop) => {
+        return this.lang[prop] ? this.lang[prop] : prop;
     }
 }
 

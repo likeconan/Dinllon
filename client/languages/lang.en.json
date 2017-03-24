@@ -4,6 +4,12 @@
     "free": "Free",
     "enjoy": "Enjoy,",
     "meet": "Meet the ones you like.",
+    "mobile": "Mobile",
+    "password": "Password",
+    "login": "Login",
     "login_required": "Please login first",
-    "unknow_error": "Sorry, something error happened"
+    "unknow_error": "Sorry, something error happened",
+    "mobile_error": "Please enter valid mobile number",
+    "password_error": "Password must be required and at least 6 characters",
+    "user.noexist": "The username or password is wrong,please enter again"
 }

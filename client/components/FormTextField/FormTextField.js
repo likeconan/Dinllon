@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
-import {grey50, blue500} from 'material-ui/styles/colors';
+import { grey50, blue500 } from 'material-ui/styles/colors';
 
 class FormTextField extends Component {
     constructor(props) {
@@ -11,10 +11,10 @@ class FormTextField extends Component {
         };
     }
     _focus = () => {
-        this.setState({focused: true});
+        this.setState({ focused: true });
     }
     _blur = () => {
-        this.setState({blured: true})
+        this.setState({ blured: true })
     }
 
     render() {
@@ -34,14 +34,14 @@ class FormTextField extends Component {
             floatingLabelFocusStyle={blue}
             underlineFocusStyle={blue}
             floatingLabelStyle={this.props.white
-            ? white
-            : {}}
+                ? white
+                : {}}
             inputStyle={this.props.white
-            ? white
-            : {}}
-            errorText={this.state.focused && this.state.blured && !this.props.validated
-            ? this.props.errorText
-            : ''}/>);
+                ? white
+                : {}}
+            errorText={(this.state.focused && this.state.blured || this.props.submitted) && !this.props.validated
+                ? this.props.errorText
+                : ''} />);
     }
 }
 
