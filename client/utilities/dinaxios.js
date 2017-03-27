@@ -23,7 +23,7 @@ export default (obj) => {
             } else {
                 //need to be do with toast
                 store.dispatch(showToast({
-                    class: 'error-toast',
+                    className: 'error-toast',
                     message: Translate.instant(response.data.errors[0].message)
                 }))
                 console.log(response.data.errors);

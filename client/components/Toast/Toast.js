@@ -15,7 +15,8 @@ require('./toast.less')
 class Toast extends Component {
     render() {
         return (
-            <Snackbar open={this.props.open} message={this.props.msgObj.message} autoHideDuration={3000} />
+            <Snackbar open={this.props.open} className={this.props.msgObj.className}
+                message={this.props.msgObj.message} autoHideDuration={3000} />
 
         );
     }

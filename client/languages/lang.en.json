@@ -11,5 +11,10 @@
     "unknow_error": "Sorry, something error happened",
     "mobile_error": "Please enter valid mobile number",
     "password_error": "Password must be required and at least 6 characters",
-    "user.noexist": "The username or password is wrong,please enter again"
+    "user.noexist": "The username or password is wrong,please enter again",
+    "register": "Register",
+    "forget_password": "Forget password?",
+    "sms_code": "SMS Code",
+    "sms_error": "Wrong SMS code",
+    "users_mobile_key_23505": "The mobile has been registered"
 }

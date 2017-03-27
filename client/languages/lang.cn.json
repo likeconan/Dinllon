@@ -11,5 +11,10 @@
     "unknow_error": "非常抱歉，出现错误了",
     "mobile_error": "请输入有效的手机号",
     "password_error": "请输入至少6位的密码",
-    "user.noexist": "用户名或密码错误，请重新输入"
+    "user.noexist": "用户名或密码错误，请重新输入",
+    "register": "注册",
+    "forget_password": "忘记密码?",
+    "sms_code": "短信验证码",
+    "sms_error": "验证码错误",
+    "users_mobile_key_23505": "手机号码已存在"
 }

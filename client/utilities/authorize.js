@@ -8,6 +8,8 @@ class Authorize {
     }
 
     setToken = (token) => {
+        debugger;
+        store.local('user_token', token);
         this.token = token
     }
     getToken = () => {

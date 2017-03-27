@@ -39,6 +39,7 @@ class FormTextField extends Component {
             inputStyle={this.props.white
                 ? white
                 : {}}
+            style={this.props.style}
             errorText={(this.state.focused && this.state.blured || this.props.submitted) && !this.props.validated
                 ? this.props.errorText
                 : ''} />);

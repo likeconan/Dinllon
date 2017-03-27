@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import WhiteTextField from '../components/WhiteTextField/WhiteTextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import FormTextField from '../components/FormTextField/FormTextField';
 import { editMobile, editPassword, userLogin } from '../actions/user.action';
 import { Translate } from '../utilities';
 
 @connect((store) => {
-    return { loginViewModel: store.user.loginViewModel };
+    return { loginViewModel: store.user.loginViewModel, loading: store.load.loading };
 })
 
 class Login extends Component {
@@ -35,7 +37,7 @@ class Login extends Component {
         this.setState({
             submitted: true
         });
-        if (this.props.loginViewModel.validatedMobile && this.props.loginViewModel.validatedMobile) {
+        if (this.props.loginViewModel.validatedMobile && this.props.loginViewModel.validatedPassword && !this.props.loading) {
             this
                 .props
                 .dispatch(userLogin(this.props.loginViewModel));
@@ -68,7 +70,14 @@ class Login extends Component {
                     label='Get Started'
                     primary={true}
                     onClick={this._loginClick} />
-                <div></div>
+                <div className='other-action-con'>
+                    <Link to="/register">
+                        <FlatButton label={Translate.lang.register} labelStyle={{ color: 'white' }} rippleColor='white' />
+                    </Link>
+                    <Link to="/forget">
+                        <FlatButton label={Translate.lang.forget_password} labelStyle={{ color: 'white' }} rippleColor='white' />
+                    </Link>
+                </div>
             </div>
         );
     }

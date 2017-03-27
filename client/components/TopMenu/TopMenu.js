@@ -14,13 +14,18 @@ require('./top-menu.less');
 
 @connect((store) => {
     return {
-        isAuthorize: store.user.isAuthorize
+        isAuthorize: store.user.isAuthorize,
+        user: store.user.loggedUser
     }
 })
 
 class TopMenu extends Component {
+
+    componentWillMount() {
+        
+    }
+
     render() {
-        //console.log(IfMobile)
         const activeObj = this.props.activeObj;
         var user = new UserModel(this.props.user).user;
         return (

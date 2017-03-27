@@ -12,7 +12,7 @@ class Translate {
         }
     }
     instant = (prop) => {
-        return this.lang[prop] ? this.lang[prop] : prop;
+        return this.lang[prop.toLowerCase()] ? this.lang[prop.toLowerCase()] : prop;
     }
 }
 
