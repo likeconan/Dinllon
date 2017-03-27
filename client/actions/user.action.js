@@ -83,9 +83,16 @@ export function editSMS(val) {
 export function getLoggedUser() {
     return function (dispatch) {
         dinaxios({
-            url: 'users'
+            url: 'users/authorize'
         }).then((data) => {
-            dispatch({ type: 'USER_REGISTER', payload: data.user })
+            dispatch({ type: 'GET_USER_AUTHORIZE', payload: data })
         });
+    }
+}
+
+export function logOut() {
+    Authorize.setToken(null);
+    return {
+        type: 'USER_LOGOUT'
     }
 }

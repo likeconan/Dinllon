@@ -80,6 +80,18 @@ export default function reducer(state = {
                 loggedUser: action.payload,
                 isAuthorize: true
             }
+        case 'GET_USER_AUTHORIZE':
+            return {
+                ...state,
+                loggedUser: action.payload.loggedUser,
+                isAuthorize: action.payload.isAuthorize
+            }
+        case 'USER_LOGOUT':
+            return {
+                ...state,
+                loggedUser: {},
+                isAuthorize: false
+            }
         default:
             return state;
     }

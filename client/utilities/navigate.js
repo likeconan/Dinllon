@@ -10,7 +10,7 @@ class Navigate {
     toggleTopBack(pathname) {
         var obj = {
             active: pathname && (pathname.indexOf('/life') >= 0 || pathname.indexOf('/profile') >= 0),
-            mbActive: pathname && pathname.indexOf('/life') >= 0
+            mbActive: pathname && pathname.indexOf('/life') >= 0,
         };
         return obj;
     }

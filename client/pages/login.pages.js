@@ -44,6 +44,11 @@ class Login extends Component {
         }
 
     }
+    _loginPress = (e) => {
+        if (e.charCode === 13) {
+            this._loginClick()
+        }
+    }
 
     render() {
         return (
@@ -62,6 +67,7 @@ class Login extends Component {
                     type='password'
                     submitted={this.state.submitted}
                     onChange={this._updatePassword}
+                    onKeyPress={this._loginPress}
                     validated={this.props.loginViewModel.validatedPassword}
                     value={this.props.loginViewModel.password}
                     errorText={Translate.lang.password_error}></FormTextField>

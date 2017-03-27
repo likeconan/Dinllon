@@ -4,11 +4,10 @@ import store from 'store2';
 class Authorize {
 
     constructor() {
-        this.token = null;
+        this.token = store.local('user_token');
     }
 
     setToken = (token) => {
-        debugger;
         store.local('user_token', token);
         this.token = token
     }

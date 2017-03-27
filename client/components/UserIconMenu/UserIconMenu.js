@@ -10,6 +10,7 @@ import Divider from 'material-ui/Divider';
 import Classnames from 'classnames';
 import { connect } from 'react-redux';
 import { openCreateDialog } from '../../actions/activity.action';
+import { logOut } from '../../actions/user.action';
 
 
 
@@ -24,6 +25,9 @@ class UserIconMenu extends Component {
     _openActivityDialog() {
         this.props.dispatch(openCreateDialog())
     }
+    _logOut() {
+        this.props.dispatch(logOut());
+    }
 
     render() {
         return (
@@ -36,7 +40,7 @@ class UserIconMenu extends Component {
                     <MenuItem primaryText="Create activitiy" leftIcon={<ToysIcon />} onClick={() => { this._openActivityDialog() }} />
                     <MenuItem primaryText="Settings" leftIcon={<SettingsIcon />} />
                     <Divider />
-                    <MenuItem primaryText="Sign out" leftIcon={<PowerSettingNewIcon />} />
+                    <MenuItem primaryText="Sign out" leftIcon={<PowerSettingNewIcon />} onClick={() => { this._logOut() }} />
                 </IconMenu>
             </user-icon-menu>
         );

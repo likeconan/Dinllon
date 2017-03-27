@@ -15,14 +15,16 @@ export function searchLife() {
 
 export function addStatus(status) {
     return function (dispatch) {
-        dinaxios
-            .post(dispatch, 'moments')
-            .then((response) => {
-                dispatch({
-                    type: 'ADD_STATUS',
-                    payload: status
-                })
-            });
+        dinaxios({
+            url: 'moments',
+            method: 'POST',
+            data: status
+        }).then((response) => {
+            dispatch({
+                type: 'ADD_STATUS',
+                payload: status
+            })
+        });
     }
 }
 

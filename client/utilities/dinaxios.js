@@ -2,6 +2,7 @@ import axios from 'axios';
 import * as load from '../actions/loading.action';
 import { showToast } from '../actions/toast.action';
 import Authorize from './authorize';
+import Navigate from './navigate';
 import Translate from './translate';
 import store from '../store';
 
@@ -32,6 +33,22 @@ export default (obj) => {
         }).catch((err) => {
             store.dispatch(load.loaded());
             //need to be do with toast
+            if (err.response.status === 403) {
+                store.dispatch(showToast({
+                    className: 'warn-toast',
+                    message: Translate.lang.login_required,
+                    autoHideDuration: 5000,
+                    action: Translate.lang.login,
+                    click: () => {
+                        Navigate.goToLogin();
+                    }
+                }))
+            } else {
+                store.dispatch(showToast({
+                    className: 'error-toast',
+                    message: Translate.lang.unknow_error
+                }))
+            }
             console.log(err);
             reject(err);
         });

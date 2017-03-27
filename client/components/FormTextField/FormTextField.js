@@ -28,6 +28,7 @@ class FormTextField extends Component {
             floatingLabelText={this.props.floatingLabelText}
             onFocus={this._focus}
             onBlur={this._blur}
+            onKeyPress={this.props.onKeyPress}
             onChange={this.props.onChange}
             value={this.props.value}
             type={this.props.type}
