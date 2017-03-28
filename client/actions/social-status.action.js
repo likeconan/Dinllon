@@ -19,10 +19,11 @@ export function addStatus(status) {
             url: 'moments',
             method: 'POST',
             data: status
-        }).then((response) => {
+        }).then((data) => {
+            debugger;
             dispatch({
                 type: 'ADD_STATUS',
-                payload: status
+                payload: data
             })
         });
     }

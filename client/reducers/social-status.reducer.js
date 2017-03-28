@@ -1,9 +1,7 @@
 export default function reducer(state = {
     statusList: [],
-    statusObj: {
-        textContent: '',
-        images: [],
-    },
+    textContent: '',
+    images: [],
     countdown: 150,
     activeEdit: false,
     textEdited: false
@@ -18,17 +16,17 @@ export default function reducer(state = {
                 textEdited: false,
                 activeEdit: false,
                 countdown: 150,
-                statusObj: { textContent: '', images: [] }
+                textContent: '', images: []
             }
         case 'ADD_STATUS_IMAGE': {
             var temp = action.payload.map((file, key) => {
-                file.id = state.statusObj.images.length + key;
+                file.id = state.images.length + key;
                 return file;
             });
-            const files = state.statusObj.images.concat(temp);
+            const files = state.images.concat(temp);
             return {
                 ...state,
-                statusObj: { ...state.statusObj, images: files },
+                images: files,
                 activeEdit: true
             }
         }
@@ -37,18 +35,17 @@ export default function reducer(state = {
             var textEdited = payload.val.length > 0;
             return {
                 ...state,
-                statusObj: { ...state.statusObj, textContent: payload.val },
+                textContent: payload.val,
                 countdown: payload.countdown,
                 textEdited: textEdited
             }
         }
         case 'DELETE_STATUS_IMAGE': {
-            const files = state.statusObj.images.filter(s => s.id !== action.payload)
-            var imgs = { ...state.statusObj, images: files };
+            const files = state.images.filter(s => s.id !== action.payload)
             return {
                 ...state,
-                statusObj: imgs,
-                activeEdit: imgs.length > 0
+                images: files,
+                activeEdit: files.length > 0
             }
         }
 

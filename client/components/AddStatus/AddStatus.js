@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
-import {UserModel} from '../../models';
+import { UserModel } from '../../models';
 import IconInputImage from '../IconInputImage/IconInputImage';
-import {connect} from 'react-redux';
-import {addStatus, addStatusImage, editStatusText, deleteStatusImage} from '../../actions/social-status.action';
+import { connect } from 'react-redux';
+import { addStatus, addStatusImage, editStatusText, deleteStatusImage } from '../../actions/social-status.action';
 import TextAreaCount from '../TextAreaCount/TextAreaCount';
 import DroppedImage from '../DroppedImage/DroppedImage';
 import Classnames from 'classnames';
@@ -12,13 +12,14 @@ import FontIcon from 'material-ui/FontIcon';
 require('./add-status.less');
 
 @connect((store) => {
-    var obj = {
-        statusObj: store.socialStatus.statusObj,
+    return {
+        textContent: store.socialStatus.textContent,
+        images: store.socialStatus.images,
         activeEdit: store.socialStatus.activeEdit,
         textEdited: store.socialStatus.textEdited,
-        countdown: store.socialStatus.countdown
-    }
-    return obj
+        countdown: store.socialStatus.countdown,
+        loggedUser: store.user.loggedUser
+    };
 })
 
 class AddStatus extends Component {
@@ -44,9 +45,12 @@ class AddStatus extends Component {
     }
 
     _addStatus = () => {
-        var data = {
-            ...this.props.statusObj
-        };
+        var data = new FormData();
+        data.append('userId', this.props.loggedUser.uuid);
+        data.append('textContent', this.props.textContent);
+        this.props.images.forEach(function (file, key) {
+            data.append('file' + key, file)
+        }, this);
         this
             .props
             .dispatch(addStatus(data));
@@ -60,43 +64,43 @@ class AddStatus extends Component {
         return (
             <add-status class='cyan lighten-5'>
                 <div className='space-between'>
-                    <img src={user.headPic} className='head-pic'/>
+                    <img src={user.headPic} className='head-pic' />
                     <div>
                         <div className='add-status-con'>
                             <TextAreaCount
-                                className={Classnames('add-text-con', {'active': this.props.activeEdit})}
+                                className={Classnames('add-text-con', { 'active': this.props.activeEdit })}
                                 isEdited={this.props.textEdited}
-                                text={this.props.statusObj.textContent}
+                                text={this.props.textContent}
                                 placeholder="What's happening?"
-                                onChange={this._textChange}/>
-                            <IconInputImage className='add-photo' onDrop={this._onDrop}/>
+                                onChange={this._textChange} />
+                            <IconInputImage className='add-photo' onDrop={this._onDrop} />
                         </div>
                         <DroppedImage
-                            images={this.props.statusObj.images}
+                            images={this.props.images}
                             className='photo-con'
-                            onClick={this._onDelete}/> {this.props.textEdited || this.props.activeEdit
-                            ? (
-                                <div className='post-btn-con'>
-                                    <div>
-                                        <span
-                                            className={Classnames('grey-text text-darken-2 margin-right', {
-                                            'error-msg': this.props.countdown < 0
-                                        })}>
-                                            {this.props.countdown}
-                                        </span>
-                                        <RaisedButton
-                                            label="Post"
-                                            labelPosition="after"
-                                            primary={true}
-                                            onClick={this._addStatus}
-                                            disabled={this.props.countdown < 0}
-                                            icon={sendIcon}/>
-                                    </div>
+                            onClick={this._onDelete} /> {this.props.textEdited || this.props.activeEdit
+                                ? (
+                                    <div className='post-btn-con'>
+                                        <div>
+                                            <span
+                                                className={Classnames('grey-text text-darken-2 margin-right', {
+                                                    'error-msg': this.props.countdown < 0
+                                                })}>
+                                                {this.props.countdown}
+                                            </span>
+                                            <RaisedButton
+                                                label="Post"
+                                                labelPosition="after"
+                                                primary={true}
+                                                onClick={this._addStatus}
+                                                disabled={this.props.countdown < 0}
+                                                icon={sendIcon} />
+                                        </div>
 
-                                </div>
-                            )
-                            : null
-}
+                                    </div>
+                                )
+                                : null
+                        }
                     </div>
                 </div>
             </add-status>

@@ -17,6 +17,7 @@ class IconInputImage extends Component {
         if (this.props.onDrop) {
             this.props.onDrop(acceptedFiles);
         }
+        evt.target.value = '';
     }
 
     render() {
@@ -24,7 +25,7 @@ class IconInputImage extends Component {
             <IconButton className={Classnames(this.props.className)} iconClassName="material-icons" iconStyle={{ color: blueA400 }}>
                 add_a_photo
                     <input type="file" className='input-file cursor-pointer' accept='image/*'
-                    multiple={true} onChange={(e) => this.onDrop(e)} />
+                    multiple={true} onChange={this.onDrop} title=' '/>
             </IconButton>
         );
     }
