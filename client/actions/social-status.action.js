@@ -20,7 +20,6 @@ export function addStatus(status) {
             method: 'POST',
             data: status
         }).then((data) => {
-            debugger;
             dispatch({
                 type: 'ADD_STATUS',
                 payload: data

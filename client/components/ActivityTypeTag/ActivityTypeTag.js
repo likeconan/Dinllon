@@ -10,7 +10,7 @@ class ActivityTypeTag extends Component {
             <activity-type-tag class=''>
                 <a className={Classnames('tag', { [`type-${this.props.type}`]: true })}>
                     {EnumModel.getActivityType(this.props.type)}
-                    {this.props.type == 1 ? this.props.cost : ''}
+                    {this.props.type == 1 ? ' | ' + this.props.cost : ''}
                 </a>
             </activity-type-tag>
         );

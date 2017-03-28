@@ -10,6 +10,7 @@ export default function reducer(state = {
         type: 1,
         startDate: null,
     },
+    disableCost: false,
     friendEmail: '',
     validatedJoin: false,
     validatedCreate: false,
@@ -62,7 +63,20 @@ export default function reducer(state = {
             }
         }
         case 'ADD_ACTIVITY': {
-
+            return {
+                ...state,
+                activityObj: {
+                    textContent: null,
+                    images: [],
+                    startTime: '12:00',
+                    cost: 0,
+                    type: 1,
+                    startDate: null,
+                },
+                textEdited: false,
+                countdown: 150,
+                validatedCreate: false
+            }
         }
         case 'EDIT_ACTIVITY_TIME': {
             return {
@@ -88,6 +102,7 @@ export default function reducer(state = {
             return {
                 ...state,
                 activityObj: { ...state.activityObj, type: action.payload },
+                disableCost: action.payload !== 1
             }
         }
         case 'EDIT_ACTIVITY_JOIN_EMAIL': {

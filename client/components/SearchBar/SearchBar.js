@@ -16,10 +16,10 @@ require('./search-bar.less');
 
 class SearchBar extends Component {
     render() {
-        const {active} = this.props;
+        const { active } = this.props;
         return (
             <search-bar class={Classnames('center-flex', this.props.className, { 'top-search-bar': active })} >
-                <AlphaTextField className='top-search-input' placeholder='Interested in?' />
+                <AlphaTextField className='top-search-input' placeholder={Translate.lang.interested_in} />
                 {active ?
                     (<IconButton iconClassName='material-icons'>search</IconButton>) :
                     (< RaisedButton label={Translate.lang.search} primary={true} onClick={() => this._search()} />)

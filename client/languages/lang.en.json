@@ -37,5 +37,11 @@
     "join_activity": "Join in activity",
     "friend_email": "Your friend's email",
     "warmth_tip": "Warmth tip",
-    "tip_when_accepted": "Once you are accepted we will inform your friend of your schedule"
+    "tip_when_accepted": "Once you are accepted we will inform your friend of your schedule",
+    "settings": "Settings",
+    "sign_out": "Sign out",
+    "recent_activities": "What recent activities",
+    "join_in": "Join in",
+    "next": "Next",
+    "no_activities": "No related activities are created so far. Maybe you can create one."
 }

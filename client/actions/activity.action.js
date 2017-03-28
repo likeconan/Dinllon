@@ -25,8 +25,20 @@ export function deleteActivityImage(key) {
     return { type: 'DELETE_ACTIVITY_IMAGE', payload: key }
 }
 
-export function addActivity(obj) {
-    return { type: 'ADD_ACTIVITY', payload: obj }
+export function addActivity(activity) {
+    return function (dispatch) {
+        dinaxios({
+            url: 'activities',
+            method: 'POST',
+            data: activity
+        }).then((data) => {
+            console.log(data);
+            dispatch(closeDialog());
+            dispatch({
+                type: 'ADD_ACTIVITY'
+            })
+        });
+    }
 }
 
 export function editActivityTime(val) {

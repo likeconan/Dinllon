@@ -1,19 +1,24 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import UserBrief from '../UserBrief/UserBrief';
 import FlexImages from '../FlexImages/FlexImages';
 import RaisedButton from 'material-ui/RaisedButton';
 import IconButton from 'material-ui/IconButton';
 import Moment from 'react-moment';
-import {TimeFormat} from '../../utilities';
-import {connect} from 'react-redux';
-import {openJoinDialog, searchActivity} from '../../actions/activity.action';
+import { TimeFormat } from '../../utilities';
+import { connect } from 'react-redux';
+import { openJoinDialog, searchActivity } from '../../actions/activity.action';
 import ActivityTypeTag from '../ActivityTypeTag/ActivityTypeTag'
-import {UserModel} from '../../models';
+import { UserModel } from '../../models';
+import { Translate } from '../../utilities';
 
 require('./quick-activity.less');
 
 @connect((store) => {
-    return {openCreate: store.activity.openCreate, openJoin: store.activity.openJoin, activity: store.activity.activity}
+    return {
+        openCreate: store.activity.openCreate,
+        openJoin: store.activity.openJoin,
+        activity: store.activity.activity
+    }
 })
 class QuickActivity extends Component {
     componentWillMount() {
@@ -39,11 +44,11 @@ class QuickActivity extends Component {
         return (
             <quick-activity class='white'>
                 <div className='space-between center-flex'>
-                    <p className='qa-title'>What recent activities</p>
+                    <p className='qa-title'>{Translate.lang.recent_activities}</p>
                     <IconButton
                         iconClassName="material-icons mirror-transform"
                         iconStyle={color}
-                        tooltip="Next activity">
+                        tooltip={Translate.lang.next}>
                         reply
                     </IconButton>
                 </div>
@@ -55,9 +60,9 @@ class QuickActivity extends Component {
                         <div>
                             <div className='activity-detail-con'>
                                 <div className='qa-user-con space-between'>
-                                    <UserBrief className='qa-user-brief' user={user}/>
+                                    <UserBrief className='qa-user-brief' user={user} />
                                     <small className='grey-text text-darken-1'>
-                                        <Moment toNow ago>{this.props.activity.createdTime}</Moment>
+                                        <Moment toNow ago>{this.props.activity.createdAt}</Moment>
                                     </small>
                                 </div>
                                 <div className='activity-con'>
@@ -65,9 +70,9 @@ class QuickActivity extends Component {
                                     <div className='cost-con'>
                                         <ActivityTypeTag
                                             type={this.props.activity.type}
-                                            cost={this.props.activity.cost}/>
+                                            cost={this.props.activity.cost} />
                                     </div>
-                                    <FlexImages imgContent={this.props.activity.Images}/>
+                                    <FlexImages imgContent={this.props.activity.Images} />
                                     <div
                                         className='time-con all-center-flex amber accent-1 grey-text text-darken-2'>
                                         <i className='material-icons'>access_time</i>
@@ -75,18 +80,18 @@ class QuickActivity extends Component {
                                     </div>
                                     <RaisedButton
                                         className='width-100p'
-                                        label='Join in'
+                                        label={Translate.lang.join_in}
                                         onClick={() => {
-                                        this._openActivityDialog(false)
-                                    }}
-                                        primary={true}/>
+                                            this._openActivityDialog(false)
+                                        }}
+                                        primary={true} />
                                 </div>
                             </div>
 
                             {/* mobile */}
                             <div className='mb-activity-detail-con margin-bottom'>
                                 <div className='qa-user-con'>
-                                    <img className='circle margin-right' src={user.headPic}/>
+                                    <img className='circle margin-right' src={user.headPic} />
                                     <div>
                                         <p className='roboto-font margin-bottom'>{this.props.activity.textContent}</p>
                                         <small className='grey-text text-darken-1 sans-font'>by {user.nickName}</small>
@@ -99,29 +104,28 @@ class QuickActivity extends Component {
                                     </div>
                                     <ActivityTypeTag
                                         type={this.props.activity.type}
-                                        cost={this.props.activity.cost}/>
+                                        cost={this.props.activity.cost} />
                                 </div>
                                 <FlexImages
                                     imgContent={this.props.activity.Images}
-                                    className='mobile-normal margin-bottom'/>
+                                    className='mobile-normal margin-bottom' />
                                 <RaisedButton
                                     className='width-100p'
                                     label='Join in'
                                     onClick={() => {
-                                    this._openActivityDialog(false)
-                                }}
-                                    primary={true}/>
+                                        this._openActivityDialog(false)
+                                    }}
+                                    primary={true} />
                             </div>
                         </div>
 
                     )
                     : (
                         <div className='no-activities grey-text text-darken-3'>
-                            <p>No related activities are created so far.<br/>Maybe you can create one.
-                            </p>
+                            <p>{Translate.lang.no_activities}</p>
                         </div>
                     )
-}
+                }
 
             </quick-activity>
         );

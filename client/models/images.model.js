@@ -1,14 +1,8 @@
-import {staticServer} from '../utilities';
+import { staticServer } from '../utilities';
 
 class ImagesModel {
     constructor(imgContent) {
-        this.imgContent = imgContent && imgContent.length
-            ? imgContent
-            : [
-                {
-                    url: '/default/replaced-pic.jpg'
-                }
-            ];
+        this.imgContent = [...imgContent];
         this.imgContent = this
             .imgContent
             .map((val) => {
@@ -20,8 +14,11 @@ class ImagesModel {
             })
     }
     getStatusImgs = () => {
-        var imgArray = [...this.imgContent];
-
+        var imgArray = this.imgContent.length ? [...this.imgContent] : [
+            {
+                url: '/default/replaced-pic.jpg'
+            }
+        ];
         var firstImg = imgArray
             .shift()
             .url;
@@ -31,7 +28,7 @@ class ImagesModel {
             .map((val) => {
                 return val.url;
             });
-        return {firstImg: firstImg, restImgs: restImgs}
+        return { firstImg: firstImg, restImgs: restImgs }
     }
     getImgsArray = () => {
         return [...this.imgContent];

@@ -11,7 +11,7 @@ import Classnames from 'classnames';
 import { connect } from 'react-redux';
 import { openCreateDialog } from '../../actions/activity.action';
 import { logOut } from '../../actions/user.action';
-
+import { Translate } from '../../utilities';
 
 
 require('./user-icon-menu.less');
@@ -37,10 +37,10 @@ class UserIconMenu extends Component {
                     iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
                     anchorOrigin={{ horizontal: 'left', vertical: 'top' }}
                     targetOrigin={{ horizontal: 'left', vertical: 'top' }} >
-                    <MenuItem primaryText="Create activitiy" leftIcon={<ToysIcon />} onClick={() => { this._openActivityDialog() }} />
-                    <MenuItem primaryText="Settings" leftIcon={<SettingsIcon />} />
+                    <MenuItem primaryText={Translate.lang.create_activity} leftIcon={<ToysIcon />} onClick={() => { this._openActivityDialog() }} />
+                    <MenuItem primaryText={Translate.lang.settings} leftIcon={<SettingsIcon />} />
                     <Divider />
-                    <MenuItem primaryText="Sign out" leftIcon={<PowerSettingNewIcon />} onClick={() => { this._logOut() }} />
+                    <MenuItem primaryText={Translate.lang.sign_out} leftIcon={<PowerSettingNewIcon />} onClick={() => { this._logOut() }} />
                 </IconMenu>
             </user-icon-menu>
         );
