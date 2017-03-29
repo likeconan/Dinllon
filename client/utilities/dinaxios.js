@@ -3,7 +3,6 @@ import * as load from '../actions/loading.action';
 import { showToast } from '../actions/toast.action';
 import Authorize from './authorize';
 import Navigate from './navigate';
-import Translate from './translate';
 import store from '../store';
 
 export default (obj) => {
@@ -25,7 +24,7 @@ export default (obj) => {
                 //need to be do with toast
                 store.dispatch(showToast({
                     className: 'error-toast',
-                    message: Translate.instant(response.data.errors[0].message)
+                    message: response.data.errors[0].message
                 }))
                 console.log(response.data.errors);
                 reject(response.data.errors);
@@ -36,9 +35,9 @@ export default (obj) => {
             if (err.response.status === 403) {
                 store.dispatch(showToast({
                     className: 'warn-toast',
-                    message: Translate.lang.login_required,
+                    message: 'login_required',
                     autoHideDuration: 5000,
-                    action: Translate.lang.login,
+                    action: 'login',
                     click: () => {
                         Navigate.goToLogin();
                     }
@@ -46,7 +45,7 @@ export default (obj) => {
             } else {
                 store.dispatch(showToast({
                     className: 'error-toast',
-                    message: Translate.lang.unknow_error
+                    message: 'unknow_error'
                 }))
             }
             console.log(err);

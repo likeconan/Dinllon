@@ -16,7 +16,7 @@ class ImagesModel {
     getStatusImgs = () => {
         var imgArray = this.imgContent.length ? [...this.imgContent] : [
             {
-                url: '/default/replaced-pic.jpg'
+                url: staticServer + '/default/replaced-pic.jpg'
             }
         ];
         var firstImg = imgArray

@@ -43,5 +43,6 @@
     "recent_activities": "What recent activities",
     "join_in": "Join in",
     "next": "Next",
-    "no_activities": "No related activities are created so far. Maybe you can create one."
+    "no_activities": "No related activities are created so far. Maybe you can create one.",
+    "activity_create_success": "Success in creating activity,start to invite your friends"
 }

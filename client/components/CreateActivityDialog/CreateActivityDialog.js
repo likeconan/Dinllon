@@ -81,17 +81,21 @@ class CreateActivityDialog extends Component {
 
     render() {
         const actions = [
-            <RaisedButton label={Translate.lang.create} primary={true} onTouchTap={this.createActivity} disabled={!this.props.validatedCreate} />,
+            <RaisedButton label={Translate.lang.create} primary={true} onTouchTap={this._createActivity}
+                disabled={!this.props.validatedCreate} />,
         ];
         return (
-            <ResponsiveDialog modal={false} className='add-activity-con' actions={actions} title={Translate.lang.create_activity} contentClassName='acc-content'
+            <ResponsiveDialog modal={false} className='add-activity-con' actions={actions}
+                title={Translate.lang.create_activity} contentClassName='acc-content'
                 open={this.props.open} onRequestClose={this.handleClose}>
                 <div>
                     <div className='aac-fee-con center-flex'>
                         <div className='center-flex margin-right'>
                             <label className='margin-right'>{Translate.lang.activity_type}</label>
-                            <SelectField value={this.props.activityObj.type} onChange={this._typeChange} style={{ width: '100px' }}
-                                labelStyle={{ paddingRight: 0, textAlign: 'center' }} iconStyle={{ right: '-20px' }}>
+                            <SelectField value={this.props.activityObj.type} onChange={this._typeChange}
+                                style={{ width: '100px' }}
+                                labelStyle={{ paddingRight: 0, textAlign: 'center' }}
+                                iconStyle={{ right: '-20px' }}>
                                 <MenuItem value={1} primaryText='AA' />
                                 <MenuItem value={2} primaryText={Translate.lang.my_treat} />
                                 <MenuItem value={3} primaryText={Translate.lang.free} />
@@ -115,7 +119,10 @@ class CreateActivityDialog extends Component {
                             onChange={this._textChange} isEdited={this.props.textEdited} />
                         <IconInputImage className='add-photo' onDrop={this._onDrop} />
                     </div>
-                    <DroppedImage images={this.props.activityObj.images} className='photo-activity-con' onClick={this._onDelete} />
+                    <DroppedImage
+                        images={this.props.activityObj.images}
+                        className='photo-activity-con'
+                        onClick={this._onDelete} />
                 </div>
 
             </ResponsiveDialog>

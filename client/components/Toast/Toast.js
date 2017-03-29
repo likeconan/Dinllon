@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Snackbar from 'material-ui/Snackbar';
 import { connect } from 'react-redux';
-
+import { Translate } from '../../utilities';
 require('./toast.less')
 
 @connect((store) => {
@@ -18,9 +18,9 @@ class Toast extends Component {
         return (
             <Snackbar open={this.props.open}
                 className={this.props.msgObj.className}
-                message={this.props.msgObj.message}
+                message={Translate.instant(this.props.msgObj.message)}
                 autoHideDuration={this.props.msgObj.autoHideDuration ? this.props.msgObj.autoHideDuration : 3000}
-                action={this.props.msgObj.action} onActionTouchTap={this.props.msgObj.click} />
+                action={Translate.instant(this.props.msgObj.action)} onActionTouchTap={this.props.msgObj.click} />
 
         );
     }

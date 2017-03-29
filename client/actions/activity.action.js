@@ -1,4 +1,5 @@
 import dinaxios from '../utilities/dinaxios';
+import { showToast } from './toast.action';
 import validator from 'validator';
 
 export function openCreateDialog() {
@@ -34,6 +35,10 @@ export function addActivity(activity) {
         }).then((data) => {
             console.log(data);
             dispatch(closeDialog());
+            dispatch(showToast({
+                className: 'success-toast',
+                message: 'activity_create_success'
+            }))
             dispatch({
                 type: 'ADD_ACTIVITY'
             })

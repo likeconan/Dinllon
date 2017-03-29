@@ -2,7 +2,7 @@ export default function reducer(state = {
     open: false,
     msgObj: {
         message: '',
-        class: ''
+        className: ''
     }
 }, action) {
     switch (action.type) {

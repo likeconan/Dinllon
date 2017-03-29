@@ -31,11 +31,13 @@
             border-radius: 6px;
         }
     }
-
     .cost-num {
         width: 80px !important;
-        input{
+        input {
             text-align: center;
+            &[disabled] {
+                text-decoration: line-through;
+            }
         }
     }
 }

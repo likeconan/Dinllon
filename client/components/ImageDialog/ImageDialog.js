@@ -22,7 +22,11 @@ class ImageDialog extends Component {
 
     render() {
         return (
-            <Dialog modal={false} open={this.props.open} onRequestClose={this.handleClose} contentClassName='image-dialog' bodyStyle={{ padding: 0, backgroundColor: '#e0e0e0' }}>
+            <Dialog modal={false}
+                open={this.props.open}
+                onRequestClose={this.handleClose}
+                contentClassName='image-dialog'
+                bodyStyle={{ padding: 0, backgroundColor: '#e0e0e0' }}>
                 <FlexImageGallery images={this.props.images} />
             </Dialog>
         );
