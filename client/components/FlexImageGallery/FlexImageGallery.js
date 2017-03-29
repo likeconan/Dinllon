@@ -6,9 +6,9 @@ import ArrowRight from 'material-ui/svg-icons/hardware/keyboard-arrow-right';
 
 require('./flex-image-gallery.less');
 class FlexImageGallery extends Component {
-    _renderItem = (item) => {
+    _renderItem = (imgUrl) => {
         return (
-            <div className='image-gallery-con' style={{ backgroundImage: 'url(' + item.original + ')' }}></div>
+            <div className='image-gallery-con' style={{ backgroundImage: 'url(' + imgUrl + ')' }}></div>
         )
     }
     styles = {
@@ -51,11 +51,9 @@ class FlexImageGallery extends Component {
         )
     }
 
-    render() {
-        var images = this.props.images;
-        images = images ? images.map((val) => { return { original: val.url } }) : [];
+    render() { 
         return (
-            <ImageGallery items={images}
+            <ImageGallery items={this.props.images}
                 showThumbnails={false}
                 showFullscreenButton={false}
                 showPlayButton={false}

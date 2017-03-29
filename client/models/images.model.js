@@ -6,31 +6,24 @@ class ImagesModel {
         this.imgContent = this
             .imgContent
             .map((val) => {
-                var obj = {
-                    ...val,
-                    url: staticServer + val.url
-                }
-                return obj;
+                return staticServer + val.url;
             })
     }
-    getStatusImgs = () => {
-        var imgArray = this.imgContent.length ? [...this.imgContent] : [
-            {
-                url: staticServer + '/default/replaced-pic.jpg'
-            }
+    getStatusImgUrl = () => {
+        var images = this.imgContent.length ? [...this.imgContent] : [
+            staticServer + '/default/replaced-pic.jpg'
         ];
-        var firstImg = imgArray
-            .shift()
-            .url;
+        var imgUrlArray = [...images];
+        var firstImgUrl = images.shift()
+        var restImgUrls = images.slice(0, 3);
 
-        var restImgs = imgArray
-            .slice(0, 3)
-            .map((val) => {
-                return val.url;
-            });
-        return { firstImg: firstImg, restImgs: restImgs }
+        return {
+            firstImgUrl: firstImgUrl,
+            restImgUrls: restImgUrls,
+            imgUrlArray: imgUrlArray
+        }
     }
-    getImgsArray = () => {
+    getImgUrlsArray = () => {
         return [...this.imgContent];
     }
 }

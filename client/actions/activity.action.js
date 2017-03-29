@@ -71,15 +71,25 @@ export function editFriendEmail(val) {
     }
 }
 
-export function searchActivity() {
+export function searchActivity(offset) {
     return function (dispatch) {
-        dinaxios({ url: 'activities', method: 'GET' }).then((data) => {
+        dinaxios({
+            url: 'activities',
+            method: 'GET',
+            params: {
+                offset: offset
+            }
+        }).then((data) => {
             dispatch({
                 type: 'GET_SEARCHED_ACTIVITY',
-                payload: Array.isArray(data)
-                    ? data[0]
-                    : null
+                payload: {
+                    activity: Array.isArray(data)
+                        ? data[0]
+                        : null,
+                    offset: offset
+                }
             })
         })
     }
 }
+

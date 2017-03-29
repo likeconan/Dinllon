@@ -15,14 +15,16 @@ class StatusImages extends Component {
 
     render() {
         var imgModel = new ImagesModel(this.props.imgContent);
-        var statusImgs = imgModel.getStatusImgs();
-        var imgArray = imgModel.getImgsArray();
-        var imgsEle = statusImgs.restImgs.map((val, key) => {
+        var statusImgUrl = imgModel.getStatusImgUrl();
+        var imgsEle = statusImgUrl.restImgUrls.map((val, key) => {
             return (<DivBackImage imgSrc={val} key={key}></DivBackImage>)
         });
         return (
             <status-images>
-                <div style={{ backgroundImage: 'url(' + statusImgs.firstImg + ')' }} onClick={() => this.showImages(imgArray)} className="primary-img img-content-container"></div>
+                <div
+                    style={{ backgroundImage: 'url(' + statusImgUrl.firstImgUrl + ')' }}
+                    onClick={() => this.showImages(statusImgUrl.imgUrlArray)}
+                    className="primary-img img-content-container"></div>
                 <div className="thumbnail-img-container">
                     {imgsEle}
                 </div>

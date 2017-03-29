@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Classnames from 'classnames';
 import IconButton from 'material-ui/IconButton';
+import AddPhotoIcon from 'material-ui/svg-icons/image/add-a-photo';
 import { blueA400 } from 'material-ui/styles/colors';
 
 require('./icon-input-image.less')
@@ -22,10 +23,10 @@ class IconInputImage extends Component {
 
     render() {
         return (
-            <IconButton className={Classnames(this.props.className)} iconClassName="material-icons" iconStyle={{ color: blueA400 }}>
-                add_a_photo
-                    <input type="file" className='input-file cursor-pointer' accept='image/*'
-                    multiple={true} onChange={this.onDrop} title=' '/>
+            <IconButton className={Classnames(this.props.className)} iconStyle={{ color: blueA400 }}>
+                <AddPhotoIcon />
+                <input type="file" className='input-file cursor-pointer' accept='image/*'
+                    multiple={true} onChange={this.onDrop} title=' ' />
             </IconButton>
         );
     }

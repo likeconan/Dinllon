@@ -3,6 +3,8 @@ import UserBrief from '../UserBrief/UserBrief';
 import FlexImages from '../FlexImages/FlexImages';
 import RaisedButton from 'material-ui/RaisedButton';
 import IconButton from 'material-ui/IconButton';
+import ReplyIcon from 'material-ui/svg-icons/content/reply';
+import TimeIcon from 'material-ui/svg-icons/device/access-time';
 import Moment from 'react-moment';
 import { TimeFormat } from '../../utilities';
 import { connect } from 'react-redux';
@@ -16,6 +18,7 @@ require('./quick-activity.less');
 @connect((store) => {
     return {
         openCreate: store.activity.openCreate,
+        offset: store.activity.offset,
         openJoin: store.activity.openJoin,
         activity: store.activity.activity
     }
@@ -27,10 +30,14 @@ class QuickActivity extends Component {
             .dispatch(searchActivity());
     }
 
-    _openActivityDialog() {
+    _openActivityDialog = () => {
         this
             .props
             .dispatch(this.props.dispatch(openJoinDialog()))
+    }
+
+    _nextActivity = () => {
+        this.props.dispatch(searchActivity(this.props.offset))
     }
 
     render() {
@@ -38,19 +45,24 @@ class QuickActivity extends Component {
             ? this.props.activity.User
             : null).user;
 
-        const color = {
-            color: '#bdbdbd'
+        const iconStyle = {
+            color: '#bdbdbd',
+            transform: 'scaleX(-1)'
         };
         return (
             <quick-activity class='white'>
-                <div className='space-between center-flex'>
+                <div className='qa-title-con space-between center-flex'>
                     <p className='qa-title'>{Translate.lang.recent_activities}</p>
-                    <IconButton
-                        iconClassName="material-icons mirror-transform"
-                        iconStyle={color}
-                        tooltip={Translate.lang.next}>
-                        reply
-                    </IconButton>
+                    {
+                        this.props.activity &&
+                        <IconButton
+                            onClick={this._nextActivity}
+                            iconStyle={iconStyle}
+                            tooltip={Translate.lang.next}>
+                            <ReplyIcon />
+                        </IconButton>
+                    }
+
                 </div>
                 {/*<div>
                     <RaisedButton className='width-100p' label='Create my activity' onClick={() => { this._openActivityDialog(true) }} secondary={true} />
@@ -75,15 +87,13 @@ class QuickActivity extends Component {
                                     <FlexImages imgContent={this.props.activity.Images} />
                                     <div
                                         className='time-con all-center-flex amber accent-1 grey-text text-darken-2'>
-                                        <i className='material-icons'>access_time</i>
+                                        <TimeIcon color='#616161' />
                                         <span>{TimeFormat.formatDateTime(this.props.activity.startedAt)}</span>
                                     </div>
                                     <RaisedButton
                                         className='width-100p'
                                         label={Translate.lang.join_in}
-                                        onClick={() => {
-                                            this._openActivityDialog(false)
-                                        }}
+                                        onClick={this._openActivityDialog}
                                         primary={true} />
                                 </div>
                             </div>
@@ -99,7 +109,7 @@ class QuickActivity extends Component {
                                 </div>
                                 <div className='cost-time-con center-flex'>
                                     <div className='time-con all-center-flex grey-text text-darken-2'>
-                                        <i className='material-icons'>access_time</i>
+                                        <TimeIcon color='#616161' />
                                         <span>{TimeFormat.formatDateTime(this.props.activity.startedAt)}</span>
                                     </div>
                                     <ActivityTypeTag
@@ -112,9 +122,7 @@ class QuickActivity extends Component {
                                 <RaisedButton
                                     className='width-100p'
                                     label='Join in'
-                                    onClick={() => {
-                                        this._openActivityDialog(false)
-                                    }}
+                                    onClick={this._openActivityDialog}
                                     primary={true} />
                             </div>
                         </div>

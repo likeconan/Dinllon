@@ -2,38 +2,36 @@ import React, { Component } from 'react';
 import Classnames from 'classnames';
 import { ImagesModel } from '../../models';
 import { showImageDialog } from '../../actions/images-dialog.action';
-import { connect } from 'react-redux';
+import store from '../../store';
 import DivBackImage from '../DivBackImage/DivBackImage';
 
 require('./flex-images.less');
 
-@connect()
-
 class FlexImages extends Component {
     constructor(props) {
         super(props);
-        this.imgArray = new ImagesModel(this.props.imgContent).getImgsArray();
-        this.imgEles = this
-            .imgArray
-            .map((val, key) => {
-                return (
-                    <DivBackImage imgSrc={val.url} key={key}></DivBackImage>
-                )
-            })
+
     }
 
-    _showImgDialog = () => {
-        this
-            .props
-            .dispatch(showImageDialog(this.imgArray));
+    _showImgDialog = (imgs) => {
+        store.dispatch(showImageDialog(imgs));
     }
     render() {
-        return (this.imgArray.length > 0 && <flex-images
+
+        const imgArray = new ImagesModel(this.props.imgContent).getImgUrlsArray();
+        const imgEles = imgArray
+            .map((val, key) => {
+                return (
+                    <DivBackImage imgSrc={val} key={key}></DivBackImage>
+                )
+            });
+
+        return (imgArray.length > 0 && <flex-images
             class={Classnames('cursor-pointer', {
-                [`flex-images-${this.imgArray.length}`]: true
+                [`flex-images-${imgArray.length}`]: true
             }, this.props.className)}
-            onClick={this._showImgDialog}>
-            {this.imgEles}
+            onClick={() => this._showImgDialog(imgArray)}>
+            {imgEles}
         </flex-images>);
     }
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Classnames from 'classnames';
 import AlphaTextField from '../AlphaTextField/AlphaTextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import SearchIcon from 'material-ui/svg-icons/action/search';
 import IconButton from 'material-ui/IconButton';
 import { grey50 } from 'material-ui/styles/colors';
 import { Navigate, Translate } from '../../utilities'
@@ -21,7 +22,7 @@ class SearchBar extends Component {
             <search-bar class={Classnames('center-flex', this.props.className, { 'top-search-bar': active })} >
                 <AlphaTextField className='top-search-input' placeholder={Translate.lang.interested_in} />
                 {active ?
-                    (<IconButton iconClassName='material-icons'>search</IconButton>) :
+                    (<IconButton ><SearchIcon /></IconButton>) :
                     (< RaisedButton label={Translate.lang.search} primary={true} onClick={() => this._search()} />)
                 }
             </search-bar>

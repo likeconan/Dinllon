@@ -2,6 +2,7 @@ export default function reducer(state = {
     openCreate: false,
     openJoin: false,
     activity: null,
+    offset: 1,
     activityObj: {
         textContent: null,
         images: [],
@@ -116,7 +117,8 @@ export default function reducer(state = {
         case 'GET_SEARCHED_ACTIVITY': {
             return {
                 ...state,
-                activity: action.payload,
+                activity: action.payload.activity,
+                offset: action.payload.offset ? action.payload.offset + 1 : 1
             }
         }
         default:
