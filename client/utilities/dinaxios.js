@@ -32,7 +32,7 @@ export default (obj) => {
         }).catch((err) => {
             store.dispatch(load.loaded());
             //need to be do with toast
-            if (err.response.status === 403) {
+            if (err.response && err.response.status === 403) {
                 store.dispatch(showToast({
                     className: 'warn-toast',
                     message: 'login_required',

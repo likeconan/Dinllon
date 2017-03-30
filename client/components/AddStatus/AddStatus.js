@@ -7,8 +7,9 @@ import { addStatus, addStatusImage, editStatusText, deleteStatusImage } from '..
 import TextAreaCount from '../TextAreaCount/TextAreaCount';
 import DroppedImage from '../DroppedImage/DroppedImage';
 import Classnames from 'classnames';
-import FontIcon from 'material-ui/FontIcon';
+import SendIcon from 'material-ui/svg-icons/content/send';
 
+import { Translate } from '../../utilities';
 require('./add-status.less');
 
 @connect((store) => {
@@ -57,10 +58,8 @@ class AddStatus extends Component {
     }
 
     render() {
-        var user = new UserModel().user;
-        const sendIcon = (
-            <FontIcon className='material-icons'>send</FontIcon>
-        );
+        var user = new UserModel(this.props.loggedUser).user;
+
         return (
             <add-status class='cyan lighten-5'>
                 <div className='space-between'>
@@ -71,7 +70,7 @@ class AddStatus extends Component {
                                 className={Classnames('add-text-con', { 'active': this.props.activeEdit })}
                                 isEdited={this.props.textEdited}
                                 text={this.props.textContent}
-                                placeholder="What's happening?"
+                                placeholder={Translate.lang.what_happening}
                                 onChange={this._textChange} />
                             <IconInputImage className='add-photo' onDrop={this._onDrop} />
                         </div>
@@ -89,12 +88,12 @@ class AddStatus extends Component {
                                                 {this.props.countdown}
                                             </span>
                                             <RaisedButton
-                                                label="Post"
+                                                label={Translate.lang.post}
                                                 labelPosition="after"
                                                 primary={true}
                                                 onClick={this._addStatus}
                                                 disabled={this.props.countdown < 0}
-                                                icon={sendIcon} />
+                                                icon={<SendIcon />} />
                                         </div>
 
                                     </div>

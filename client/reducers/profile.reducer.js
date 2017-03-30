@@ -14,6 +14,7 @@ export default function reducer(state = {
             friends: 12,
             appraises: 34,
             dislikes: 10,
+            lates: 10
         },
         mobile: '',
         wechat: '',

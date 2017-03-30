@@ -5,16 +5,15 @@ import UserModel from '../models/user.model';
 
 
 export function getProfile(userid) {
-    return function (dispatch) {
+    return function (dispatch, getState) {
         dinaxios({
-            url: 'profile',
-            params: { userid: userid }
+            url: 'users/id/' + userid
         }).then((data) => {
             dispatch({
                 type: 'GET_PROFILE',
                 payload: {
                     user: new UserModel(data).user,
-                    isOwn: true
+                    isOwn: getState().user.loggedUser.uuid === userid
                 }
             })
         });

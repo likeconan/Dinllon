@@ -5,12 +5,8 @@ require('./link-profile-name.less');
 
 class LinkProfileName extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     _navigateProfile = () => {
-        Navigate.goToProfile('abc');
+        Navigate.goToProfile(this.props.to);
     }
     render() {
         return (
