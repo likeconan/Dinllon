@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import store from 'store2';
+import storage from 'store2';
 import Classnames from 'classnames';
 import { connect } from 'react-redux';
 import { getProfile } from '../actions/profile.action';
@@ -8,16 +8,16 @@ import ProfileDetail from '../components/ProfileDetail/ProfileDetail';
 import ProfileUserData from '../components/ProfileUserData/ProfileUserData';
 import ProfileTabs from '../components/ProfileTabs/ProfileTabs';
 import ProfileOverlay from '../components/ProfileOverlay/ProfileOverlay';
+import store from '../store';
 
-@connect()
+
 
 class Profile extends Component {
     componentWillMount() {
-        const userid = store.session('ss.profile.user.id');
-        this.props.dispatch(getProfile(userid));
+        const userid = storage.session('ss.profile.user.id');
+        store.dispatch(getProfile(userid));
     }
     render() {
-        console.log('profile-page');
         return (
             <profile-page>
                 <ProfileBackPic />

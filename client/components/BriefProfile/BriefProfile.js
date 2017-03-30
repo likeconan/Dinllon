@@ -5,12 +5,14 @@ import UserDataCon from '../UserDataCon/UserDataCon';
 import LinkProfileName from '../LinkProfileName/LinkProfileName';
 import DivBackImage from '../DivBackImage/DivBackImage';
 import { connect } from 'react-redux';
+import { Translate } from '../../utilities';
 
 require('./brief-profile.less');
 
 @connect((store) => {
     return {
-        loggedUser: store.user.loggedUser
+        loggedUser: store.user.loggedUser,
+        loggedUserData: store.user.loggedUserData,
     }
 })
 
@@ -23,13 +25,21 @@ class BriefProfile extends Component {
                 <div className='center-flex profile-con'>
                     <img src={user.headPic} className='profile-user-head' />
                     <div className='profile-text-con'>
-                        <LinkProfileName to={this.props.loggedUser.uuid}>
-                            <p className='profile-nickname cursor-pointer'>{user.nickName}</p>
-                        </LinkProfileName>
+                        <div className='center-flex'>
+                            <LinkProfileName to={this.props.loggedUser.uuid}>
+                                <p className='profile-nickname cursor-pointer'>{user.nickName}</p>
+                            </LinkProfileName>
+                            {
+                                !this.props.loggedUser.uuid &&
+                                <div className='not-login-info'>{Translate.lang.not_login}</div>
+                            }
+                        </div>
+
                         <p className='cyan-text text-darken-1'>{user.goingOn}</p>
                     </div>
                 </div>
-                <UserDataCon invisible={true} />
+
+                <UserDataCon invisible={true} data={this.props.loggedUserData} />
             </brief-profile>
         );
     }

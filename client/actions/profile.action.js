@@ -42,6 +42,13 @@ export function editGoingOn(val) {
     }
 }
 
+export function editWork(val) {
+    return {
+        type: 'EDIT_WORK',
+        payload: val
+    }
+}
+
 export function editSchool(val) {
     return {
         type: 'EDIT_SCHOOL',
@@ -53,5 +60,25 @@ export function editBirthday(val) {
     return {
         type: 'EDIT_BIRTHDAY',
         payload: val
+    }
+}
+
+export function saveProfile(user, userId) {
+    return function (dispatch) {
+        dinaxios({
+            url: 'users/id/' + userId,
+            method: 'PUT',
+            data: user
+        }).then((data) => {
+            toggleEditProfile();
+            dispatch({
+                type: 'SAVE_PROFILE',
+                payload: {
+                    user: new UserModel(data).user,
+                }
+            });
+        });
+
+
     }
 }

@@ -14,6 +14,14 @@ export default function reducer(state = {
         validatedSMSCode: false
     },
     loggedUser: {},
+    loggedUserData: {
+        momentCount: 0,
+        activityCount: 0,
+        friendCount: 0,
+        appraiseCount: 0,
+        dislikeCount: 0,
+        lateCount: 0
+    },
     isAuthorize: false
 }, action) {
     switch (action.type) {

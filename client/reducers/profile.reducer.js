@@ -1,6 +1,6 @@
 export default function reducer(state = {
     user: {
-        Id: null,
+        uuid: null,
         nickName: '',
         goingOn: '',
         backPic: '',
@@ -8,21 +8,20 @@ export default function reducer(state = {
         work: '',
         school: '',
         birthday: null,
-        userData: {
-            dinllons: 120,
-            activities: 55,
-            friends: 12,
-            appraises: 34,
-            dislikes: 10,
-            lates: 10
-        },
+
         mobile: '',
         wechat: '',
         hobby: '',
     },
-    editingUser: {
-
+    userData: {
+        momentCount: 0,
+        activityCount: 0,
+        friendCount: 0,
+        appraiseCount: 0,
+        dislikeCount: 0,
+        lateCount: 0
     },
+    editingUser: {},
     isOwn: true,
     enableEdit: false
 }, action) {
@@ -31,9 +30,14 @@ export default function reducer(state = {
             return {
                 ...state,
                 user: action.payload.user,
+                editingUser: action.payload.user,
                 isOwn: action.payload.isOwn
             };
-
+        case 'SAVE_PROFILE':
+            console.log(123);
+            return {
+                ...state
+            }
         case 'TOGGLE_EDIT_PROFILE':
             return { ...state, enableEdit: !state.enableEdit }
 
@@ -50,6 +54,13 @@ export default function reducer(state = {
                 ...state,
                 editingUser: {
                     ...state.editingUser, goingOn: action.payload
+                }
+            }
+        case 'EDIT_WORK':
+            return {
+                ...state,
+                editingUser: {
+                    ...state.editingUser, work: action.payload
                 }
             }
         case 'EDIT_SCHOOL':

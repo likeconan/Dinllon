@@ -29,7 +29,7 @@ class TopMenu extends Component {
         const activeObj = this.props.activeObj;
         var user = new UserModel(this.props.user).user;
         return (
-            <top-menu class={Classnames('logged', this.props.isAuthorize)}>
+            <top-menu class={Classnames({ 'logged': this.props.isAuthorize })}>
                 <div
                     className={Classnames('center-flex tm-con', {
                         'active-back z-depth-1': activeObj.active

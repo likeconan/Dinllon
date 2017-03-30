@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
-import { toggleEditProfile } from '../../actions/profile.action';
+import { toggleEditProfile, saveProfile } from '../../actions/profile.action';
 
 @connect((store) => {
     return {
-        enableEdit: store.profile.enableEdit
+        enableEdit: store.profile.enableEdit,
+        editingUser: store.profile.editingUser
     }
 })
 
@@ -20,7 +21,7 @@ class EditProfileButton extends Component {
     }
 
     _saveChange = () => {
-        this.props.dispatch(toggleEditProfile());
+        this.props.dispatch(saveProfile(this.props.editingUser));
     }
 
     render() {

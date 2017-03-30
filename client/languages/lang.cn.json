@@ -46,5 +46,7 @@
     "no_activities": "目前没有相关的活动。你可以试着创建一个",
     "activity_create_success": "创建活动成功，快邀请你的朋友吧",
     "what_happening": "书近况，晓知己",
-    "post": "发送"
+    "post": "发送",
+    "not_login": "您还没有登录",
+    "profile_noexist": "该用户不存在"
 }

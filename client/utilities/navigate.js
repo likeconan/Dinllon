@@ -1,6 +1,7 @@
 import { browserHistory } from 'react-router';
-import store from 'store2';
-
+import storage from 'store2';
+import store from '../store';
+import { showToast } from '../actions/toast.action'
 
 class Navigate {
     goToSocialLife() {
@@ -19,9 +20,17 @@ class Navigate {
         browserHistory.push(path);
     }
     goToProfile(userid) {
-        const path = '/profile';
-        store.session('ss.profile.user.id', userid);
-        browserHistory.push(path);
+        if (userid) {
+            const path = '/profile';
+            storage.session('ss.profile.user.id', userid);
+            browserHistory.push(path);
+        } else {
+            store.dispatch(showToast({
+                className:'error-toast',
+                message:'profile_noexist'
+            }))
+        }
+
     }
 
 }

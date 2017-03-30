@@ -46,5 +46,7 @@
     "no_activities": "No related activities are created so far. Maybe you can create one.",
     "activity_create_success": "Success in creating activity,start to invite your friends",
     "what_happening": "What's happening?",
-    "post": "Post"
+    "post": "Post",
+    "not_login": "You haven't logged in",
+    "profile_noexist": "The user does not exist"
 }

@@ -4,7 +4,7 @@ import BackPicChange from '../BackPicChange/BackPicChange';
 import LinkProfileName from '../LinkProfileName/LinkProfileName';
 import EditProfileButton from '../EditProfileButton/EditProfileButton';
 import { connect } from 'react-redux';
-import { editNickName, editGoingOn } from '../../actions/profile.action';
+import { editNickName, editGoingOn, editBirthday, editWork, editSchool } from '../../actions/profile.action';
 import SchoolIcon from 'material-ui/svg-icons/social/school'
 import CakeIcon from 'material-ui/svg-icons/social/cake'
 import WorkIcon from 'material-ui/svg-icons/action/work'
@@ -17,6 +17,7 @@ require('./profile-detail.less');
 @connect((store) => {
     return {
         profileUser: store.profile.user,
+        editingUser: store.profile.editingUser,
         enableEdit: store.profile.enableEdit,
     }
 })
@@ -31,12 +32,20 @@ class ProfileDetail extends Component {
     _editGoingOn = (val) => {
         this.props.dispatch(editGoingOn(val));
     }
+
+    _editWork = (val) => {
+        this.props.dispatch(editWork(val));
+    }
+
     _editSchool = (val) => {
         this.props.dispatch(editSchool(val));
     }
+    _editBirthday = (tmp, date) => {
+        this.props.dispatch(editBirthday(date));
+    }
 
     render() {
-        const user = { ...this.props.profileUser };
+        const user = this.props.enableEdit ? { ...this.props.editingUser } : { ...this.props.profileUser };
         return (
             <profile-detail>
                 <div className='pd-head-con center-flex'>
@@ -56,7 +65,7 @@ class ProfileDetail extends Component {
                         {(this.props.enableEdit || user.work) && <WorkIcon className='margin-right' />}
 
                         <MaxContenteditable className='pic-school edit-text-con' value={user.work}
-                            disabled={!this.props.enableEdit} maxlength={50} onBlur={this._editGoingOn} />
+                            disabled={!this.props.enableEdit} maxlength={50} onBlur={this._editWork} />
                     </div>
 
                     <div className='pic-more-info-con center-flex'>
@@ -71,8 +80,9 @@ class ProfileDetail extends Component {
                             <div className='pic-more-info-con center-flex'>
                                 <CakeIcon className='margin-right' />
                                 <DatePicker textFieldStyle={{ width: '200px', height: this.props.enableEdit ? '40px' : '20px' }}
-                                    className={Classnames('pic-date-con', { 'active': this.props.enableEdit })}
-                                    value={user.birthday ? new Date(user.birthday) : ''} defaultValue={new Date('1990-01-01')} />
+                                    className={Classnames('pic-date-con', { 'active': this.props.enableEdit })} hintText='pick a date'
+                                    value={user.birthday ? new Date(user.birthday) : null}
+                                    onChange={this._editBirthday} />
                             </div>
                         )
                     }
