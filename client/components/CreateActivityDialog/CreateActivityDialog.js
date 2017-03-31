@@ -17,7 +17,7 @@ import DroppedImage from '../DroppedImage/DroppedImage';
 import DateTimePicker from '../DateTimePicker/DateTimePicker';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
-import { Translate, TimeFormat } from '../../utilities';
+import { Translate, TimeFormat, Authorize } from '../../utilities';
 
 require('./create-activity-dialog.less');
 
@@ -28,7 +28,6 @@ require('./create-activity-dialog.less');
         validatedCreate: store.activity.validatedCreate,
         activityObj: store.activity.activityObj,
         countdown: store.activity.countdown,
-        loggedUser: store.user.loggedUser,
         disableCost: store.activity.disableCost
     }
 })
@@ -37,7 +36,7 @@ class CreateActivityDialog extends Component {
     _createActivity = () => {
 
         var data = new FormData();
-        data.append('userId', this.props.loggedUser.uuid);
+        data.append('userId', Authorize.getLoggedUserId());
         data.append('textContent', this.props.activityObj.textContent);
         data.append('cost', this.props.activityObj.cost);
         data.append('type', this.props.activityObj.type);

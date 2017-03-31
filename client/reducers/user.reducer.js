@@ -25,7 +25,7 @@ export default function reducer(state = {
     isAuthorize: false
 }, action) {
     switch (action.type) {
-        case 'USER_LOGIN':
+        case 'USER_LOGIN_REGISTER':
             return {
                 ...state,
                 loggedUser: action.payload,
@@ -82,12 +82,6 @@ export default function reducer(state = {
                 }
             }
             break;
-        case 'USER_REGISTER':
-            return {
-                ...state,
-                loggedUser: action.payload,
-                isAuthorize: true
-            }
         case 'GET_USER_AUTHORIZE':
             return {
                 ...state,

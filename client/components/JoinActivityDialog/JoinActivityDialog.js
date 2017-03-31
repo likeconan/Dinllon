@@ -1,15 +1,22 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {closeDialog, editFriendEmail} from '../../actions/activity.action';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { closeDialog, editInformEmail, applyActivity } from '../../actions/activity.action';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import ResponsiveDialog from '../ResponsiveDialog/ResponsiveDialog';
 import FormTextField from '../FormTextField/FormTextField';
+import { Translate, Authorize } from '../../utilities';
+
 
 require('./join-activity-dialog.less');
 
 @connect((store) => {
-    return {open: store.activity.openJoin, validatedJoin: store.activity.validatedJoin, friendEmail: store.activity.friendEmail}
+    console.log('apply-activyt')
+    return {
+        open: store.activity.openJoin,
+        validatedJoin: store.activity.validatedJoin,
+        applyActivity: store.activity.applyActivity,
+    }
 })
 class JoinActivityDialog extends Component {
     handleClose = () => {
@@ -18,20 +25,30 @@ class JoinActivityDialog extends Component {
             .dispatch(closeDialog());
     }
 
-    editFriendEmail = (e) => {
+    _joinActivity = () => {
+        var data = {
+            ...this.props.applyActivity,
+            userId: Authorize.getLoggedUserId()
+        };
+        this.props.dispatch(applyActivity(data));
+    }
+
+    editInformEmail = (e) => {
         this
             .props
-            .dispatch(editFriendEmail(e.target.value));
+            .dispatch(editInformEmail(e.target.value));
     }
-    render() {
 
-        const actions = [< RaisedButton label = "Ok" primary = {
-                true
+
+    render() {
+        console.log('apply-activyt-render')
+        const actions = [< RaisedButton label="Ok" primary={
+            true
+        }
+            onTouchTap={
+                this._joinActivity
             }
-            onTouchTap = {
-                this.handleClose
-            }
-            disabled = {
+            disabled={
                 !this.props.validatedJoin
             } />];
 
@@ -39,21 +56,21 @@ class JoinActivityDialog extends Component {
             <ResponsiveDialog
                 modal={false}
                 open={this.props.open}
-                title='Join In Activity'
+                title={Translate.lang.apply_activity}
                 actions={actions}
                 onRequestClose={this.handleClose}
                 contentClassName='jic-content'>
                 <div className='margin-bottom'>
                     <FormTextField
-                        floatingLabelText="Your friend's email"
+                        floatingLabelText={Translate.lang.friend_email}
                         validated={this.props.validatedJoin}
-                        onChange={this.editFriendEmail}
-                        value={this.props.friendEmail}
-                        errorText='Please fill in correct email'/>
+                        onChange={this.editInformEmail}
+                        value={this.props.applyActivity.informEmail}
+                        errorText={Translate.lang.error_email} />
                 </div>
                 <div className='caution-msg-con mont-font pink accent-2 margin-top'>
-                    <strong className='margin-right'>Caution:</strong>
-                    <p>Once you are accepted we will inform your friend of your schedule.</p>
+                    <strong className='margin-right'>{Translate.lang.warmth_tip}</strong>
+                    <p>{Translate.lang.tip_when_accepted}</p>
                 </div>
 
             </ResponsiveDialog>

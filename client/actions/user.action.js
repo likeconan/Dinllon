@@ -10,7 +10,7 @@ export function userLogin(user) {
         }).then((data) => {
             Authorize.setToken(data.token);
             Navigate.goToSocialLife();
-            dispatch({ type: 'USER_LOGIN', payload: data.user })
+            dispatch({ type: 'USER_LOGIN_REGISTER', payload: data.user })
         });
     }
 }
@@ -24,7 +24,7 @@ export function userRegister(user) {
         }).then((data) => {
             Authorize.setToken(data.token);
             Navigate.goToSocialLife();
-            dispatch({ type: 'USER_REGISTER', payload: data.user })
+            dispatch({ type: 'USER_LOGIN_REGISTER', payload: data.user })
         });
     }
 }

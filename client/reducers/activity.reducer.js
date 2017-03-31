@@ -11,10 +11,13 @@ export default function reducer(state = {
         type: 1,
         startDate: null,
     },
+    applyActivity: {
+        activityId: null,
+        informEmail: '',
+    },
     disableCost: false,
-    friendEmail: '',
-    validatedJoin: false,
     validatedCreate: false,
+    validatedJoin: false,
     countdown: 150,
     textEdited: false
 }, action) {
@@ -28,6 +31,10 @@ export default function reducer(state = {
             return {
                 ...state,
                 openJoin: true,
+                applyActivity: {
+                    ...state.applyActivity,
+                    activityId: action.payload
+                }
             };
         case 'CLOSE_ACTIVITY_DIALOG':
             return {
@@ -109,7 +116,7 @@ export default function reducer(state = {
         case 'EDIT_ACTIVITY_JOIN_EMAIL': {
             return {
                 ...state,
-                friendEmail: action.payload.val,
+                applyActivity: { ...state.applyActivity, informEmail: action.payload.val },
                 validatedJoin: action.payload.isEmail,
             }
         }

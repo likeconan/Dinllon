@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 import { openJoinDialog, searchActivity } from '../../actions/activity.action';
 import ActivityTypeTag from '../ActivityTypeTag/ActivityTypeTag'
 import { UserModel } from '../../models';
-import { Translate } from '../../utilities';
+import { Translate, Authorize } from '../../utilities';
 
 require('./quick-activity.less');
 
@@ -33,7 +33,7 @@ class QuickActivity extends Component {
     _openActivityDialog = () => {
         this
             .props
-            .dispatch(this.props.dispatch(openJoinDialog()))
+            .dispatch(openJoinDialog(this.props.activity.uuid))
     }
 
     _nextActivity = () => {
@@ -41,10 +41,8 @@ class QuickActivity extends Component {
     }
 
     render() {
-        const user = new UserModel(this.props.activity
-            ? this.props.activity.User
-            : null).user;
-
+        const user = new UserModel({ ...this.props.activity }.User).user;
+        const ifOwn = user.uuid === Authorize.getLoggedUserId();
         const iconStyle = {
             color: '#bdbdbd',
             transform: 'scaleX(-1)'
@@ -92,7 +90,8 @@ class QuickActivity extends Component {
                                     </div>
                                     <RaisedButton
                                         className='width-100p'
-                                        label={Translate.lang.join_in}
+                                        disabled={ifOwn}
+                                        label={ifOwn ? Translate.lang.join_in_own : Translate.lang.join_in}
                                         onClick={this._openActivityDialog}
                                         primary={true} />
                                 </div>

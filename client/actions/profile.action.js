@@ -1,6 +1,7 @@
 import dinaxios from '../utilities/dinaxios';
 import validator from 'validator';
 import UserModel from '../models/user.model';
+import { showToast } from './toast.action';
 
 
 
@@ -17,8 +18,6 @@ export function getProfile(userid) {
                 }
             })
         });
-
-
     }
 }
 
@@ -69,13 +68,24 @@ export function saveProfile(user) {
             url: 'users/editprofile',
             method: 'PUT',
             data: user
-        }).then((data) => {
+        }).then(() => {
+            
             dispatch(toggleEditProfile());
-
+            
+            dispatch(showToast({
+                className: 'success-toast',
+                message: 'save_profile_success'
+            }));
+            
+            var user = new UserModel(user).user;
+            dispatch({
+                type: 'USER_LOGIN_REGISTER',
+                payload: user
+            })
             dispatch({
                 type: 'SAVE_PROFILE',
                 payload: {
-                    user: new UserModel(user).user,
+                    user: user,
                 }
             });
         });

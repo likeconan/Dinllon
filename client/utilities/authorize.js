@@ -1,14 +1,15 @@
 import Navigate from './navigate'
-import store from 'store2';
+import storage from 'store2';
+import store from '../store';
 
 class Authorize {
 
     constructor() {
-        this.token = store.local('user_token');
+        this.token = storage.local('user_token');
     }
 
     setToken = (token) => {
-        store.local('user_token', token);
+        storage.local('user_token', token);
         this.token = token
     }
     getToken = () => {
@@ -19,6 +20,9 @@ class Authorize {
         if (!authorized) {
             Navigate.goToLogin();
         }
+    }
+    getLoggedUserId = () => {
+        return store.getState().user.loggedUser.uuid
     }
 
 }

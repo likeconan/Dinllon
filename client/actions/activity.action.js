@@ -6,8 +6,8 @@ export function openCreateDialog() {
     return { type: 'OPEN_CREATE_ACTIVITY' }
 }
 
-export function openJoinDialog() {
-    return { type: 'OPEN_JOIN_ACTIVITY' }
+export function openJoinDialog(activityId) {
+    return { type: 'OPEN_JOIN_ACTIVITY', payload: activityId }
 }
 
 export function closeDialog() {
@@ -33,7 +33,6 @@ export function addActivity(activity) {
             method: 'POST',
             data: activity
         }).then((data) => {
-            console.log(data);
             dispatch(closeDialog());
             dispatch(showToast({
                 className: 'success-toast',
@@ -42,6 +41,22 @@ export function addActivity(activity) {
             dispatch({
                 type: 'ADD_ACTIVITY'
             })
+        });
+    }
+}
+
+export function applyActivity(activity) {
+    return function (dispatch) {
+        dinaxios({
+            url: 'activities/join',
+            method: 'POST',
+            data: activity
+        }).then((data) => {
+            dispatch(closeDialog());
+            dispatch(showToast({
+                className: 'success-toast',
+                message: 'apply_activity_success'
+            }));
         });
     }
 }
@@ -61,7 +76,7 @@ export function editActivityType(val) {
     return { type: 'EDIT_ACTIVITY_TYPE', payload: val }
 }
 
-export function editFriendEmail(val) {
+export function editInformEmail(val) {
     return {
         type: 'EDIT_ACTIVITY_JOIN_EMAIL',
         payload: {
