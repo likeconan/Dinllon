@@ -8,10 +8,8 @@ export default function reducer(state = {
         work: '',
         school: '',
         birthday: null,
-
         mobile: '',
         wechat: '',
-        hobby: '',
     },
     userData: {
         momentCount: 0,
@@ -34,9 +32,10 @@ export default function reducer(state = {
                 isOwn: action.payload.isOwn
             };
         case 'SAVE_PROFILE':
-            console.log(123);
             return {
-                ...state
+                ...state,
+                user: action.payload.user,
+                editingUser: action.payload.user,
             }
         case 'TOGGLE_EDIT_PROFILE':
             return { ...state, enableEdit: !state.enableEdit }

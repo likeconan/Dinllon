@@ -79,8 +79,15 @@ class ProfileDetail extends Component {
                         (
                             <div className='pic-more-info-con center-flex'>
                                 <CakeIcon className='margin-right' />
-                                <DatePicker textFieldStyle={{ width: '200px', height: this.props.enableEdit ? '40px' : '20px' }}
+                                <DatePicker
+                                    textFieldStyle={
+                                        {
+                                            width: '200px',
+                                            cursor: 'default',
+                                            height: this.props.enableEdit ? '40px' : '20px'
+                                        }}
                                     className={Classnames('pic-date-con', { 'active': this.props.enableEdit })} hintText='pick a date'
+                                    disabled={!this.props.enableEdit}
                                     value={user.birthday ? new Date(user.birthday) : null}
                                     onChange={this._editBirthday} />
                             </div>

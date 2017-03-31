@@ -63,18 +63,19 @@ export function editBirthday(val) {
     }
 }
 
-export function saveProfile(user, userId) {
+export function saveProfile(user) {
     return function (dispatch) {
         dinaxios({
-            url: 'users/id/' + userId,
+            url: 'users/editprofile',
             method: 'PUT',
             data: user
         }).then((data) => {
-            toggleEditProfile();
+            dispatch(toggleEditProfile());
+
             dispatch({
                 type: 'SAVE_PROFILE',
                 payload: {
-                    user: new UserModel(data).user,
+                    user: new UserModel(user).user,
                 }
             });
         });
