@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
 import { toggleEditProfile, saveProfile } from '../../actions/profile.action';
+import { Translate } from '../../utilities';
 
 @connect((store) => {
     return {
@@ -21,6 +22,7 @@ class EditProfileButton extends Component {
     }
 
     _saveChange = () => {
+        debugger;
         this.props.dispatch(saveProfile(this.props.editingUser));
     }
 
@@ -37,7 +39,7 @@ class EditProfileButton extends Component {
                         ) :
                         (
 
-                            <RaisedButton label="Edit profile" primary={true} onClick={this._toggleEdit} />
+                            <RaisedButton label={Translate.lang.edit_profile} primary={true} onClick={this._toggleEdit} />
                         )
                 }
             </edit-profile-button>

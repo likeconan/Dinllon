@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import UserDataCon from '../UserDataCon/UserDataCon';
 import EditProfileButton from '../EditProfileButton/EditProfileButton';
+import InviteButton from '../InviteButton/InviteButton';
+import { Authorize } from '../../utilities';
 import { connect } from 'react-redux';
 
 require('./profile-user-data.less');
@@ -13,11 +15,18 @@ require('./profile-user-data.less');
 
 class ProfileUserData extends Component {
     render() {
+        const ifOwn = Authorize.getIfOwn();
         return (
             <profile-user-data class='all-center-flex'>
                 <div className='pud-con center-flex'>
                     <UserDataCon className='profile-udc' data={this.props.userData} />
-                    <EditProfileButton className='pud-epb' />
+                    {
+                        ifOwn ?
+                            <EditProfileButton className='pud-epb' />
+                            :
+                            <InviteButton className='pud-epb'/>
+                    }
+
                 </div>
             </profile-user-data>
         );

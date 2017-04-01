@@ -20,7 +20,7 @@ export default function reducer(state = {
         lateCount: 0
     },
     editingUser: {},
-    isOwn: true,
+    isOwn: false,
     enableEdit: false
 }, action) {
     switch (action.type) {

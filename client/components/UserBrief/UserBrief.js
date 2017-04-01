@@ -13,7 +13,7 @@ class UserBrief extends Component {
             <user-circle-brief class={Classnames('center-flex', this.props.className)}>
                 <img src={user.headPic} className='user-head-img' />
                 <div className='center-flex brief-con column-center'>
-                    <LinkProfileName>
+                    <LinkProfileName to={user.uuid}>
                         <p className='white-text mont-font cursor-pointer'>{user.nickName}</p>
                     </LinkProfileName>
                     <small className='cyan-text text-darken-1'>{user.goingOn}</small>

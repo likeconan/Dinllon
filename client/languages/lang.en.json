@@ -53,5 +53,7 @@
     "not_login": "You haven't logged in",
     "profile_noexist": "The user does not exist",
     "save_profile_success": "Save profile success",
-    "apply_activity_success": "Success in applying the activity, please wait for confirm"
+    "apply_activity_success": "Success in applying the activity, please wait for confirm",
+    "invite_to": "Invite to",
+    "edit_profile": "Edit profile"
 }

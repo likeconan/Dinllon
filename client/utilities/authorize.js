@@ -24,7 +24,10 @@ class Authorize {
     getLoggedUserId = () => {
         return store.getState().user.loggedUser.uuid
     }
-
+    getIfOwn = () => {
+        debugger;
+        return store.getState().user.loggedUser.uuid === storage.session('ss.profile.user.id');
+    }
 }
 
 export default new Authorize();

@@ -69,23 +69,23 @@ export function saveProfile(user) {
             method: 'PUT',
             data: user
         }).then(() => {
-            
+
             dispatch(toggleEditProfile());
-            
+
             dispatch(showToast({
                 className: 'success-toast',
                 message: 'save_profile_success'
             }));
-            
-            var user = new UserModel(user).user;
+            debugger
+            var temp = new UserModel(user).user;
             dispatch({
                 type: 'USER_LOGIN_REGISTER',
-                payload: user
+                payload: temp
             })
             dispatch({
                 type: 'SAVE_PROFILE',
                 payload: {
-                    user: user,
+                    user: temp,
                 }
             });
         });

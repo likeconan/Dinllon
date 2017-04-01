@@ -53,5 +53,7 @@
     "not_login": "您还没有登录",
     "profile_noexist": "该用户不存在",
     "save_profile_success": "修改简介成功",
-    "apply_activity_success": "活动申请成功，请等待组织者确认"
+    "apply_activity_success": "活动申请成功，请等待组织者确认",
+    "invite_to": "邀请",
+    "edit_profile": "修改简介"
 }
