@@ -11,7 +11,6 @@ import { Translate, Authorize } from '../../utilities';
 require('./join-activity-dialog.less');
 
 @connect((store) => {
-    console.log('apply-activyt')
     return {
         open: store.activity.openJoin,
         validatedJoin: store.activity.validatedJoin,
@@ -41,7 +40,6 @@ class JoinActivityDialog extends Component {
 
 
     render() {
-        console.log('apply-activyt-render')
         const actions = [< RaisedButton label="Ok" primary={
             true
         }

@@ -22,7 +22,6 @@ class EditProfileButton extends Component {
     }
 
     _saveChange = () => {
-        debugger;
         this.props.dispatch(saveProfile(this.props.editingUser));
     }
 

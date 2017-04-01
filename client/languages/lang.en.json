@@ -55,5 +55,6 @@
     "save_profile_success": "Save profile success",
     "apply_activity_success": "Success in applying the activity, please wait for confirm",
     "invite_to": "Invite to",
-    "edit_profile": "Edit profile"
+    "edit_profile": "Edit profile",
+    "no_user_moments": "No moments yet."
 }

@@ -9,22 +9,22 @@ require('./profile-user-data.less');
 
 @connect((store) => {
     return {
-        userData: store.profile.userData
+        userData: store.profile.userData,
+        isOwn: store.profile.isOwn
     }
 })
 
 class ProfileUserData extends Component {
     render() {
-        const ifOwn = Authorize.getIfOwn();
         return (
             <profile-user-data class='all-center-flex'>
                 <div className='pud-con center-flex'>
                     <UserDataCon className='profile-udc' data={this.props.userData} />
                     {
-                        ifOwn ?
+                        this.props.isOwn ?
                             <EditProfileButton className='pud-epb' />
                             :
-                            <InviteButton className='pud-epb'/>
+                            <InviteButton className='pud-epb' />
                     }
 
                 </div>

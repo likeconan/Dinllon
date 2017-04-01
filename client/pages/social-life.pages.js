@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Status from '../components/Status/Status';
+import SearchedMoments from '../components/SearchedMoments/SearchedMoments';
 import BriefProfile from '../components/BriefProfile/BriefProfile';
 import QuickActivity from '../components/QuickActivity/QuickActivity';
 import AddStatus from '../components/AddStatus/AddStatus';
@@ -17,7 +17,7 @@ class SocialLife extends Component {
                     </div>
                     <div className='life-center-con'>
                         <AddStatus />
-                        <Status action={searchLife} />
+                        <SearchedMoments />
                     </div>
                     <div className='life-right-con'>
                         <QuickActivity />

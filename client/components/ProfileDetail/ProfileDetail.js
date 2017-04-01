@@ -4,12 +4,14 @@ import BackPicChange from '../BackPicChange/BackPicChange';
 import LinkProfileName from '../LinkProfileName/LinkProfileName';
 import EditProfileButton from '../EditProfileButton/EditProfileButton';
 import { connect } from 'react-redux';
-import { editNickName, editGoingOn, editBirthday, editWork, editSchool } from '../../actions/profile.action';
+import { editNickName, editGoingOn, editBirthday, editWork, editSchool, getProfile } from '../../actions/profile.action';
 import SchoolIcon from 'material-ui/svg-icons/social/school'
 import CakeIcon from 'material-ui/svg-icons/social/cake'
 import WorkIcon from 'material-ui/svg-icons/action/work'
 import DatePicker from 'material-ui/DatePicker';
 import Classnames from 'classnames';
+import storage from 'store2';
+
 
 
 require('./profile-detail.less');
@@ -24,6 +26,11 @@ require('./profile-detail.less');
 
 
 class ProfileDetail extends Component {
+
+    componentWillMount() {
+        const userid = storage.session('ss.profile.user.id');
+        this.props.dispatch(getProfile(userid));
+    }
 
     _editNickName = (val) => {
         this.props.dispatch(editNickName(val));

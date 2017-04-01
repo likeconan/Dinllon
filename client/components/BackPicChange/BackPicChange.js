@@ -9,7 +9,6 @@ require('./back-pic-change.less');
 class BackPicChange extends Component {
 
     onDrop = (evt) => {
-        debugger
         var fileList = evt.target.files
         var acceptedFiles = [];
         for (let file of fileList) {

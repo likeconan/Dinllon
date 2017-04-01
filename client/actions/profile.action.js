@@ -6,16 +6,29 @@ import { showToast } from './toast.action';
 
 
 export function getProfile(userid) {
-    return function (dispatch, getState) {
+    return function (dispatch) {
         dinaxios({
             url: 'users/id/' + userid
         }).then((data) => {
             dispatch({
                 type: 'GET_PROFILE',
                 payload: {
-                    user: new UserModel(data).user,
-                    isOwn: getState().user.loggedUser.uuid === userid
+                    user: new UserModel(data.user).user,
+                    isOwn: data.isOwn
                 }
+            })
+        });
+    }
+}
+
+export function getUserMoments(userid) {
+    return function (dispatch) {
+        dinaxios({
+            url: 'moments/' + userid
+        }).then((data) => {
+            dispatch({
+                type: 'GET_USER_MOMENTS',
+                payload: data
             })
         });
     }
@@ -76,7 +89,6 @@ export function saveProfile(user) {
                 className: 'success-toast',
                 message: 'save_profile_success'
             }));
-            debugger
             var temp = new UserModel(user).user;
             dispatch({
                 type: 'USER_LOGIN_REGISTER',
