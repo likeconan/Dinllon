@@ -1,6 +1,44 @@
 profile-activity-children {
     display: block;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: white;
+    border: 1px solid #e6ecf0;
     .activity-img-text-con {
-        height: 350px;
+        position: relative;
+        .aitc-text {
+            height: 100%;
+            width: 100%;
+            .aitct {
+                padding: 0 20px 20px 20px;
+            }
+            .aitc-icon-con {
+                justify-content: flex-end;
+            }
+        }
+        &.with-image {
+            height: 300px;
+            .aitc-text {
+                display: flex;
+                justify-content: space-between;
+                flex-direction: column;
+                position: absolute;
+                pointer-events: none;
+                top: 0;
+                color: white;
+                background-color: rgba(0, 0, 0, 0.15);
+            }
+            .aitc-icon-con {
+                pointer-events: auto;
+            }
+        }
+    }
+    .apply-user-con {
+        margin: 20px;
+        &.no-image {
+            padding-top: 20px;
+            margin-top: 0;
+            border-top: 2px solid #bababa;
+        }
     }
 }
