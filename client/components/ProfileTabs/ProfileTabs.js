@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Tabs, Tab } from 'material-ui/Tabs';
 import ProfileMoments from '../ProfileMoments/ProfileMoments';
+import ProfileActivity from '../ProfileActivity/ProfileActivity';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import { red500, yellow500, blue500 } from 'material-ui/styles/colors';
 
@@ -19,7 +20,7 @@ class ProfileTabs extends Component {
                     </Tab>
                     <Tab label="Activities"
                         buttonStyle={color} style={color}>
-                        223
+                        <ProfileActivity />
                     </Tab>
                 </Tabs>
             </profile-tabs>

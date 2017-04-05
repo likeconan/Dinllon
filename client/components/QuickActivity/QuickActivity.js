@@ -82,7 +82,9 @@ class QuickActivity extends Component {
                                             type={this.props.activity.type}
                                             cost={this.props.activity.cost} />
                                     </div>
-                                    <FlexImages imgContent={this.props.activity.Images} />
+                                    <div className='qa-flex-img-con'>
+                                        <FlexImages imgContent={this.props.activity.Images} />
+                                    </div>
                                     <div
                                         className='time-con all-center-flex amber accent-1 grey-text text-darken-2'>
                                         <TimeIcon color='#616161' />
@@ -115,9 +117,12 @@ class QuickActivity extends Component {
                                         type={this.props.activity.type}
                                         cost={this.props.activity.cost} />
                                 </div>
-                                <FlexImages
-                                    imgContent={this.props.activity.Images}
-                                    className='mobile-normal margin-bottom' />
+                                <div className='mb-qa-flex-img-con margin-bottom'>
+                                    <FlexImages
+                                        imgContent={this.props.activity.Images}
+                                        className='mobile-normal' />
+                                </div>
+
                                 <RaisedButton
                                     className='width-100p'
                                     label='Join in'

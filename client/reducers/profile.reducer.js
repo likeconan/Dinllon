@@ -12,6 +12,7 @@ export default function reducer(state = {
         wechat: '',
     },
     moments: [],
+    activities: [],
     userData: {
         momentCount: 0,
         activityCount: 0,
@@ -36,6 +37,11 @@ export default function reducer(state = {
             return {
                 ...state,
                 moments: action.payload
+            };
+        case 'GET_USER_ACTIVITIES':
+            return {
+                ...state,
+                activities: action.payload
             };
         case 'SAVE_PROFILE':
             return {

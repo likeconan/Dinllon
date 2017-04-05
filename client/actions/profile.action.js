@@ -34,6 +34,19 @@ export function getUserMoments(userid) {
     }
 }
 
+export function getUserActivities(userid) {
+    return function (dispatch) {
+        dinaxios({
+            url: 'activities/' + userid
+        }).then((data) => {
+            dispatch({
+                type: 'GET_USER_ACTIVITIES',
+                payload: data
+            })
+        });
+    }
+}
+
 export function toggleEditProfile() {
     return {
         type: 'TOGGLE_EDIT_PROFILE'
