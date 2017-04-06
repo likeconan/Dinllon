@@ -5,6 +5,7 @@ import IconButton from 'material-ui/IconButton';
 import EditIcon from 'material-ui/svg-icons/image/edit';
 import DeleteIcon from 'material-ui/svg-icons/action/delete';
 import { Translate } from '../../utilities';
+import ProfileActivityUserList from '../ProfileActivityUserList/ProfileActivityUserList';
 
 
 require('./profile-activity-children.less');
@@ -26,9 +27,8 @@ class ProfileActivityChildren extends Component {
                     </div>
                     <FlexImages imgContent={this.props.data.Images} />
                 </div>
-                <div className={Classnames('apply-user-con', { 'no-image': !ifactive })}>
-                    <h6 className='applied-text'>{Translate.lang.applied_user}</h6>
-                </div>
+                <ProfileActivityUserList className={Classnames('apply-user-con', { 'no-image': !ifactive })}
+                    title={Translate.lang.applied_user} titleClass='applied-text' />
             </profile-activity-children >
         );
     }
