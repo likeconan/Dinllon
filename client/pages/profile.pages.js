@@ -12,7 +12,7 @@ import ProfileOverlay from '../components/ProfileOverlay/ProfileOverlay';
 class Profile extends Component {
     render() {
         return (
-            <profile-page>
+            <profile-page class={this.props.className}>
                 <ProfileBackPic />
                 <div className='pos-relative'>
                     <ProfileUserData />

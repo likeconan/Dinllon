@@ -8,7 +8,7 @@ class ProfileActivityUserList extends Component {
     render() {
         return (
             <profile-activity-user-list class={Classnames(this.props.className)}>
-                <h6 className={this.props.titleClass}>{this.props.title}</h6>
+                <h6 className={Classnames('mont-font', this.props.titleClass)}>{this.props.title}</h6>
                 <div>
                     <UserHeadName />
                 </div>

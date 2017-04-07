@@ -305,4 +305,94 @@ profile-page {
             width: 98vw;
         }
     }
+    &.drawer {
+        .life-container {
+            padding: 15px 0;
+            justify-content: center;
+            flex-direction: column;
+            width: auto;
+            .life-right-con {
+                width: 98%;
+                position: static;
+                margin: 0 auto;
+            }
+            .life-left-con {
+                width: 98%;
+                margin-top: 0;
+                align-self: center;
+            }
+            .life-center-con {
+                margin: auto;
+            }
+        }
+
+        profile-detail {
+            background-color: white;
+            border: 2px solid #ececec;
+            border-radius: 5px;
+            padding: 0 20px;
+            .pd-head-con {
+                justify-content: space-between;
+                flex-direction: row;
+                align-items: flex-start;
+                edit-profile-button {
+                    display: block;
+                    margin: 10px;
+                }
+                .profile-head-pic {
+                    width: 50px;
+                    height: 50px;
+                    .cc-con {
+                        margin: 0;
+                        svg {
+                            width: 24px !important;
+                            height: 24px !important;
+                        }
+                        p {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+        profile-tabs {
+            .tabs {
+                width: 98%;
+            }
+        }
+        profile-user-data {
+            .pud-con {
+                width: 100%;
+                margin: 0;
+                justify-content: center;
+                padding: 0;
+                .pud-epb {
+                    right: 20px;
+                }
+                .pud-epb {
+                    display: none;
+                }
+                .profile-udc {
+                    margin-left: 0;
+                    .profile-data-con {
+                        flex-wrap: wrap;
+                    }
+                }
+            }
+        }
+        status-images {
+            .primary-img {
+                width: 100%;
+                height: 35vh;
+            }
+            .thumbnail-img-container {
+                margin-top: -52px;
+                min-height: 42px;
+                .img-content-container {
+                    height: 40px;
+                    width: 65px;
+                }
+            }
+        }
+    }
 }

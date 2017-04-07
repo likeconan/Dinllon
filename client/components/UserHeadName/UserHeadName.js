@@ -10,9 +10,7 @@ class UserHeadName extends Component {
         return (
             <user-head-name>
                 <img src={user.headPic} className='user-head-img' />
-                <LinkProfileName to={user.uuid}>
-                    <p className='mont-font cursor-pointer'>{user.nickName}</p>
-                </LinkProfileName>
+                <p className='mont-font cursor-pointer'>{user.nickName}</p>
             </user-head-name>
         );
     }
