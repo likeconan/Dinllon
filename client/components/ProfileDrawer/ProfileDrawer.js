@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import Drawer from 'material-ui/Drawer';
 import ProfilePage from '../../pages/profile.pages';
+import { connect } from 'react-redux';
+import { toggleDrawer } from '../../actions/profile.action';
 
-class ProfileDrawer extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = { open: true };
+@connect((store) => {
+    return {
+        open: store.profile.openDrawer,
+        userId: store.profile.drawerUserId
     }
-
-    handleToggle = () => this.setState({ open: !this.state.open });
-
-    handleClose = () => this.setState({ open: false });
+})
+class ProfileDrawer extends Component {
 
     render() {
         return (
@@ -19,13 +18,13 @@ class ProfileDrawer extends Component {
                 <Drawer
                     docked={false}
                     openSecondary={true}
-                    width={320}
-                    open={this.state.open}
-                    onRequestChange={(open) => this.setState({ open })}
+                    width={300}
+                    open={this.props.open}
+                    onRequestChange={(open) => this.props.dispatch(toggleDrawer({ toggle: open }))}
                 >
-                    <ProfilePage className='drawer' />
+                    <ProfilePage className='drawer' userId={this.props.userId} />
                 </Drawer>
-            </div>
+            </div >
         );
     }
 }

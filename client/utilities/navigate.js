@@ -19,10 +19,10 @@ class Navigate {
         const path = '/login';
         browserHistory.push(path);
     }
-    goToProfile(userid) {
-        if (userid) {
+    goToProfile(userId) {
+        if (userId) {
             const path = '/profile';
-            storage.session('ss.profile.user.id', userid);
+            storage.session('ss.profile.user.id', userId);
             browserHistory.push(path);
         } else {
             store.dispatch(showToast({

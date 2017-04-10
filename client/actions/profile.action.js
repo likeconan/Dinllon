@@ -5,10 +5,10 @@ import { showToast } from './toast.action';
 
 
 
-export function getProfile(userid) {
+export function getProfile(userId) {
     return function (dispatch) {
         dinaxios({
-            url: 'users/id/' + userid
+            url: 'users/id/' + userId
         }).then((data) => {
             dispatch({
                 type: 'GET_PROFILE',
@@ -21,10 +21,10 @@ export function getProfile(userid) {
     }
 }
 
-export function getUserMoments(userid) {
+export function getUserMoments(userId) {
     return function (dispatch) {
         dinaxios({
-            url: 'moments/' + userid
+            url: 'moments/' + userId
         }).then((data) => {
             dispatch({
                 type: 'GET_USER_MOMENTS',
@@ -34,10 +34,10 @@ export function getUserMoments(userid) {
     }
 }
 
-export function getUserActivities(userid) {
+export function getUserActivities(userId) {
     return function (dispatch) {
         dinaxios({
-            url: 'activities/' + userid
+            url: 'activities/' + userId
         }).then((data) => {
             dispatch({
                 type: 'GET_USER_ACTIVITIES',
@@ -116,5 +116,12 @@ export function saveProfile(user) {
         });
 
 
+    }
+}
+
+export function toggleDrawer(val) {
+    return {
+        type: 'TOGGLE_PROFILE_DRAWER',
+        payload: val
     }
 }

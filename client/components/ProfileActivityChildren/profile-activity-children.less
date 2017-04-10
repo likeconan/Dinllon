@@ -26,7 +26,7 @@ profile-activity-children {
                 pointer-events: none;
                 top: 0;
                 color: white;
-                background-color: rgba(0, 0, 0, 0.15);
+                background-color: rgba(0, 0, 0, 0.3);
             }
             .aitc-icon-con {
                 pointer-events: auto;
@@ -35,10 +35,22 @@ profile-activity-children {
     }
     .apply-user-con {
         margin: 20px;
-        &.no-image {
-            padding-top: 20px;
-            margin-top: 0;
-            border-top: 2px solid #bababa;
+        padding-top: 20px;
+        margin-top: 0;
+        border-top: 2px solid #bababa;
+    }
+    .type-time-con {
+        padding: 10px 20px;
+        .time-con {
+            border: 1px solid #d0d0d0;
+            padding: 5px 20px;
+        }
+        @media screen and (max-width:600px) {
+            flex-direction: column;
+            activity-type-tag {
+                align-self: flex-end;
+                margin-bottom: 10px;
+            }
         }
     }
 }

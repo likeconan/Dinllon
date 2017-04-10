@@ -16,11 +16,11 @@ class ProfileTabs extends Component {
                 <Tabs className='tabs' inkBarStyle={{ backgroundColor: 'rgb(0, 188, 212)' }} tabItemContainerStyle={{ backgroundColor: '#fff' }}>
                     <Tab label="Dinllons"
                         buttonStyle={color}>
-                        <ProfileMoments />
+                        <ProfileMoments userId={this.props.userId} />
                     </Tab>
                     <Tab label="Activities"
                         buttonStyle={color} style={color}>
-                        <ProfileActivity />
+                        <ProfileActivity userId={this.props.userId} />
                     </Tab>
                 </Tabs>
             </profile-tabs>

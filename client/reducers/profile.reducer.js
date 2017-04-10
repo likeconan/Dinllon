@@ -23,7 +23,9 @@ export default function reducer(state = {
     },
     editingUser: {},
     isOwn: false,
-    enableEdit: false
+    enableEdit: false,
+    openDrawer: false,
+    drawerUserId: null
 }, action) {
     switch (action.type) {
         case 'GET_PROFILE':
@@ -87,6 +89,13 @@ export default function reducer(state = {
                 editingUser: {
                     ...state.editingUser, birthday: action.payload
                 }
+            }
+
+        case 'TOGGLE_PROFILE_DRAWER':
+            return {
+                ...state,
+                openDrawer: action.payload.toggle,
+                drawerUserId: action.payload.userId
             }
         default:
             return state;

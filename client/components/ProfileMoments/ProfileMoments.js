@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { getUserMoments } from '../../actions/profile.action';
 import { connect } from 'react-redux';
 import Status from '../Status/Status';
-import storage from 'store2';
 import { Translate } from '../../utilities';
 
 
@@ -12,10 +11,9 @@ import { Translate } from '../../utilities';
 
 class ProfileMoments extends Component {
     componentWillMount() {
-        const userid = storage.session('ss.profile.user.id');
         this
             .props
-            .dispatch(getUserMoments(userid));
+            .dispatch(getUserMoments(this.props.userId));
     }
     render() {
         return (

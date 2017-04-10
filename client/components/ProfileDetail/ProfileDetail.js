@@ -28,8 +28,8 @@ require('./profile-detail.less');
 class ProfileDetail extends Component {
 
     componentWillMount() {
-        const userid = storage.session('ss.profile.user.id');
-        this.props.dispatch(getProfile(userid));
+
+        this.props.dispatch(getProfile(this.props.userId));
     }
 
     _editNickName = (val) => {
