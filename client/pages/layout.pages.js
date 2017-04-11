@@ -18,7 +18,6 @@ class Layout extends Component {
                 <Toast />
                 <ImageDialog />
                 <JoinActivityDialog />
-                <ProfileDrawer />
                 <CreateActivityDialog /> {this.props.children}
             </div>
         );
