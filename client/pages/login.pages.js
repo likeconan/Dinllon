@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import WhiteTextField from '../components/WhiteTextField/WhiteTextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import FormTextField from '../components/FormTextField/FormTextField';
-import { editMobile, editPassword, userLogin } from '../actions/user.action';
-import { Translate } from '../utilities';
+import FormTextField from 'components-dumb/FormTextField/FormTextField';
+import { editMobile, editPassword, userLogin } from 'actions/user.action';
+import { Translate } from 'utilities';
 
 @connect((store) => {
     return { loginViewModel: store.user.loginViewModel, loading: store.load.loading };

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import FullBackImage from '../components/FullBackImage/FullBackImage';
-import SearchBar from '../components/SearchBar/SearchBar';
-import DataDisplay from '../components/DataDisplay/DataDisplay';
-import { Translate } from '../utilities';
+import FullBackImage from 'components-dumb/FullBackImage/FullBackImage';
+import SearchBar from 'components-smart/SearchBar/SearchBar';
+import DataDisplay from 'components-smart/DataDisplay/DataDisplay';
+import { Translate } from 'utilities';
 
 class Home extends Component {
     render() {

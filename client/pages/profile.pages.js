@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Profile from '../components/Profile/Profile';
-import ProfileDrawer from '../components/ProfileDrawer/ProfileDrawer';
+import Profile from 'components-smart/Profile/Profile';
+import ProfileDrawer from 'components-smart/ProfileDrawer/ProfileDrawer';
 
 class ProfilePage extends Component {
     render() {

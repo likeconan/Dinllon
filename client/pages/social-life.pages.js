@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import SearchedMoments from '../components/SearchedMoments/SearchedMoments';
-import BriefProfile from '../components/BriefProfile/BriefProfile';
-import QuickActivity from '../components/QuickActivity/QuickActivity';
-import AddStatus from '../components/AddStatus/AddStatus';
+import SearchedMoments from 'components-smart/SearchedMoments/SearchedMoments';
+import BriefProfile from 'components-smart/BriefProfile/BriefProfile';
+import QuickActivity from 'components-smart/QuickActivity/QuickActivity';
+import AddStatus from 'components-smart/AddStatus/AddStatus';
 import Classnames from 'classnames';
-import { searchLife } from '../actions/social-status.action';
+import { searchLife } from 'actions/social-status.action';
 import { connect } from 'react-redux';
 
 class SocialLife extends Component {

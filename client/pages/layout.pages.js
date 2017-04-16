@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import TopMenu from '../components/TopMenu/TopMenu';
-import TopLoading from '../components/TopLoading/TopLoading';
-import { Navigate } from '../utilities';
-import Toast from '../components/Toast/Toast'
-import ImageDialog from '../components/ImageDialog/ImageDialog';
-import CreateActivityDialog from '../components/CreateActivityDialog/CreateActivityDialog';
-import JoinActivityDialog from '../components/JoinActivityDialog/JoinActivityDialog';
-import ProfileDrawer from '../components/ProfileDrawer/ProfileDrawer';
+import TopMenu from 'components-smart/TopMenu/TopMenu';
+import TopLoading from 'components-smart/TopLoading/TopLoading';
+import { Navigate } from 'utilities';
+import Toast from 'components-smart/Toast/Toast'
+import ImageDialog from 'components-smart/ImageDialog/ImageDialog';
+import CreateActivityDialog from 'components-smart/CreateActivityDialog/CreateActivityDialog';
+import JoinActivityDialog from 'components-smart/JoinActivityDialog/JoinActivityDialog';
+import ProfileDrawer from 'components-smart/ProfileDrawer/ProfileDrawer';
 
 class Layout extends Component {
     render() {

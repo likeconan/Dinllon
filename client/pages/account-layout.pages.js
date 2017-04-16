@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FullBackImage from '../components/FullBackImage/FullBackImage';
+import FullBackImage from 'components-dumb/FullBackImage/FullBackImage';
 
 class AccountLayout extends Component {
     render() {

@@ -3,9 +3,9 @@ import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import Email from 'material-ui/svg-icons/communication/email';
 import { grey50 } from 'material-ui/styles/colors';
-import Utilites from '../utilities';
-import FormTextField from '../components/FormTextField/FormTextField';
-import { editRegisterMobile, editRegisterPassword, editSMS, userRegister } from '../actions/user.action';
+import Utilites from 'utilities';
+import FormTextField from 'components-dumb/FormTextField/FormTextField';
+import { editRegisterMobile, editRegisterPassword, editSMS, userRegister } from 'actions/user.action';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 

@@ -3,7 +3,7 @@ var path = require('path');
 var PROD = process.env.NODE_ENV === "production";
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-const extractLess = new ExtractTextPlugin({filename: "bundle.css"});
+const extractLess = new ExtractTextPlugin({ filename: "bundle.css" });
 
 const plguins = PROD
     ? [
@@ -26,7 +26,11 @@ module.exports = {
     },
     resolve: {
         // Add `.ts` and `.tsx` as a resolvable extension.
-        extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js']
+        extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js'],
+        modules: [
+            'node_modules',
+            path.resolve(__dirname, 'client')
+        ]
     },
 
     module: {
