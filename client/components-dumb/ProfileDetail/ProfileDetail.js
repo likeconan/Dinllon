@@ -1,40 +1,42 @@
 import React, { Component } from 'react';
-import { UserModel } from '../../models';
+import { UserModel } from 'models';
 
+require('./profile-detail.less');
 
 class ProfileDisplayDetail extends Component {
     render() {
         const user = new UserModel(this.props.user).user;
+        const enableEdit = this.props.enableEdit;
         return (
             <profile-detail>
                 <div className='pd-head-con center-flex'>
                     <BackPicChange className='profile-head-pic' label='Change your profile photo'
-                        imgSrc={user.headPic} active={this.props.enableEdit} />
-                    <EditProfileButton />
+                        imgSrc={user.headPic} active={enableEdit} />
+                    {this.props.button}
                 </div>
 
                 <div className='profile-info-con'>
                     <MaxContenteditable className='pic-nickname mont-font edit-text-con' value={user.nickName}
-                        disabled={!this.props.enableEdit} maxlength={15} onBlur={this._editNickName} />
+                        disabled={!enableEdit} maxlength={15} onBlur={this.props.editNickName} />
 
                     <MaxContenteditable className='pic-goingOn edit-text-con' value={user.goingOn}
-                        disabled={!this.props.enableEdit} maxlength={30} onBlur={this._editGoingOn} />
+                        disabled={!enableEdit} maxlength={30} onBlur={this.props.editGoingOn} />
 
                     <div className='pic-more-info-con center-flex'>
-                        {(this.props.enableEdit || user.work) && <WorkIcon className='margin-right' />}
+                        {(enableEdit || user.work) && <WorkIcon className='margin-right' />}
 
                         <MaxContenteditable className='pic-school edit-text-con' value={user.work}
-                            disabled={!this.props.enableEdit} maxlength={50} onBlur={this._editWork} />
+                            disabled={!enableEdit} maxlength={50} onBlur={this.props.editWork} />
                     </div>
 
                     <div className='pic-more-info-con center-flex'>
-                        {(this.props.enableEdit || user.school) && <SchoolIcon className='margin-right' />}
+                        {(enableEdit || user.school) && <SchoolIcon className='margin-right' />}
 
                         <MaxContenteditable className='pic-school edit-text-con' value={user.school}
-                            disabled={!this.props.enableEdit} maxlength={50} onBlur={this._editSchool} />
+                            disabled={!enableEdit} maxlength={50} onBlur={this.props.editSchool} />
                     </div>
                     {
-                        (this.props.enableEdit || user.birthday) &&
+                        (enableEdit || user.birthday) &&
                         (
                             <div className='pic-more-info-con center-flex'>
                                 <CakeIcon className='margin-right' />
@@ -43,12 +45,12 @@ class ProfileDisplayDetail extends Component {
                                         {
                                             width: '200px',
                                             cursor: 'default',
-                                            height: this.props.enableEdit ? '40px' : '20px'
+                                            height: enableEdit ? '40px' : '20px'
                                         }}
-                                    className={Classnames('pic-date-con', { 'active': this.props.enableEdit })} hintText='pick a date'
-                                    disabled={!this.props.enableEdit}
+                                    className={Classnames('pic-date-con', { 'active': enableEdit })} hintText='pick a date'
+                                    disabled={!enableEdit}
                                     value={user.birthday ? new Date(user.birthday) : null}
-                                    onChange={this._editBirthday} />
+                                    onChange={this.props.editBirthday} />
                             </div>
                         )
                     }

@@ -1,20 +1,9 @@
 import React, { Component } from 'react';
-import { getUserMoments } from 'actions/profile.action';
-import { connect } from 'react-redux';
-import Status from 'components-dumb/Status/Status';
+import Status from '../Status/Status';
 import { Translate } from 'utilities';
 
-
-@connect((store) => {
-    return { statusList: store.profile.moments }
-})
-
 class ProfileMoments extends Component {
-    componentWillMount() {
-        this
-            .props
-            .dispatch(getUserMoments(this.props.userId));
-    }
+
     render() {
         return (
             <div>

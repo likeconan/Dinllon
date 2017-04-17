@@ -1,12 +1,24 @@
-import dinaxios from '../utilities/dinaxios';
+import dinaxios from 'utilities/dinaxios';
+import axios from 'axios';
 import validator from 'validator';
-import UserModel from '../models/user.model';
+import UserModel from 'models/user.model';
 import { showToast } from './toast.action';
 
 
 
 export function getProfile(userId) {
     return function (dispatch) {
+        var getProfile = dinaxios({
+            url: 'users/id/' + userId
+        });
+        var getUserMoment = dinaxios({
+            url: 'moments/' + userId
+        });
+
+        axios.all([getProfile, getUserMoment]).then(axios.spread(function (acct, perms) {
+            debugger
+            console.log(acct);
+        }))
         dinaxios({
             url: 'users/id/' + userId
         }).then((data) => {
@@ -18,6 +30,7 @@ export function getProfile(userId) {
                 }
             })
         });
+
     }
 }
 
