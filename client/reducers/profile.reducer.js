@@ -1,40 +1,72 @@
 export default function reducer(state = {
-    user: {
-        uuid: null,
-        nickName: '',
-        goingOn: '',
-        backPic: '',
-        headPic: '',
-        work: '',
-        school: '',
-        birthday: null,
-        mobile: '',
-        wechat: '',
+    pageUser: {
+        user: {
+            uuid: null,
+            nickName: '',
+            goingOn: '',
+            backPic: '',
+            headPic: '',
+            work: '',
+            school: '',
+            birthday: null,
+            mobile: '',
+            wechat: '',
+        },
+        moments: [],
+        activities: [],
+        userData: {
+            momentCount: 0,
+            activityCount: 0,
+            friendCount: 0,
+            appraiseCount: 0,
+            dislikeCount: 0,
+            lateCount: 0
+        },
     },
-    moments: [],
-    activities: [],
-    userData: {
-        momentCount: 0,
-        activityCount: 0,
-        friendCount: 0,
-        appraiseCount: 0,
-        dislikeCount: 0,
-        lateCount: 0
+    drawerUser: {
+        user: {
+            uuid: null,
+            nickName: '',
+            goingOn: '',
+            backPic: '',
+            headPic: '',
+            work: '',
+            school: '',
+            birthday: null,
+            mobile: '',
+            wechat: '',
+        },
+        moments: [],
+        activities: [],
+        userData: {
+            momentCount: 0,
+            activityCount: 0,
+            friendCount: 0,
+            appraiseCount: 0,
+            dislikeCount: 0,
+            lateCount: 0
+        },
     },
     editingUser: {},
     isOwn: false,
     enableEdit: false,
     openDrawer: false,
-    drawerUserId: null
 }, action) {
     switch (action.type) {
         case 'GET_PROFILE':
-            return {
-                ...state,
-                user: action.payload.user,
-                editingUser: action.payload.user,
-                isOwn: action.payload.isOwn
-            };
+        debugger
+            var state = action.payload.isPage ?
+                {
+                    ...state,
+                    pageUser: action.payload.data,
+                    editingUser: action.payload.editingUser,
+                    isOwn: action.payload.isOwn
+                } :
+                {
+                    ...state,
+                    drawerUser: action.payload.data
+                }
+            return state;
         case 'GET_USER_MOMENTS':
             return {
                 ...state,

@@ -6,7 +6,7 @@ import { showToast } from './toast.action';
 
 
 
-export function getProfile(userId) {
+export function getProfile(userId, isPage) {
     return function (dispatch) {
         var getProfile = dinaxios({
             url: 'users/id/' + userId
@@ -14,23 +14,35 @@ export function getProfile(userId) {
         var getUserMoment = dinaxios({
             url: 'moments/' + userId
         });
-
-        axios.all([getProfile, getUserMoment]).then(axios.spread(function (acct, perms) {
-            debugger
-            console.log(acct);
-        }))
-        dinaxios({
-            url: 'users/id/' + userId
-        }).then((data) => {
-            dispatch({
-                type: 'GET_PROFILE',
-                payload: {
-                    user: new UserModel(data.user).user,
-                    isOwn: data.isOwn
-                }
-            })
+        var getUserActivities = dinaxios({
+            url: 'activities/' + userId
         });
-
+        axios.all([getProfile, getUserMoment, getUserActivities])
+            .then(axios.spread(function (profile, moments, activities, userData) {
+                debugger
+                var user = new UserModel(profile.user).user
+                dispatch({
+                    type: 'GET_PROFILE',
+                    payload: {
+                        data: {
+                            user: user,
+                            moments: moments,
+                            activities: activities,
+                            userData: {
+                                momentCount: 0,
+                                activityCount: 0,
+                                friendCount: 0,
+                                appraiseCount: 0,
+                                dislikeCount: 0,
+                                lateCount: 0
+                            }
+                        },
+                        isPage: isPage,
+                        isOwn: profile.isOwn,
+                        editingUser: user
+                    }
+                })
+            }))
     }
 }
 

@@ -3,24 +3,30 @@ import Classnames from 'classnames';
 import ProfileBackPic from '../ProfileBackPic/ProfileBackPic';
 import ProfileDetail from '../ProfileEditDetail/ProfileEditDetail';
 import ProfileUserData from '../ProfileUserData/ProfileUserData';
-import ProfileTabs from '../ProfileTabs/ProfileTabs';
+import ProfileTabs from 'components-dumb/ProfileTabs/ProfileTabs';
 import ProfileOverlay from '../ProfileOverlay/ProfileOverlay';
 import storage from 'store2';
 import { connect } from 'react-redux';
 
 @connect((store) => {
     return {
-        user: store.profile.user
+        user: store.profile.pageUser,
+        isOwn: store.profile.isOwn
     }
 })
+
 class Profile extends Component {
+
+    componentWillMount() {
+        const userId = storage.session('ss.profile.user.id');
+    }
+
     render() {
-        const userId = this.props.userId || storage.session('ss.profile.user.id');
         return (
             <profile className={this.props.className} >
                 <ProfileBackPic />
                 <div className='pos-relative'>
-                    <ProfileUserData userId={userId} />
+                    <ProfileUserData userData={this.props.user.userData} isOwn={this.props.isOwn} />
                     <div className='all-center-flex life-container'>
                         <div className='life-left-con'>
                             <ProfileDetail />

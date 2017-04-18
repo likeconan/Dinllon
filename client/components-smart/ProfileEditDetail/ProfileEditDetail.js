@@ -7,7 +7,6 @@ import ProfileDetail from 'components-dumb/ProfileDetail/ProfileDetail';
 
 
 
-require('./profile-detail.less');
 
 @connect((store) => {
     return {
@@ -18,7 +17,7 @@ require('./profile-detail.less');
 })
 
 
-class ProfileDetail extends Component {
+class ProfileEditDetail extends Component {
 
     componentWillMount() {
 

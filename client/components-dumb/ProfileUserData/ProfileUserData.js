@@ -1,18 +1,11 @@
 import React, { Component } from 'react';
 import UserDataCon from 'components-dumb/UserDataCon/UserDataCon';
-import EditProfileButton from '../EditProfileButton/EditProfileButton';
-import InviteButton from '../InviteButton/InviteButton';
+import EditProfileButton from 'components-smart/EditProfileButton/EditProfileButton';
+import InviteButton from 'components-smart/InviteButton/InviteButton';
 import { Authorize } from 'utilities';
 import { connect } from 'react-redux';
 
 require('./profile-user-data.less');
-
-@connect((store) => {
-    return {
-        userData: store.profile.userData,
-        isOwn: store.profile.isOwn
-    }
-})
 
 class ProfileUserData extends Component {
     render() {
