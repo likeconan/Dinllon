@@ -19,7 +19,6 @@ export function getProfile(userId, isPage) {
         });
         axios.all([getProfile, getUserMoment, getUserActivities])
             .then(axios.spread(function (profile, moments, activities, userData) {
-                debugger
                 var user = new UserModel(profile.user).user
                 dispatch({
                     type: 'GET_PROFILE',

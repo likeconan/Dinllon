@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import BackPicChange from 'components-dumb/BackPicChange/BackPicChange';
 import { UserModel } from 'models';
 
 require('./profile-detail.less');

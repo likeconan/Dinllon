@@ -54,7 +54,6 @@ export default function reducer(state = {
 }, action) {
     switch (action.type) {
         case 'GET_PROFILE':
-        debugger
             var state = action.payload.isPage ?
                 {
                     ...state,

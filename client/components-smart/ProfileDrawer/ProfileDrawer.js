@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Drawer from 'material-ui/Drawer';
-import Profile from '../Profile/Profile';
 import { connect } from 'react-redux';
 import { toggleDrawer } from 'actions/profile.action';
 
@@ -21,7 +20,7 @@ class ProfileDrawer extends Component {
                     open={this.props.open}
                     onRequestChange={(open) => this.props.dispatch(toggleDrawer({ toggle: open }))}
                 >
-                    <Profile className='drawer' userId={this.props.userId} />
+                    
                 </Drawer>
             </div >
         );

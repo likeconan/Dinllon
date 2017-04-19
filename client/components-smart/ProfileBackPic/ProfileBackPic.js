@@ -4,6 +4,13 @@ import { connect } from 'react-redux';
 
 require('./profile-back-pic.less')
 
+@connect((store) => {
+    return {
+        profileUser: store.profile.pageUser.user,
+        enableEdit: store.profile.enableEdit,
+    }
+})
+
 class ProfileBackPic extends Component {
     render() {
         return (

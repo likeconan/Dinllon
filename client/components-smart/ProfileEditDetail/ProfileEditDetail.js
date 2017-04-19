@@ -5,12 +5,9 @@ import { editNickName, editGoingOn, editBirthday, editWork, editSchool, getProfi
 import storage from 'store2';
 import ProfileDetail from 'components-dumb/ProfileDetail/ProfileDetail';
 
-
-
-
 @connect((store) => {
     return {
-        profileUser: store.profile.user,
+        profileUser: store.profile.pageUser.user,
         editingUser: store.profile.editingUser,
         enableEdit: store.profile.enableEdit,
     }

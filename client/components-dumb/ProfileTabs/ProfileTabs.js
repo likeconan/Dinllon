@@ -13,14 +13,16 @@ class ProfileTabs extends Component {
         const color = { color: '#616161' };
         return (
             <profile-tabs>
-                <Tabs className='tabs' inkBarStyle={{ backgroundColor: 'rgb(0, 188, 212)' }} tabItemContainerStyle={{ backgroundColor: '#fff' }}>
+                <Tabs className='tabs'
+                    inkBarStyle={{ backgroundColor: 'rgb(0, 188, 212)' }}
+                    tabItemContainerStyle={{ backgroundColor: '#fff' }}>
                     <Tab label="Dinllons"
                         buttonStyle={color}>
-                        <ProfileMoments userId={this.props.userId} />
+                        <ProfileMoments statusList={this.props.data.moments} />
                     </Tab>
                     <Tab label="Activities"
                         buttonStyle={color} style={color}>
-                        <ProfileActivity userId={this.props.userId} />
+                        <ProfileActivity activities={this.props.data.activities} />
                     </Tab>
                 </Tabs>
             </profile-tabs>
