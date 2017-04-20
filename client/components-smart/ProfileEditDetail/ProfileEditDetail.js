@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import EditProfileButton from '../EditProfileButton/EditProfileButton';
+import EditProfileButton from 'components-smart/EditProfileButton/EditProfileButton';
 import { connect } from 'react-redux';
 import { editNickName, editGoingOn, editBirthday, editWork, editSchool, getProfile } from 'actions/profile.action';
 import storage from 'store2';
@@ -15,11 +15,6 @@ import ProfileDetail from 'components-dumb/ProfileDetail/ProfileDetail';
 
 
 class ProfileEditDetail extends Component {
-
-    componentWillMount() {
-
-        this.props.dispatch(getProfile(this.props.userId));
-    }
 
     _editNickName = (val) => {
         this.props.dispatch(editNickName(val));
@@ -46,6 +41,7 @@ class ProfileEditDetail extends Component {
 
             <ProfileDetail
                 user={user}
+                enableEdit={this.props.enableEdit}
                 button={<EditProfileButton />}
                 editNickName={this._editNickName}
                 editGoingOn={this._editGoingOn}

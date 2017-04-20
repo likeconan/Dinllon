@@ -10,7 +10,13 @@ class ProfileActivityUserList extends Component {
             <profile-activity-user-list class={Classnames(this.props.className)}>
                 <h6 className={Classnames('mont-font', this.props.titleClass)}>{this.props.title}</h6>
                 <div>
-                    <UserHeadName />
+                    {
+                        this.props.joinedUsers.map((val, key) => {
+                            return (
+                                <UserHeadName user={val.User} key={key} />
+                            )
+                        })
+                    }
                 </div>
             </profile-activity-user-list>
         );

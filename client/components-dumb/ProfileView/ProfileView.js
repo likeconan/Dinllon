@@ -1,38 +1,32 @@
 import React, { Component } from 'react';
-import Classnames from 'classnames';
-import ProfileBackPic from '../ProfileBackPic/ProfileBackPic';
-import ProfileEditDetail from '../ProfileEditDetail/ProfileEditDetail';
+import DivBackImage from 'components-dumb/DivBackImage/DivBackImage';
+import ProfileDetail from 'components-dumb/ProfileDetail/ProfileDetail';
 import ProfileUserData from 'components-dumb/ProfileUserData/ProfileUserData';
 import ProfileTabs from 'components-dumb/ProfileTabs/ProfileTabs';
-import ProfileOverlay from '../ProfileOverlay/ProfileOverlay';
-import storage from 'store2';
-import { connect } from 'react-redux';
-import { getProfile } from 'actions/profile.action';
-import store from 'store';
 
 class ProfileView extends Component {
     render() {
+        const data = this.props.data;
         return (
-            <profile className={this.props.className} >
-                {this.props.backEle}
-                <ProfileBackPic />
+            <profile className='drawer' >
+                <profile-back-pic>
+                    <DivBackImage imgSrc={data.user.backPic} className='profile-back-pic' />
+                </profile-back-pic>
                 <div className='pos-relative'>
-                    <ProfileUserData userData={this.props.data.user.userData} isOwn={this.props.data.isOwn} />
+                    <ProfileUserData userData={data.userData} isOwn={data.isOwn} />
                     <div className='all-center-flex life-container'>
                         <div className='life-left-con'>
-                            <ProfileEditDetail user={this.props.user.user} />
-                            {this.props.detailEle}
+                            <ProfileDetail user={data.user} />
                         </div>
                         <div className='life-center-con'>
                             <ProfileTabs data={{
-                                moments: this.props.user.moments,
-                                activities: this.props.user.activities
+                                moments: data.moments,
+                                activities: data.activities
                             }} />
                         </div>
                         <div className='life-right-con'>
                         </div>
                     </div>
-                    <ProfileOverlay />
                 </div>
             </profile>
         )

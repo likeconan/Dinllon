@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import BackPicChange from 'components-dumb/BackPicChange/BackPicChange';
+import MaxContenteditable from 'components-dumb/MaxContenteditable/MaxContenteditable';
 import { UserModel } from 'models';
+import SchoolIcon from 'material-ui/svg-icons/social/school'
+import CakeIcon from 'material-ui/svg-icons/social/cake'
+import WorkIcon from 'material-ui/svg-icons/action/work'
+import DatePicker from 'material-ui/DatePicker';
+import Classnames from 'classnames';
 
 require('./profile-detail.less');
 
-class ProfileDisplayDetail extends Component {
+class ProfileDetail extends Component {
     render() {
         const user = new UserModel(this.props.user).user;
         const enableEdit = this.props.enableEdit;
@@ -62,4 +68,4 @@ class ProfileDisplayDetail extends Component {
     }
 }
 
-export default ProfileDisplayDetail;
+export default ProfileDetail;

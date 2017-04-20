@@ -1,6 +1,6 @@
-import dinaxios from '../utilities/dinaxios';
+import dinaxios from 'utilities/dinaxios';
 import validator from 'validator';
-import { Authorize, Navigate } from '../utilities';
+import { Authorize, Navigate } from 'utilities';
 
 export function userLogin(user) {
     return function (dispatch) {

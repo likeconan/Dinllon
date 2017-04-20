@@ -3,9 +3,9 @@ import FlexImages from 'components-dumb/FlexImages/FlexImages';
 import Classnames from 'classnames';
 import TimeIcon from 'material-ui/svg-icons/device/access-time';
 import { Translate, TimeFormat } from 'utilities';
-import ProfileActivityUserList from '../ProfileActivityUserList/ProfileActivityUserList';
+import ProfileActivityUserList from 'components-dumb/ProfileActivityUserList/ProfileActivityUserList';
 import ActivityTypeTag from 'components-dumb/ActivityTypeTag/ActivityTypeTag';
-import ProfileActivityChildrenActions from '../ProfileActivityChildrenActions/ProfileActivityChildrenActions';
+import ProfileActivityChildrenActions from 'components-dumb/ProfileActivityChildrenActions/ProfileActivityChildrenActions';
 
 require('./profile-activity-children.less');
 
@@ -37,7 +37,8 @@ class ProfileActivityChildren extends Component {
                 <ProfileActivityUserList
                     className='apply-user-con'
                     title={Translate.lang.applied_user}
-                    titleClass='applied-text' />
+                    titleClass='applied-text'
+                    joinedUsers={this.props.data.JoinActivities} />
             </profile-activity-children >
         );
     }

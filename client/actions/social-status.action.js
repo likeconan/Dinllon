@@ -1,4 +1,4 @@
-import dinaxios from '../utilities/dinaxios';
+import dinaxios from 'utilities/dinaxios';
 
 export function searchLife() {
     return function (dispatch) {

@@ -12,6 +12,7 @@ export default function reducer(state = {
             mobile: '',
             wechat: '',
         },
+        isOwn: false,
         moments: [],
         activities: [],
         userData: {
@@ -48,7 +49,6 @@ export default function reducer(state = {
         },
     },
     editingUser: {},
-    isOwn: false,
     enableEdit: false,
     openDrawer: false,
 }, action) {
@@ -66,6 +66,7 @@ export default function reducer(state = {
                     drawerUser: action.payload.data
                 }
             return state;
+
         case 'GET_USER_MOMENTS':
             return {
                 ...state,
@@ -79,7 +80,10 @@ export default function reducer(state = {
         case 'SAVE_PROFILE':
             return {
                 ...state,
-                user: action.payload.user,
+                pageUser: {
+                    ...state.pageUser,
+                    user: action.payload.user
+                },
                 editingUser: action.payload.user,
             }
         case 'TOGGLE_EDIT_PROFILE':
@@ -125,8 +129,7 @@ export default function reducer(state = {
         case 'TOGGLE_PROFILE_DRAWER':
             return {
                 ...state,
-                openDrawer: action.payload.toggle,
-                drawerUserId: action.payload.userId
+                openDrawer: action.payload.toggle
             }
         default:
             return state;

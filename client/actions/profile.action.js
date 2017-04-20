@@ -8,7 +8,7 @@ import { showToast } from './toast.action';
 
 export function getProfile(userId, isPage) {
     return function (dispatch) {
-        var getProfile = dinaxios({
+        var getUserDetail = dinaxios({
             url: 'users/id/' + userId
         });
         var getUserMoment = dinaxios({
@@ -17,7 +17,7 @@ export function getProfile(userId, isPage) {
         var getUserActivities = dinaxios({
             url: 'activities/' + userId
         });
-        axios.all([getProfile, getUserMoment, getUserActivities])
+        axios.all([getUserDetail, getUserMoment, getUserActivities])
             .then(axios.spread(function (profile, moments, activities, userData) {
                 var user = new UserModel(profile.user).user
                 dispatch({
@@ -25,6 +25,7 @@ export function getProfile(userId, isPage) {
                     payload: {
                         data: {
                             user: user,
+                            isOwn: profile.isOwn,
                             moments: moments,
                             activities: activities,
                             userData: {
@@ -37,11 +38,24 @@ export function getProfile(userId, isPage) {
                             }
                         },
                         isPage: isPage,
-                        isOwn: profile.isOwn,
                         editingUser: user
                     }
                 })
             }))
+    }
+}
+
+export function getUserDetail(userId) {
+    return function (dispatch) {
+        dinaxios({
+            url: 'users/id/' + userId
+        }).then((data) => {
+            var user = new UserModel(data.user).user
+            dispatch({
+                type: 'GET_USER_DETAIL',
+                payload: user
+            })
+        });
     }
 }
 
@@ -144,8 +158,13 @@ export function saveProfile(user) {
 }
 
 export function toggleDrawer(val) {
-    return {
-        type: 'TOGGLE_PROFILE_DRAWER',
-        payload: val
+    return function (dispatch) {
+        if (val.toggle) {
+            dispatch(getProfile(val.userId));
+        }
+        dispatch({
+            type: 'TOGGLE_PROFILE_DRAWER',
+            payload: val
+        })
     }
 }
