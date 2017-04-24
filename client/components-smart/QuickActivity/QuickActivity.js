@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import UserBrief from 'components-dumb/UserBrief/UserBrief';
 import FlexImages from 'components-dumb/FlexImages/FlexImages';
+import QuickActivityAction from 'components-dumb/QuickActivityAction/QuickActivityAction';
 import RaisedButton from 'material-ui/RaisedButton';
 import IconButton from 'material-ui/IconButton';
 import ReplyIcon from 'material-ui/svg-icons/content/reply';
+import RefreshIcon from 'material-ui/svg-icons/navigation/refresh';
 import TimeIcon from 'material-ui/svg-icons/device/access-time';
 import Moment from 'react-moment';
-import { TimeFormat,Translate, Authorize } from 'utilities';
+import { TimeFormat, Translate } from 'utilities';
 import { connect } from 'react-redux';
 import { openJoinDialog, searchActivity } from 'actions/activity.action';
 import ActivityTypeTag from 'components-dumb/ActivityTypeTag/ActivityTypeTag'
 import { UserModel } from 'models';
+import Classnames from 'classnames';
 
 require('./quick-activity.less');
 
@@ -38,10 +41,12 @@ class QuickActivity extends Component {
     _nextActivity = () => {
         this.props.dispatch(searchActivity(this.props.offset))
     }
+    _refreshActivity = () => {
+        this.props.dispatch(searchActivity(0))
+    }
 
     render() {
         const user = new UserModel({ ...this.props.activity }.User).user;
-        const ifOwn = user.uuid === Authorize.getLoggedUserId();
         const iconStyle = {
             color: '#bdbdbd',
             transform: 'scaleX(-1)'
@@ -51,13 +56,20 @@ class QuickActivity extends Component {
                 <div className='qa-title-con space-between center-flex'>
                     <p className='qa-title'>{Translate.lang.recent_activities}</p>
                     {
-                        this.props.activity &&
-                        <IconButton
-                            onClick={this._nextActivity}
-                            iconStyle={iconStyle}
-                            tooltip={Translate.lang.next}>
-                            <ReplyIcon />
-                        </IconButton>
+                        this.props.activity ?
+                            <IconButton
+                                onClick={this._nextActivity}
+                                iconStyle={iconStyle}
+                                tooltip={Translate.lang.next}>
+                                <ReplyIcon />
+                            </IconButton>
+                            :
+                            <IconButton
+                                onClick={this._refreshActivity}
+                                iconStyle={iconStyle}
+                                tooltip={Translate.lang.refresh}>
+                                <RefreshIcon />
+                            </IconButton>
                     }
 
                 </div>
@@ -81,7 +93,7 @@ class QuickActivity extends Component {
                                             type={this.props.activity.type}
                                             cost={this.props.activity.cost} />
                                     </div>
-                                    <div className='qa-flex-img-con'>
+                                    <div className={Classnames({ 'qa-flex-img-con': this.props.activity.Images.length })}>
                                         <FlexImages imgContent={this.props.activity.Images} />
                                     </div>
                                     <div
@@ -89,12 +101,7 @@ class QuickActivity extends Component {
                                         <TimeIcon color='#616161' />
                                         <span>{TimeFormat.formatDateTime(this.props.activity.startedAt)}</span>
                                     </div>
-                                    <RaisedButton
-                                        className='width-100p'
-                                        disabled={ifOwn}
-                                        label={ifOwn ? Translate.lang.join_in_own : Translate.lang.join_in}
-                                        onClick={this._openActivityDialog}
-                                        primary={true} />
+                                    <QuickActivityAction userId={user.uuid} joined={this.props.activity.JoinActivities[0]} />
                                 </div>
                             </div>
 
@@ -121,12 +128,8 @@ class QuickActivity extends Component {
                                         imgContent={this.props.activity.Images}
                                         className='mobile-normal' />
                                 </div>
+                                <QuickActivityAction />
 
-                                <RaisedButton
-                                    className='width-100p'
-                                    label='Join in'
-                                    onClick={this._openActivityDialog}
-                                    primary={true} />
                             </div>
                         </div>
 

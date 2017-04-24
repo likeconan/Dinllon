@@ -67,5 +67,8 @@
     "cancel": "取消",
     "submit": "确认",
     "approve_title": "同意参加活动",
-    "approve_sure": "你确定同意该用户参加你组织的活动吗？"
+    "approve_sure": "你确定同意该用户参加你组织的活动吗？",
+    "refresh": "刷新",
+    "applied": "已报名",
+    "apply_cancel": "取消报名"
 }

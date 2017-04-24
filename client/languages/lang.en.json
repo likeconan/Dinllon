@@ -67,5 +67,8 @@
     "cancel": "Cancel",
     "submit": "Submit",
     "approve_title": "Approve to join",
-    "approve_sure": "Are you sure to approve this user to join your activity?"
+    "approve_sure": "Are you sure to approve this user to join your activity?",
+    "refresh": "refresh",
+    "applied": "Applied",
+    "apply_cancel": "Cancel application"
 }

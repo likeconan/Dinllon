@@ -33,7 +33,7 @@ class ProfileActivityUserList extends Component {
                 <h6 className={Classnames('mont-font', this.props.titleClass)}>
                     {this.props.title}
                 </h6>
-                <div>
+                <div className='center-flex paul-con'>
                     {
                         this.props.users.length
                             ? userEles :
