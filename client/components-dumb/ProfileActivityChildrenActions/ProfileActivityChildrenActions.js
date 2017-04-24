@@ -5,8 +5,15 @@ import IconButton from 'material-ui/IconButton';
 import EditIcon from 'material-ui/svg-icons/image/edit';
 import DeleteIcon from 'material-ui/svg-icons/action/delete';
 import { Translate } from 'utilities';
+import store from 'store';
+import { openJoinDialog } from 'actions/activity.action';
 
 class ProfileActivityChildrenActions extends Component {
+
+    _openJoin = () => {
+        store.dispatch(openJoinDialog(this.props.activityId));
+    }
+
     render() {
         const ifactive = this.props.ifactive;
         const margin = {
@@ -26,11 +33,13 @@ class ProfileActivityChildrenActions extends Component {
                                 ifactive ?
                                     <FlatButton label={Translate.lang.join_in}
                                         style={margin}
-                                        labelStyle={{ color: 'white' }} />
+                                        labelStyle={{ color: 'white' }}
+                                        onClick={this._openJoin} />
                                     :
                                     <RaisedButton label={Translate.lang.join_in}
                                         primary={true}
-                                        style={margin} />
+                                        style={margin}
+                                        onClick={this._openJoin} />
                             }
 
                         </div>

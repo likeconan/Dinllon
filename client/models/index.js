@@ -1,4 +1,11 @@
-export ImagesModel from './images.model';
-export UserModel from './user.model';
-export EnumModel from './enum.model';
+import ImagesModel from './images.model';
+import UserModel from './user.model';
+import EnumModel from './enum.model';
+import JoinUsersModel from './join-users.model';
 
+module.exports = {
+    'ImagesModel': ImagesModel,
+    'UserModel': UserModel,
+    'EnumModel': EnumModel,
+    'JoinUsersModel': JoinUsersModel
+}

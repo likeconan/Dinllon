@@ -108,3 +108,26 @@ export function searchActivity(offset) {
     }
 }
 
+export function toggleApproveJoinDialog(val) {
+    return {
+        type: 'TOGGLE_APPROVE_JOIN_DIALOG',
+        payload: val
+    }
+}
+
+export function approveJoin(id) {
+    return function (dispatch) {
+        dinaxios({
+            url: 'activities/join/' + id,
+            method: 'PUT'
+        }).then((data) => {
+            debugger
+            dispatch({
+                type: 'APPROVE_JOIN',
+                payload: {
+                }
+            })
+            dispatch(toggleApproveJoinDialog({ open: false }));
+        })
+    }
+}

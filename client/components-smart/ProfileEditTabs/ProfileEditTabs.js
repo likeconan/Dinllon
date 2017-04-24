@@ -7,13 +7,14 @@ import { connect } from 'react-redux';
         data: {
             moments: store.profile.pageUser.moments,
             activities: store.profile.pageUser.activities,
-        }
+        },
+        isOwn: store.profile.pageUser.isOwn
     }
 })
 class ProfileEditTabs extends Component {
     render() {
         return (
-            <ProfileTabs data={this.props.data} />
+            <ProfileTabs data={this.props.data} isOwn={this.props.isOwn} />
         );
     }
 }

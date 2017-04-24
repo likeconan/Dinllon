@@ -16,7 +16,6 @@ class ProfileViewEdit extends Component {
     }
 
     render() {
-        console.log('profile-view-edit')
         return (
             <profile>
                 <ProfileBackPic />

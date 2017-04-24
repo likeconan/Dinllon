@@ -16,6 +16,7 @@ class UserHeadName extends Component {
             <user-head-name>
                 <img src={user.headPic} className='user-head-img' />
                 <p className='mont-font cursor-pointer' onClick={() => this.openDrawer(user.uuid)}>{user.nickName}</p>
+                {this.props.children}
             </user-head-name>
         );
     }

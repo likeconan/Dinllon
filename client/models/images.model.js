@@ -1,4 +1,4 @@
-import { staticServer } from '../utilities';
+import { staticServer } from 'utilities';
 
 class ImagesModel {
     constructor(imgContent) {

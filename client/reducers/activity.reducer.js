@@ -1,6 +1,7 @@
 export default function reducer(state = {
     openCreate: false,
     openJoin: false,
+    openApprove: false,
     activity: null,
     offset: 1,
     activityObj: {
@@ -15,6 +16,7 @@ export default function reducer(state = {
         activityId: null,
         informEmail: '',
     },
+    joinActivityId: null,
     disableCost: false,
     validatedCreate: false,
     validatedJoin: false,
@@ -128,6 +130,20 @@ export default function reducer(state = {
                 offset: action.payload.offset ? action.payload.offset + 1 : 1
             }
         }
+        case 'TOGGLE_APPROVE_JOIN_DIALOG': {
+            return {
+                ...state,
+                openApprove: action.payload.open,
+                joinActivityId: action.payload.joinActivityId
+            }
+        }
+
+        case 'APPROVE_JOIN': {
+            return {
+                ...state,
+            }
+        }
+
         default:
             return state;
     }

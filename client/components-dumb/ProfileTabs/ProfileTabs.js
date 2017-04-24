@@ -18,11 +18,11 @@ class ProfileTabs extends Component {
                     tabItemContainerStyle={{ backgroundColor: '#fff' }}>
                     <Tab label="Dinllons"
                         buttonStyle={color}>
-                        <ProfileMoments statusList={this.props.data.moments} />
+                        <ProfileMoments statusList={this.props.data.moments} isOwn={this.props.isOwn} />
                     </Tab>
                     <Tab label="Activities"
                         buttonStyle={color} style={color}>
-                        <ProfileActivity activities={this.props.data.activities} />
+                        <ProfileActivity activities={this.props.data.activities} isOwn={this.props.isOwn} />
                     </Tab>
                 </Tabs>
             </profile-tabs>

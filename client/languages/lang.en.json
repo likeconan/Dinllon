@@ -59,5 +59,13 @@
     "no_user_moments": "No moments yet.",
     "no_user_activities": "No activities yet",
     "applied_user": "Applied user:",
-    "joined_user": "Joined user:"
+    "no_applied_user": "No applied users yet",
+    "approved_user": "Approved user:",
+    "no_approved_user": "No approved users yet:",
+    "joined_user": "Joined user:",
+    "approve": "Approve",
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "approve_title": "Approve to join",
+    "approve_sure": "Are you sure to approve this user to join your activity?"
 }
