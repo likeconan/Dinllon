@@ -3,16 +3,15 @@ import {connect} from 'react-redux';
 import {closeDialog} from 'actions/activity.action';
 import {Translate} from 'utilities';
 import ResponsiveDialog from 'components-dumb/ResponsiveDialog/ResponsiveDialog';
-import CreateActivityForm from 'components-smart/CreateActivityForm/CreateActivityForm';
 import CreateActivityAction from 'components-smart/CreateActivityAction/CreateActivityAction';
+import InviteActivityTabs from 'components-dumb/InviteActivityTabs/InviteActivityTabs';
 
-require('./create-activity-dialog.less');
+require('./invite-activity-dialog.less');
 
 @connect((store) => {
-    return {open: store.activity.openCreate}
+    return {open: store.activity.openInvite}
 })
-class CreateActivityDialog extends Component {
-
+class InviteActivityDialog extends Component {
     handleClose = () => {
         this
             .props
@@ -24,16 +23,16 @@ class CreateActivityDialog extends Component {
         return (
             <ResponsiveDialog
                 modal={false}
-                className='add-activity-con'
+                className='invite-activity-con'
                 actions={actions}
-                title={Translate.lang.create_activity}
+                title={Translate.lang.invite_title}
                 contentClassName='acc-content'
                 open={this.props.open}
                 onRequestClose={this.handleClose}>
-                <CreateActivityForm/>
+                <InviteActivityTabs/>
             </ResponsiveDialog>
         );
     }
 }
 
-export default CreateActivityDialog;
+export default InviteActivityDialog;

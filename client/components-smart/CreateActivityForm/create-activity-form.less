@@ -1,0 +1,40 @@
+.create-activity-form {
+    .aac-fee-con{
+        flex-wrap: wrap;
+    }
+    .edit-text-image-con {
+        .text-edit-con {
+            max-height: 30vh;
+            overflow-y: auto;
+        }
+    }
+    @media screen and (max-width:600px) {
+        date-time-picker {
+            flex-wrap: wrap;
+            &>div {
+                margin-bottom: 15px;
+            }
+        }
+    }
+    .add-photo {
+        position: absolute !important;
+        right: 0;
+        margin: -42px 18px 0 0 !important;
+    }
+    .photo-activity-con {
+        .dptc {
+            height: 120px;
+            width: 180px;
+            border-radius: 6px;
+        }
+    }
+    .cost-num {
+        width: 80px !important;
+        input {
+            text-align: center;
+            &[disabled] {
+                text-decoration: line-through;
+            }
+        }
+    }
+}

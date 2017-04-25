@@ -101,7 +101,9 @@ class QuickActivity extends Component {
                                         <TimeIcon color='#616161' />
                                         <span>{TimeFormat.formatDateTime(this.props.activity.startedAt)}</span>
                                     </div>
-                                    <QuickActivityAction userId={user.uuid} joined={this.props.activity.JoinActivities[0]} />
+                                    <QuickActivityAction
+                                        userId={user.uuid}
+                                        joined={this.props.activity.JoinActivities[0]} />
                                 </div>
                             </div>
 
@@ -128,7 +130,9 @@ class QuickActivity extends Component {
                                         imgContent={this.props.activity.Images}
                                         className='mobile-normal' />
                                 </div>
-                                <QuickActivityAction />
+                                <QuickActivityAction
+                                    userId={user.uuid}
+                                    joined={this.props.activity.JoinActivities[0]} />
 
                             </div>
                         </div>

@@ -58,7 +58,7 @@
     "edit_profile": "修改简介",
     "no_user_moments": "目前还没有任何状态信息。",
     "no_user_activities": "目前还没有任何活动信息。",
-    "applied_user": "报名者：",
+    "applied_user": "申请者：",
     "no_applied_user": "暂时没有人报名",
     "approved_user": "报名成功：",
     "no_approved_user": "暂时没有报名成功的:",
@@ -70,5 +70,6 @@
     "approve_sure": "你确定同意该用户参加你组织的活动吗？",
     "refresh": "刷新",
     "applied": "已报名",
-    "apply_cancel": "取消报名"
+    "apply_cancel": "取消报名",
+    "invite_title": "邀请参加活动"
 }
