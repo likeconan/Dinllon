@@ -71,5 +71,6 @@
     "refresh": "refresh",
     "applied": "Applied",
     "apply_cancel": "Cancel application",
-    "invite_title": "Invite to join activity"
+    "invite_title": "Invite to join activity",
+    "my_activity": "My activity"
 }

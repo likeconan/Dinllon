@@ -7,6 +7,7 @@ import imagesDialog from './images-dialog.reducer';
 import activity from './activity.reducer';
 import toast from './toast.reducer';
 import profile from './profile.reducer';
+import joinactivity from './join-activity.reducer';
 
 
 export default combineReducers({
@@ -17,4 +18,5 @@ export default combineReducers({
     activity,
     toast,
     profile,
+    joinactivity,
 });

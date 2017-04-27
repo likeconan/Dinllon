@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { closeDialog, editInformEmail, applyActivity } from 'actions/activity.action';
+import { toggleJoinDialog, editInformEmail, applyActivity } from 'actions/join-activity.action';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import ResponsiveDialog from 'components-dumb/ResponsiveDialog/ResponsiveDialog';
@@ -12,16 +12,16 @@ require('./join-activity-dialog.less');
 
 @connect((store) => {
     return {
-        open: store.activity.openJoin,
-        validatedJoin: store.activity.validatedJoin,
-        applyActivity: store.activity.applyActivity,
+        open: store.joinactivity.openJoin,
+        validatedJoin: store.joinactivity.validatedJoin,
+        applyActivity: store.joinactivity.applyActivity,
     }
 })
 class JoinActivityDialog extends Component {
     handleClose = () => {
         this
             .props
-            .dispatch(closeDialog());
+            .dispatch(toggleJoinDialog({ open: false }));
     }
 
     _joinActivity = () => {

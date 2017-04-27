@@ -1,21 +1,18 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
-import {connect} from 'react-redux';
-import {addActivity} from 'actions/activity.action';
+import { connect } from 'react-redux';
+import { addActivity } from 'actions/activity.action';
 import store from 'store';
-import {Translate, Authorize, TimeFormat} from 'utilities';
+import { Translate, Authorize, TimeFormat } from 'utilities';
 
 @connect((store) => {
-    return {validatedCreate: store.activity.validatedCreate}
+    return { validatedCreate: store.activity.validatedCreate }
 })
 
 class CreateActivityAction extends Component {
 
     _createActivity = () => {
-        var obj = store
-            .getState()
-            .activity
-            .activityObj;
+        var obj = store.getState().activity.activityObj;
 
         var data = new FormData();
         data.append('userId', Authorize.getLoggedUserId());
@@ -24,14 +21,12 @@ class CreateActivityAction extends Component {
         data.append('type', obj.type);
         data.append('startedAt', TimeFormat.formatDate_Time(obj.startDate, obj.startTime));
 
-        obj
-            .images
+        obj.images
             .forEach(function (file, key) {
                 data.append('file' + key, file)
             }, this);
-        this
-            .props
-            .dispatch(addActivity(data));
+
+        this.props.dispatch(addActivity(data));
     }
 
     render() {
@@ -39,7 +34,7 @@ class CreateActivityAction extends Component {
             label={Translate.lang.create}
             primary={true}
             onTouchTap={this._createActivity}
-            disabled={!this.props.validatedCreate}/>);
+            disabled={!this.props.validatedCreate} />);
     }
 }
 

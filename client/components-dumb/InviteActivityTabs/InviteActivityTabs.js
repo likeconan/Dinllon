@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Tabs, Tab} from 'material-ui/Tabs';
+import React, { Component } from 'react';
+import { Tabs, Tab } from 'material-ui/Tabs';
 import CreateActivityForm from 'components-smart/CreateActivityForm/CreateActivityForm';
 
 require('./invite-activity-tabs.less');
@@ -23,8 +23,7 @@ class InviteActivityTabs extends Component {
                         123
                     </Tab>
                     <Tab label="Activities" buttonStyle={color} style={color}>
-                        <CreateActivityForm/>
-
+                        <CreateActivityForm />
                     </Tab>
                 </Tabs>
             </invite-tabs>

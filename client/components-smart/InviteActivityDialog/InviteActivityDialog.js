@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {closeDialog} from 'actions/activity.action';
-import {Translate} from 'utilities';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { toggleInviteDialog } from 'actions/join-activity.action';
+import { Translate } from 'utilities';
 import ResponsiveDialog from 'components-dumb/ResponsiveDialog/ResponsiveDialog';
 import CreateActivityAction from 'components-smart/CreateActivityAction/CreateActivityAction';
 import InviteActivityTabs from 'components-dumb/InviteActivityTabs/InviteActivityTabs';
@@ -9,13 +9,13 @@ import InviteActivityTabs from 'components-dumb/InviteActivityTabs/InviteActivit
 require('./invite-activity-dialog.less');
 
 @connect((store) => {
-    return {open: store.activity.openInvite}
+    return { open: store.joinactivity.openInvite }
 })
 class InviteActivityDialog extends Component {
     handleClose = () => {
         this
             .props
-            .dispatch(closeDialog());
+            .dispatch(toggleInviteDialog({ open: false }));
     }
 
     render() {
@@ -29,7 +29,7 @@ class InviteActivityDialog extends Component {
                 contentClassName='acc-content'
                 open={this.props.open}
                 onRequestClose={this.handleClose}>
-                <InviteActivityTabs/>
+                <InviteActivityTabs />
             </ResponsiveDialog>
         );
     }

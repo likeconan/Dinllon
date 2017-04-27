@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {closeDialog} from 'actions/activity.action';
-import {Translate} from 'utilities';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { toggleCreateDialog } from 'actions/activity.action';
+import { Translate } from 'utilities';
 import ResponsiveDialog from 'components-dumb/ResponsiveDialog/ResponsiveDialog';
 import CreateActivityForm from 'components-smart/CreateActivityForm/CreateActivityForm';
 import CreateActivityAction from 'components-smart/CreateActivityAction/CreateActivityAction';
@@ -9,14 +9,14 @@ import CreateActivityAction from 'components-smart/CreateActivityAction/CreateAc
 require('./create-activity-dialog.less');
 
 @connect((store) => {
-    return {open: store.activity.openCreate}
+    return { open: store.activity.openCreate }
 })
 class CreateActivityDialog extends Component {
 
     handleClose = () => {
         this
             .props
-            .dispatch(closeDialog());
+            .dispatch(toggleCreateDialog(false));
     }
 
     render() {
@@ -30,7 +30,7 @@ class CreateActivityDialog extends Component {
                 contentClassName='acc-content'
                 open={this.props.open}
                 onRequestClose={this.handleClose}>
-                <CreateActivityForm/>
+                <CreateActivityForm />
             </ResponsiveDialog>
         );
     }

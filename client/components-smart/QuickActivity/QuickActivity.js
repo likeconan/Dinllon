@@ -10,7 +10,8 @@ import TimeIcon from 'material-ui/svg-icons/device/access-time';
 import Moment from 'react-moment';
 import { TimeFormat, Translate } from 'utilities';
 import { connect } from 'react-redux';
-import { openJoinDialog, searchActivity } from 'actions/activity.action';
+import { searchActivity } from 'actions/activity.action';
+import { toggleJoinDialog } from 'actions/join-activity.action';
 import ActivityTypeTag from 'components-dumb/ActivityTypeTag/ActivityTypeTag'
 import { UserModel } from 'models';
 import Classnames from 'classnames';
@@ -19,9 +20,7 @@ require('./quick-activity.less');
 
 @connect((store) => {
     return {
-        openCreate: store.activity.openCreate,
         offset: store.activity.offset,
-        openJoin: store.activity.openJoin,
         activity: store.activity.activity
     }
 })
@@ -32,12 +31,6 @@ class QuickActivity extends Component {
             .dispatch(searchActivity());
     }
 
-    _openActivityDialog = () => {
-        this
-            .props
-            .dispatch(openJoinDialog(this.props.activity.uuid))
-    }
-
     _nextActivity = () => {
         this.props.dispatch(searchActivity(this.props.offset))
     }
@@ -46,6 +39,7 @@ class QuickActivity extends Component {
     }
 
     render() {
+        console.log("open join")
         const user = new UserModel({ ...this.props.activity }.User).user;
         const iconStyle = {
             color: '#bdbdbd',
@@ -102,6 +96,7 @@ class QuickActivity extends Component {
                                         <span>{TimeFormat.formatDateTime(this.props.activity.startedAt)}</span>
                                     </div>
                                     <QuickActivityAction
+                                        activityId={this.props.activity.uuid}
                                         userId={user.uuid}
                                         joined={this.props.activity.JoinActivities[0]} />
                                 </div>
@@ -132,6 +127,7 @@ class QuickActivity extends Component {
                                 </div>
                                 <QuickActivityAction
                                     userId={user.uuid}
+                                    activityId={this.props.activity.uuid}
                                     joined={this.props.activity.JoinActivities[0]} />
 
                             </div>

@@ -1,8 +1,25 @@
 import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Translate, Authorize } from 'utilities';
+import { connect } from 'react-redux';
+import { toggleJoinDialog } from 'actions/join-activity.action';
+import store from 'store';
+
 
 class QuickActivityAction extends Component {
+
+    _activityAction = (status) => {
+        if (status !== 1) {
+            store.dispatch(toggleJoinDialog({
+                activityId: this.props.activityId,
+                open: true
+            }));
+        } else {
+
+        }
+
+    }
+
     render() {
         const ifOwn = this.props.userId === Authorize.getLoggedUserId();
         const status = this.props.joined ? this.props.joined.status : null;
@@ -21,7 +38,8 @@ class QuickActivityAction extends Component {
                 disabled={ifDisable}
                 label={label}
                 primary={status !== 1}
-                secondary={status === 1} />
+                secondary={status === 1}
+                onTouchTap={() => this._activityAction(status)} />
         );
     }
 }

@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import { connect } from 'react-redux';
-import { toggleApproveJoinDialog, approveJoin } from 'actions/activity.action';
+import { toggleApproveJoinDialog, approveJoin } from 'actions/join-activity.action';
 import { Translate } from 'utilities';
 
 @connect((store) => {
     return {
-        open: store.activity.openApprove,
+        open: store.joinactivity.openApprove,
         joinActivityId: store.activity.joinActivityId
     }
 })
