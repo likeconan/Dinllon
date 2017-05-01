@@ -22,10 +22,10 @@ require('./user-icon-menu.less');
     }
 })
 class UserIconMenu extends Component {
-    _openActivityDialog() {
+    _openActivityDialog = () => {
         this.props.dispatch(toggleCreateDialog())
     }
-    _logOut() {
+    _logOut = () => {
         this.props.dispatch(logOut());
     }
 

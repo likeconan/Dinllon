@@ -70,7 +70,12 @@
     "approve_sure": "你确定同意该用户参加你组织的活动吗？",
     "refresh": "刷新",
     "applied": "已报名",
+    "approved": "报名成功",
+    "refused": "被拒绝",
     "apply_cancel": "取消报名",
     "invite_title": "邀请参加活动",
-    "my_activity": "我的活动"
+    "my_activity": "我的活动",
+    "cancel_apply_activity_success": "活动取消报名成功",
+    "cancel_apply_sure": "你确定取消报名该活动吗？",
+    "cancel_apply_deleted_faild": "抱歉，取消报名失败，我们会尽快解决"
 }

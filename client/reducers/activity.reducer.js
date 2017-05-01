@@ -127,8 +127,12 @@ export default function reducer(state = {
                 offset: action.payload.offset
                     ? action.payload.offset + 1
                     : 1
-            }
-
+            };
+        case 'EDIT_JOINED_QUICKACTIVITY':
+            return {
+                ...state,
+                activity: { ...state.activity, JoinActivities: action.payload }
+            };
         default:
             return state;
     }

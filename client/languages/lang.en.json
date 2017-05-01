@@ -70,7 +70,12 @@
     "approve_sure": "Are you sure to approve this user to join your activity?",
     "refresh": "refresh",
     "applied": "Applied",
+    "approved": "Approved",
+    "refused": "Refused",
     "apply_cancel": "Cancel application",
     "invite_title": "Invite to join activity",
-    "my_activity": "My activity"
+    "my_activity": "My activity",
+    "cancel_apply_activity_success": "Successfully cancel application",
+    "cancel_apply_sure": "Are you sure to cancel the application?",
+    "cancel_apply_deleted_faild": "Sorry,cancel faild. We will fix as soon as possible"
 }

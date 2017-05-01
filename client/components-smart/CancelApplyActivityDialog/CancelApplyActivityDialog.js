@@ -2,22 +2,22 @@ import React, { Component } from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import { connect } from 'react-redux';
-import { toggleApproveJoinDialog, approveJoin } from 'actions/join-activity.action';
+import { toggleCancelApplyDialog, cancelApply } from 'actions/join-activity.action';
 import { Translate } from 'utilities';
 
 @connect((store) => {
     return {
-        open: store.joinactivity.openApprove,
-        approveActivityId: store.activity.approveActivityId
+        open: store.joinactivity.openCancelApply,
+        cancelApplyJoinedId: store.joinactivity.cancelApplyJoinedId
     }
 })
-class ApproveJoinDialog extends Component {
+class CancelApplyActivityDialog extends Component {
 
     _handleClose = () => {
-        this.props.dispatch(toggleApproveJoinDialog({ open: false }));
+        this.props.dispatch(toggleCancelApplyDialog({ open: false }));
     }
-    _handleApprove = () => {
-        this.props.dispatch(approveJoin(this.props.approveActivityId));
+    _handleCancelApply = () => {
+        this.props.dispatch(cancelApply(this.props.cancelApplyJoinedId));
     }
 
     render() {
@@ -31,20 +31,20 @@ class ApproveJoinDialog extends Component {
                 label={Translate.lang.submit}
                 primary={true}
                 keyboardFocused={true}
-                onTouchTap={this._handleApprove}
+                onTouchTap={this._handleCancelApply}
             />,
         ];
         return (
             <Dialog
-                title={Translate.lang.approve_title}
+                title={Translate.lang.apply_cancel}
                 actions={actions}
                 modal={false}
                 open={this.props.open}
                 onRequestClose={this.handleClose}>
-                {Translate.lang.approve_sure}
+                {Translate.lang.cancel_apply_sure}
             </Dialog>
         );
     }
 }
 
-export default ApproveJoinDialog;
+export default CancelApplyActivityDialog;

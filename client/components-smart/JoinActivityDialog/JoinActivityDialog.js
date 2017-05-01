@@ -31,6 +31,11 @@ class JoinActivityDialog extends Component {
         };
         this.props.dispatch(applyActivity(data));
     }
+    _onEnter = (e) => {
+        if (e.charCode === 13 && this.props.validatedJoin) {
+            this._joinActivity();
+        }
+    }
 
     editInformEmail = (e) => {
         this
@@ -40,15 +45,10 @@ class JoinActivityDialog extends Component {
 
 
     render() {
-        const actions = [< RaisedButton label="Ok" primary={
-            true
-        }
-            onTouchTap={
-                this._joinActivity
-            }
-            disabled={
-                !this.props.validatedJoin
-            } />];
+        const actions = [< RaisedButton label="Ok"
+            primary={true}
+            onTouchTap={this._joinActivity}
+            disabled={!this.props.validatedJoin} />];
 
         return (
             <ResponsiveDialog
@@ -64,7 +64,8 @@ class JoinActivityDialog extends Component {
                         validated={this.props.validatedJoin}
                         onChange={this.editInformEmail}
                         value={this.props.applyActivity.informEmail}
-                        errorText={Translate.lang.error_email} />
+                        errorText={Translate.lang.error_email}
+                        onKeyPress={this._onEnter} />
                 </div>
                 <div className='caution-msg-con mont-font pink accent-2 margin-top'>
                     <strong className='margin-right'>{Translate.lang.warmth_tip}</strong>

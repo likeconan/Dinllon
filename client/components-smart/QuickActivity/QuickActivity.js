@@ -39,7 +39,6 @@ class QuickActivity extends Component {
     }
 
     render() {
-        console.log("open join")
         const user = new UserModel({ ...this.props.activity }.User).user;
         const iconStyle = {
             color: '#bdbdbd',

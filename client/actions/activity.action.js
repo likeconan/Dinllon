@@ -66,3 +66,11 @@ export function searchActivity(offset) {
         })
     }
 }
+
+export function editJoinedQuickActivity(data) {
+    return {
+        type: "EDIT_JOINED_QUICKACTIVITY",
+        payload: data ? [data] : []
+    }
+}
+

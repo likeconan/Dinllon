@@ -21,7 +21,7 @@ class ProfileActivityUserList extends Component {
                             onTouchTap={() => store.dispatch(
                                 toggleApproveJoinDialog({
                                     open: true,
-                                    joinActivityId: val.uuid
+                                    approveActivityId: val.uuid
                                 })
                             )} />
                     }

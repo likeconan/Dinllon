@@ -2,6 +2,7 @@ export default function reducer(state = {
     openJoin: false,
     openInvite: false,
     openApprove: false,
+    openCancelApply: false,
     applyActivity: {
         activityId: null,
         informEmail: ''
@@ -9,8 +10,8 @@ export default function reducer(state = {
     inviteActivity: {
 
     },
-    joinActivityId: null,
-    inviteActivityId: null,
+    approveActivityId: null,
+    cancelApplyJoinedId: null,
     validatedSelect: false,
     validatedJoin: false,
 }, action) {
@@ -29,6 +30,12 @@ export default function reducer(state = {
                 ...state,
                 openInvite: action.payload.open,
             };
+        case 'TOGGLE_CANCEL_APPLY':
+            return {
+                ...state,
+                openCancelApply: action.payload.open,
+                cancelApplyJoinedId: action.payload.joinedId
+            };
         case 'EDIT_ACTIVITY_JOIN_EMAIL':
             return {
                 ...state,
@@ -44,7 +51,7 @@ export default function reducer(state = {
                 return {
                     ...state,
                     openApprove: action.payload.open,
-                    joinActivityId: action.payload.joinActivityId
+                    approveActivityId: action.payload.approveActivityId
                 }
             }
 

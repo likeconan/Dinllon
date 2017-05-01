@@ -6,6 +6,7 @@ import Toast from 'components-smart/Toast/Toast'
 import ImageDialog from 'components-smart/ImageDialog/ImageDialog';
 import CreateActivityDialog from 'components-smart/CreateActivityDialog/CreateActivityDialog';
 import JoinActivityDialog from 'components-smart/JoinActivityDialog/JoinActivityDialog';
+import CancelApplyActivityDialog from 'components-smart/CancelApplyActivityDialog/CancelApplyActivityDialog';
 import ProfileDrawer from 'components-smart/ProfileDrawer/ProfileDrawer';
 
 class Layout extends Component {
@@ -18,6 +19,7 @@ class Layout extends Component {
                 <Toast />
                 <ImageDialog />
                 <JoinActivityDialog />
+                <CancelApplyActivityDialog />
                 <CreateActivityDialog /> {this.props.children}
             </div>
         );
