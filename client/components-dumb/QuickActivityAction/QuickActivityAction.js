@@ -25,12 +25,6 @@ class QuickActivityAction extends Component {
             default:
                 break;
         }
-        if (status === 0) {
-
-        } else {
-
-        }
-
     }
 
     render() {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Tabs, Tab } from 'material-ui/Tabs';
 import CreateActivityForm from 'components-smart/CreateActivityForm/CreateActivityForm';
+import SelectMyActivities from 'components-dumb/SelectMyActivities/SelectMyActivities';
 
 require('./invite-activity-tabs.less');
 
@@ -20,7 +21,7 @@ class InviteActivityTabs extends Component {
             <invite-tabs>
                 <Tabs className='tabs' inkBarStyle={tabcolor} tabItemContainerStyle={itemcolor}>
                     <Tab label="Dinllons" buttonStyle={color}>
-                        123
+                        <SelectMyActivities />
                     </Tab>
                     <Tab label="Activities" buttonStyle={color} style={color}>
                         <CreateActivityForm />

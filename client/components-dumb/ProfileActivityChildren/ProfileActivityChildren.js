@@ -13,8 +13,12 @@ require('./profile-activity-children.less');
 class ProfileActivityChildren extends Component {
     render() {
         const ifactive = this.props.data.Images.length > 0;
-        const joinedUsers = new JoinUsersModel(this.props.data.JoinActivities);
 
+        const joined = this.props.data.JoinActivities.filter((val) => {
+            return val.userId == this.props.loggedId
+        })[0];
+
+        const joinedUsers = new JoinUsersModel(this.props.data.JoinActivities);
         return (
             <profile-activity-children >
                 <div className={Classnames('activity-img-text-con', { 'with-image': ifactive })}>
@@ -22,6 +26,7 @@ class ProfileActivityChildren extends Component {
                         <ProfileActivityChildrenActions
                             isOwn={this.props.isOwn}
                             ifactive={ifactive}
+                            joined={joined}
                             activityId={this.props.data.uuid} />
                         <div className='aitct'>
                             {this.props.data.textContent}

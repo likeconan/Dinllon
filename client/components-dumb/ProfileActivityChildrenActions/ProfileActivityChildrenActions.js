@@ -6,22 +6,56 @@ import EditIcon from 'material-ui/svg-icons/image/edit';
 import DeleteIcon from 'material-ui/svg-icons/action/delete';
 import { Translate } from 'utilities';
 import store from 'store';
-import { toggleJoinDialog } from 'actions/join-activity.action';
+import { cyan500, pink500, amber500, green500 } from 'material-ui/styles/colors';
+import { toggleJoinDialog, toggleCancelApplyDialog } from 'actions/join-activity.action';
 
 class ProfileActivityChildrenActions extends Component {
 
-    _openJoin = () => {
-        store.dispatch(toggleJoinDialog({
-            activityId: this.props.activityId,
-            open: true
-        }));
+    _activityAction = (status, joinedId) => {
+        switch (status) {
+            case 0:
+                store.dispatch(toggleJoinDialog({
+                    activityId: this.props.activityId,
+                    open: true
+                }));
+            case 1:
+                store.dispatch(toggleCancelApplyDialog({
+                    joinedId: joinedId,
+                    open: true
+                }));
+                break;
+            default:
+                break;
+        }
     }
 
     render() {
         const ifactive = this.props.ifactive;
+        const joined = this.props.joined ? this.props.joined : {}
+        const status = joined.status ? joined.status : 0;
+        const joinedId = joined.uuid;
         const margin = {
             margin: 10
         }
+        var label = Translate.lang.join_in;
+        var backColor = cyan500;
+        switch (status) {
+            case 1:
+                label = Translate.lang.apply_cancel;
+                backColor = pink500;
+                break;
+            case 2:
+                label = Translate.lang.approved;
+                backColor = green500;
+                break;
+            case 3:
+                label = Translate.lang.refused;
+                backColor = amber500;
+                break;
+            default:
+                break;
+        }
+
         return (
             <div>
                 {
@@ -34,15 +68,14 @@ class ProfileActivityChildrenActions extends Component {
                         <div className='aitc-icon-con center-flex'>
                             {
                                 ifactive ?
-                                    <FlatButton label={Translate.lang.join_in}
+                                    <FlatButton label={label}
                                         style={margin}
                                         labelStyle={{ color: 'white' }}
-                                        onTouchTap={this._openJoin} />
+                                        onTouchTap={() => this._activityAction(status, joinedId)} />
                                     :
-                                    <RaisedButton label={Translate.lang.join_in}
-                                        primary={true}
+                                    <RaisedButton label={label}
                                         style={margin}
-                                        onTouchTap={this._openJoin} />
+                                        onTouchTap={() => this._activityAction(status, joinedId)} />
                             }
 
                         </div>
