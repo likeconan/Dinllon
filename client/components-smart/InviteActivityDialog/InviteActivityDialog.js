@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { toggleInviteDialog } from 'actions/join-activity.action';
 import { Translate } from 'utilities';
 import ResponsiveDialog from 'components-dumb/ResponsiveDialog/ResponsiveDialog';
-import CreateActivityAction from 'components-smart/CreateActivityAction/CreateActivityAction';
+import InviteActivityAction from 'components-smart/InviteActivityAction/InviteActivityAction';
 import InviteActivityTabs from 'components-dumb/InviteActivityTabs/InviteActivityTabs';
 
 require('./invite-activity-dialog.less');
@@ -19,7 +19,7 @@ class InviteActivityDialog extends Component {
     }
 
     render() {
-        const actions = [< CreateActivityAction />];
+        const actions = [<InviteActivityAction />];
         return (
             <ResponsiveDialog
                 modal={false}

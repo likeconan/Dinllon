@@ -77,5 +77,6 @@
     "my_activity": "我的活动",
     "cancel_apply_activity_success": "活动取消报名成功",
     "cancel_apply_sure": "你确定取消报名该活动吗？",
-    "cancel_apply_deleted_faild": "抱歉，取消报名失败，我们会尽快解决"
+    "cancel_apply_deleted_faild": "抱歉，取消报名失败，我们会尽快解决",
+    "select_activity": "选择活动"
 }

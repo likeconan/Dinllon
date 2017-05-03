@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Tabs, Tab } from 'material-ui/Tabs';
 import CreateActivityForm from 'components-smart/CreateActivityForm/CreateActivityForm';
 import SelectMyActivities from 'components-dumb/SelectMyActivities/SelectMyActivities';
+import { Translate } from 'utilities';
+import { toggleSelectCreate } from 'actions/join-activity.action';
+import store from 'store';
 
 require('./invite-activity-tabs.less');
 
@@ -19,11 +22,21 @@ class InviteActivityTabs extends Component {
 
         return (
             <invite-tabs>
-                <Tabs className='tabs' inkBarStyle={tabcolor} tabItemContainerStyle={itemcolor}>
-                    <Tab label="Dinllons" buttonStyle={color}>
+                <Tabs className='tabs'
+                    inkBarStyle={tabcolor}
+                    tabItemContainerStyle={itemcolor}
+                    onChange={(val) => store.dispatch(toggleSelectCreate(val))}>
+                    <Tab
+                        label={Translate.lang.select_activity}
+                        buttonStyle={color}
+                        value={true}>
                         <SelectMyActivities />
                     </Tab>
-                    <Tab label="Activities" buttonStyle={color} style={color}>
+                    <Tab
+                        label={Translate.lang.create_activity}
+                        buttonStyle={color}
+                        style={color}
+                        value={false}>
                         <CreateActivityForm />
                     </Tab>
                 </Tabs>

@@ -10,9 +10,9 @@ export default function reducer(state = {
     inviteActivity: {
 
     },
+    selectTab: true,
     approveActivityId: null,
     cancelApplyJoinedId: null,
-    validatedSelect: false,
     validatedJoin: false,
 }, action) {
     switch (action.type) {
@@ -54,7 +54,11 @@ export default function reducer(state = {
                     approveActivityId: action.payload.approveActivityId
                 }
             }
-
+        case 'TOGGLE_SELECT_CREATE':
+            return {
+                ...state,
+                selectTab: action.payload
+            }
         case 'APPROVE_JOIN':
             {
                 return {

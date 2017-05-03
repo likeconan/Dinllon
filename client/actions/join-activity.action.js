@@ -84,3 +84,7 @@ export function toggleApproveJoinDialog(val) {
 export function toggleInviteDialog(val) {
     return { type: 'TOGGLE_INVITE_DIALOG', payload: val }
 }
+
+export function toggleSelectCreate(val) {
+    return { type: 'TOGGLE_SELECT_CREATE', payload: val }
+}

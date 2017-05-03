@@ -3,21 +3,23 @@ import RaisedButton from 'material-ui/RaisedButton';
 import { connect } from 'react-redux';
 import { addActivity } from 'actions/activity.action';
 import store from 'store';
-import { Translate, Authorize, TimeFormat } from 'utilities';
+import { Translate } from 'utilities';
 
 @connect((store) => {
     return {
         validatedCreate: store.activity.validatedCreate,
-        validatedSelect: store.activity.validatedSelect
+        selectTab: store.joinactivity.selectTab,
     }
 })
 
 class InviteActivityAction extends Component {
     render() {
         return (
-            <div>
-
-            </div>
+            <RaisedButton
+                label={Translate.lang.submit}
+                primary={true}
+                onTouchTap={this._createActivity}
+                disabled={!this.props.validatedCreate && !this.props.selectTab} />
         );
     }
 }

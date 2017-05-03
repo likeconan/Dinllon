@@ -77,5 +77,6 @@
     "my_activity": "My activity",
     "cancel_apply_activity_success": "Successfully cancel application",
     "cancel_apply_sure": "Are you sure to cancel the application?",
-    "cancel_apply_deleted_faild": "Sorry,cancel faild. We will fix as soon as possible"
+    "cancel_apply_deleted_faild": "Sorry,cancel faild. We will fix as soon as possible",
+    "select_activity": "Select activity"
 }
