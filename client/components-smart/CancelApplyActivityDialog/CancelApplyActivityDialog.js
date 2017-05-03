@@ -8,7 +8,7 @@ import { Translate } from 'utilities';
 @connect((store) => {
     return {
         open: store.joinactivity.openCancelApply,
-        cancelApplyJoinedId: store.joinactivity.cancelApplyJoinedId
+        cancelApplyJoin: store.joinactivity.cancelApplyJoin
     }
 })
 class CancelApplyActivityDialog extends Component {
@@ -17,7 +17,7 @@ class CancelApplyActivityDialog extends Component {
         this.props.dispatch(toggleCancelApplyDialog({ open: false }));
     }
     _handleCancelApply = () => {
-        this.props.dispatch(cancelApply(this.props.cancelApplyJoinedId));
+        this.props.dispatch(cancelApply(this.props.cancelApplyJoin));
     }
 
     render() {

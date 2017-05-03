@@ -18,9 +18,14 @@ class ProfileActivityChildrenActions extends Component {
                     activityId: this.props.activityId,
                     open: true
                 }));
+
+                break;
             case 1:
                 store.dispatch(toggleCancelApplyDialog({
-                    joinedId: joinedId,
+                    data: {
+                        joinedId: joinedId,
+                        activityId: this.props.activityId,
+                    },
                     open: true
                 }));
                 break;
@@ -73,7 +78,10 @@ class ProfileActivityChildrenActions extends Component {
                                         labelStyle={{ color: 'white' }}
                                         onTouchTap={() => this._activityAction(status, joinedId)} />
                                     :
-                                    <RaisedButton label={label}
+                                    <RaisedButton
+                                        label={label}
+                                        backgroundColor={backColor}
+                                        labelColor='#ffffff'
                                         style={margin}
                                         onTouchTap={() => this._activityAction(status, joinedId)} />
                             }

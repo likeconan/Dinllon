@@ -26,11 +26,13 @@ class Navigate {
             browserHistory.push(path);
         } else {
             store.dispatch(showToast({
-                className:'error-toast',
-                message:'profile_noexist'
+                className: 'error-toast',
+                message: 'profile_noexist'
             }))
         }
-
+    }
+    getCurrentPath() {
+        return browserHistory.getCurrentLocation().pathname;
     }
 
 }

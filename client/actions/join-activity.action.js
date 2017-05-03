@@ -1,4 +1,5 @@
 import dinaxios from 'utilities/dinaxios';
+import axios from 'axios';
 import { showToast } from './toast.action';
 import { editJoinedQuickActivity } from './activity.action';
 import validator from 'validator';
@@ -22,7 +23,13 @@ export function applyActivity(activity) {
             data: activity
         }).then((data) => {
             dispatch(toggleJoinDialog({ open: false }));
-            dispatch(editJoinedQuickActivity({ status: data.status, uuid: data.uuid }));
+            dispatch(editJoinedQuickActivity(
+                [{
+                    status: data.status,
+                    uuid: data.uuid,
+                    activityId: data.activityId
+                }])
+            );
             dispatch(showToast({
                 className: 'success-toast',
                 message: 'apply_activity_success'
@@ -46,17 +53,17 @@ export function approveJoin(id) {
     }
 }
 
-export function cancelApply(id) {
+export function cancelApply(data) {
     return function (dispatch) {
         dinaxios({
-            url: 'activities/join/delete/' + id,
+            url: 'activities/join/delete/' + data.joinedId,
             method: 'DELETE'
-        }).then((data) => {
+        }).then((res) => {
             dispatch(showToast({
                 className: 'success-toast',
                 message: 'cancel_apply_activity_success'
             }));
-            dispatch(editJoinedQuickActivity());
+            dispatch(editJoinedQuickActivity(data));
             dispatch(toggleCancelApplyDialog({ open: false }));
         })
     }
@@ -87,4 +94,28 @@ export function toggleInviteDialog(val) {
 
 export function toggleSelectCreate(val) {
     return { type: 'TOGGLE_SELECT_CREATE', payload: val }
+}
+
+export function getAvailableActivities(userId) {
+    return function (dispatch) {
+
+        var getCreated = dinaxios({
+            url: 'activities/available/' + userId
+        });
+        var getJoined = dinaxios({
+            url: 'activities/join/available/' + userId
+        });
+        axios.all([getCreated, getJoined])
+            .then(axios.spread(function (created, joined) {
+                dispatch({
+                    type: 'GET_AVAILABLE_ACTIVITIES',
+                    payload: {
+                        created: created,
+                        joined: joined.map((data) => {
+                            return data.Activity
+                        })
+                    }
+                })
+            }))
+    }
 }

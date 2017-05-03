@@ -26,6 +26,12 @@ class ImagesModel {
     getImgUrlsArray = () => {
         return [...this.imgContent];
     }
+
+    getOneImgUrl = () => {
+        var img = this.imgContent[0]
+        var url = img ? img : staticServer + '/default/replaced-pic.jpg';
+        return url;
+    }
 }
 
 export default ImagesModel;

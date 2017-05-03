@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
-import { Translate, Authorize } from 'utilities';
+import { Translate, Authorize, Navigate } from 'utilities';
 import { connect } from 'react-redux';
 import { toggleJoinDialog, toggleCancelApplyDialog } from 'actions/join-activity.action';
 import { cyan500, pink500, amber500, green500 } from 'material-ui/styles/colors';
@@ -19,7 +19,10 @@ class QuickActivityAction extends Component {
                 break;
             case 1:
                 store.dispatch(toggleCancelApplyDialog({
-                    joinedId: joinedId,
+                    data: {
+                        joinedId: joinedId,
+                        activityId: this.props.activityId,
+                    },
                     open: true
                 }));
             default:

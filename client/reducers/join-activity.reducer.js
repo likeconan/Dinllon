@@ -10,9 +10,16 @@ export default function reducer(state = {
     inviteActivity: {
 
     },
+    selectActivities: {
+        created: [],
+        joined: []
+    },
     selectTab: true,
     approveActivityId: null,
-    cancelApplyJoinedId: null,
+    cancelApplyJoin: {
+        activityId: null,
+        joinedId: null
+    },
     validatedJoin: false,
 }, action) {
     switch (action.type) {
@@ -34,7 +41,7 @@ export default function reducer(state = {
             return {
                 ...state,
                 openCancelApply: action.payload.open,
-                cancelApplyJoinedId: action.payload.joinedId
+                cancelApplyJoin: action.payload.data
             };
         case 'EDIT_ACTIVITY_JOIN_EMAIL':
             return {
@@ -66,6 +73,11 @@ export default function reducer(state = {
                 }
             }
 
+        case 'GET_AVAILABLE_ACTIVITIES':
+            return {
+                ...state,
+                selectActivities: action.payload
+            }
         default:
             return state;
     }

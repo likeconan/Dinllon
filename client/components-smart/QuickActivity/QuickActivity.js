@@ -6,13 +6,13 @@ import RaisedButton from 'material-ui/RaisedButton';
 import IconButton from 'material-ui/IconButton';
 import ReplyIcon from 'material-ui/svg-icons/content/reply';
 import RefreshIcon from 'material-ui/svg-icons/navigation/refresh';
-import TimeIcon from 'material-ui/svg-icons/device/access-time';
 import Moment from 'react-moment';
-import { TimeFormat, Translate } from 'utilities';
+import { Translate } from 'utilities';
 import { connect } from 'react-redux';
 import { searchActivity } from 'actions/activity.action';
 import { toggleJoinDialog } from 'actions/join-activity.action';
 import ActivityTypeTag from 'components-dumb/ActivityTypeTag/ActivityTypeTag'
+import ActivityStartTime from 'components-dumb/ActivityStartTime/ActivityStartTime'
 import { UserModel } from 'models';
 import Classnames from 'classnames';
 
@@ -66,9 +66,6 @@ class QuickActivity extends Component {
                     }
 
                 </div>
-                {/*<div>
-                    <RaisedButton className='width-100p' label='Create my activity' onClick={() => { this._openActivityDialog(true) }} secondary={true} />
-                </div>*/}
                 {this.props.activity
                     ? (
                         <div>
@@ -89,11 +86,7 @@ class QuickActivity extends Component {
                                     <div className={Classnames({ 'qa-flex-img-con': this.props.activity.Images.length })}>
                                         <FlexImages imgContent={this.props.activity.Images} />
                                     </div>
-                                    <div
-                                        className='time-con all-center-flex amber accent-1 grey-text text-darken-2'>
-                                        <TimeIcon color='#616161' />
-                                        <span>{TimeFormat.formatDateTime(this.props.activity.startedAt)}</span>
-                                    </div>
+                                    <ActivityStartTime time={this.props.activity.startedAt} />
                                     <QuickActivityAction
                                         activityId={this.props.activity.uuid}
                                         userId={user.uuid}
@@ -110,16 +103,14 @@ class QuickActivity extends Component {
                                         <small className='grey-text text-darken-1 sans-font'>by {user.nickName}</small>
                                     </div>
                                 </div>
-                                <div className='cost-time-con center-flex'>
-                                    <div className='time-con all-center-flex grey-text text-darken-2'>
-                                        <TimeIcon color='#616161' />
-                                        <span>{TimeFormat.formatDateTime(this.props.activity.startedAt)}</span>
-                                    </div>
+                                <div className='cost-time-con margin-top center-flex'>
+                                    <ActivityStartTime time={this.props.activity.startedAt} />
                                     <ActivityTypeTag
                                         type={this.props.activity.type}
                                         cost={this.props.activity.cost} />
                                 </div>
-                                <div className='mb-qa-flex-img-con margin-bottom'>
+
+                                <div className={Classnames('mb-qa-flex-img-con margin-bottom', { 'no-image': !this.props.activity.Images.length })}>
                                     <FlexImages
                                         imgContent={this.props.activity.Images}
                                         className='mobile-normal' />

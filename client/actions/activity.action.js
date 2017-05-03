@@ -1,6 +1,8 @@
 import dinaxios from 'utilities/dinaxios';
+import Navigate from 'utilities/navigate';
 import { showToast } from './toast.action';
 import validator from 'validator';
+import { getUserActivities } from './profile.action';
 
 export function toggleCreateDialog(val) {
     return { type: 'TOGGLE_CREATE_ACTIVITY', payload: val }
@@ -68,9 +70,26 @@ export function searchActivity(offset) {
 }
 
 export function editJoinedQuickActivity(data) {
-    return {
-        type: "EDIT_JOINED_QUICKACTIVITY",
-        payload: data ? [data] : []
+    return function (dispatch) {
+        if (Navigate.getCurrentPath().indexOf('/life') >= 0) {
+            dispatch({
+                type: "EDIT_JOINED_QUICKACTIVITY",
+                payload: Array.isArray(data) ? data : []
+            })
+        } else {
+            var activityId = Array.isArray(data) ? data[0].activityId : data.activityId
+            dinaxios({
+                url: 'activities/one/' + activityId,
+            }).then((data) => {
+                dispatch({
+                    type: "EDIT_JOINED_PROFILE",
+                    payload: data
+                })
+
+            });
+        }
     }
+
+
 }
 

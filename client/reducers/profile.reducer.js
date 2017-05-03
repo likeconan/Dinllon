@@ -88,6 +88,22 @@ export default function reducer(state = {
             }
         case 'TOGGLE_EDIT_PROFILE':
             return { ...state, enableEdit: !state.enableEdit }
+        case 'EDIT_JOINED_PROFILE': {
+            var activities = state.pageUser.activities.map((val) => {
+                if (val.uuid === action.payload.uuid) {
+                    val = action.payload
+                }
+                return val;
+            });
+            return {
+                ...state,
+                pageUser: {
+                    ...state.pageUser,
+                    activities: activities
+                }
+            }
+        }
+
 
         case 'EDIT_NICKNAME':
             return {

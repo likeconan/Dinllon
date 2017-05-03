@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Tabs, Tab } from 'material-ui/Tabs';
 import CreateActivityForm from 'components-smart/CreateActivityForm/CreateActivityForm';
-import SelectMyActivities from 'components-dumb/SelectMyActivities/SelectMyActivities';
+import SelectActivitiesList from 'components-smart/SelectActivitiesList/SelectActivitiesList';
 import { Translate } from 'utilities';
 import { toggleSelectCreate } from 'actions/join-activity.action';
 import store from 'store';
@@ -30,7 +30,7 @@ class InviteActivityTabs extends Component {
                         label={Translate.lang.select_activity}
                         buttonStyle={color}
                         value={true}>
-                        <SelectMyActivities />
+                        <SelectActivitiesList />
                     </Tab>
                     <Tab
                         label={Translate.lang.create_activity}

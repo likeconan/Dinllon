@@ -16,7 +16,7 @@ export default function reducer(state = {
     textEdited: false
 }, action) {
     switch (action.type) {
-        case 'toggleCreateDialog':
+        case 'TOGGLE_CREATE_ACTIVITY':
             return {
                 ...state,
                 openCreate: action.payload
