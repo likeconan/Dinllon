@@ -8,6 +8,7 @@ import { Translate } from 'utilities';
 import store from 'store';
 import { cyan500, pink500, amber500, green500 } from 'material-ui/styles/colors';
 import { toggleJoinDialog, toggleCancelApplyDialog } from 'actions/join-activity.action';
+import { toggleDeleteActivity } from 'actions/profile.action';
 
 class ProfileActivityChildrenActions extends Component {
 
@@ -66,8 +67,16 @@ class ProfileActivityChildrenActions extends Component {
                 {
                     this.props.isOwn ?
                         <div className='aitc-icon-con center-flex'>
-                            <IconButton><EditIcon color={ifactive ? '#fafafa' : '#9e9e9e'} /></IconButton>
-                            <IconButton><DeleteIcon color={ifactive ? '#fafafa' : '#9e9e9e'} /></IconButton>
+                            <IconButton>
+                                <DeleteIcon
+                                    color={ifactive ? '#fafafa' : '#9e9e9e'}
+                                    onTouchTap={() => store.dispatch(
+                                        toggleDeleteActivity({
+                                            open: true,
+                                            id: this.props.activityId
+                                        })
+                                    )} />
+                            </IconButton>
                         </div>
                         :
                         <div className='aitc-icon-con center-flex'>

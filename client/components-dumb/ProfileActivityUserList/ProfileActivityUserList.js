@@ -4,7 +4,7 @@ import UserHeadName from 'components-dumb/UserHeadName/UserHeadName';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Translate } from 'utilities';
 import store from 'store';
-import { toggleApproveJoinDialog } from 'actions/activity.action';
+import { toggleApproveJoinDialog } from 'actions/join-activity.action';
 
 require('./profile-activity-user-list.less');
 

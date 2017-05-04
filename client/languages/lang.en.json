@@ -77,6 +77,10 @@
     "my_activity": "My activity",
     "cancel_apply_activity_success": "Successfully cancel application",
     "cancel_apply_sure": "Are you sure to cancel the application?",
-    "cancel_apply_deleted_faild": "Sorry,cancel faild. We will fix as soon as possible",
-    "select_activity": "Select activity"
+    "cancel_apply_deleted_faild": "Sorry cancel faild. We will fix as soon as possible",
+    "select_activity": "Select activity",
+    "activity_delete_sure": "Are you sure to delete the activity? If there is approved user then your activity is regarded as failed",
+    "activity_delete_title": "Delete activity",
+    "activity_deleted_faild": "Sorry delete failed. We will fix as soon as possible",
+    "activity_deleted_success": "Successfully delete activity"
 }

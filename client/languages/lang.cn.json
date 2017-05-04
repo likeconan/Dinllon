@@ -61,7 +61,7 @@
     "applied_user": "申请者：",
     "no_applied_user": "暂时没有人报名",
     "approved_user": "报名成功：",
-    "no_approved_user": "暂时没有报名成功的:",
+    "no_approved_user": "暂时没有报名成功的",
     "joined_user": "参加者：",
     "approve": "同意",
     "cancel": "取消",
@@ -78,5 +78,9 @@
     "cancel_apply_activity_success": "活动取消报名成功",
     "cancel_apply_sure": "你确定取消报名该活动吗？",
     "cancel_apply_deleted_faild": "抱歉，取消报名失败，我们会尽快解决",
-    "select_activity": "选择活动"
+    "select_activity": "选择活动",
+    "activity_delete_sure": "你确定要删除该活动吗？若有报名成功的用户，则将视为此次组织失败",
+    "activity_delete_title": "删除活动",
+    "activity_deleted_faild": "抱歉，活动删除失败，我们会尽快解决",
+    "activity_deleted_success": "活动删除成功"
 }

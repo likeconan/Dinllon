@@ -56,7 +56,7 @@ export function approveJoin(id) {
 export function cancelApply(data) {
     return function (dispatch) {
         dinaxios({
-            url: 'activities/join/delete/' + data.joinedId,
+            url: 'activities/join/' + data.joinedId,
             method: 'DELETE'
         }).then((res) => {
             dispatch(showToast({

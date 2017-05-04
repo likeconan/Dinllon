@@ -51,6 +51,14 @@ export default function reducer(state = {
     editingUser: {},
     enableEdit: false,
     openDrawer: false,
+    deleteActivity: {
+        open: false,
+        id: null
+    },
+    deleteMoment: {
+        open: false,
+        id: null
+    },
 }, action) {
     switch (action.type) {
         case 'GET_PROFILE':
@@ -75,7 +83,10 @@ export default function reducer(state = {
         case 'GET_USER_ACTIVITIES':
             return {
                 ...state,
-                activities: action.payload
+                pageUser: {
+                    ...state.pageUser,
+                    activities: action.payload
+                }
             };
         case 'SAVE_PROFILE':
             return {
@@ -127,6 +138,8 @@ export default function reducer(state = {
                     ...state.editingUser, work: action.payload
                 }
             }
+
+
         case 'EDIT_SCHOOL':
             return {
                 ...state,
@@ -146,6 +159,11 @@ export default function reducer(state = {
             return {
                 ...state,
                 openDrawer: action.payload.toggle
+            }
+        case 'TOGGLE_DELETE_ACTIVITY_DIALOG':
+            return {
+                ...state,
+                deleteActivity: action.payload
             }
         default:
             return state;

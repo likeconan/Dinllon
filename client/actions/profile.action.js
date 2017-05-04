@@ -168,3 +168,27 @@ export function toggleDrawer(val) {
         })
     }
 }
+
+
+export function toggleDeleteActivity(data) {
+    return {
+        type: 'TOGGLE_DELETE_ACTIVITY_DIALOG',
+        payload: data
+    }
+}
+
+export function deleteActivity(id) {
+    return function (dispatch) {
+        dinaxios({
+            url: 'activities/' + id,
+            method: 'DELETE'
+        }).then((data) => {
+            //dispatch(getUserActivities());
+            dispatch(showToast({
+                className: 'success-toast',
+                message: 'activity_deleted_success'
+            }));
+            dispatch(toggleDeleteActivity({ open: false }));
+        });
+    }
+}
