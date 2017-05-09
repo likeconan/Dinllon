@@ -1,7 +1,7 @@
 import dinaxios from 'utilities/dinaxios';
 import axios from 'axios';
 import { showToast } from './toast.action';
-import { editJoinedQuickActivity } from './activity.action';
+import { editJoinedActivity } from './activity.action';
 import validator from 'validator';
 
 export function toggleJoinDialog(data) {
@@ -23,7 +23,7 @@ export function applyActivity(activity) {
             data: activity
         }).then((data) => {
             dispatch(toggleJoinDialog({ open: false }));
-            dispatch(editJoinedQuickActivity(
+            dispatch(editJoinedActivity(
                 [{
                     status: data.status,
                     uuid: data.uuid,
@@ -38,16 +38,17 @@ export function applyActivity(activity) {
     }
 }
 
-export function approveJoin(id) {
+export function approveJoin(data) {
     return function (dispatch) {
         dinaxios({
-            url: 'activities/join/' + id,
+            url: 'activities/join/' + data.joinedId,
             data: {
                 status: 2
             },
             method: 'PUT'
-        }).then((data) => {
+        }).then((res) => {
             dispatch({ type: 'APPROVE_JOIN', payload: {} })
+            dispatch(editJoinedActivity({ activityId:data.activityId }));
             dispatch(toggleApproveJoinDialog({ open: false }));
         })
     }
@@ -63,7 +64,7 @@ export function cancelApply(data) {
                 className: 'success-toast',
                 message: 'cancel_apply_activity_success'
             }));
-            dispatch(editJoinedQuickActivity(data));
+            dispatch(editJoinedActivity(data));
             dispatch(toggleCancelApplyDialog({ open: false }));
         })
     }

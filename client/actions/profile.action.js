@@ -17,7 +17,10 @@ export function getProfile(userId, isPage) {
         var getUserActivities = dinaxios({
             url: 'activities/' + userId
         });
-        axios.all([getUserDetail, getUserMoment, getUserActivities])
+        var getUserData = dinaxios({
+            url: 'users/data/' + userId
+        });
+        axios.all([getUserDetail, getUserMoment, getUserActivities, getUserData])
             .then(axios.spread(function (profile, moments, activities, userData) {
                 var user = new UserModel(profile.user).user
                 dispatch({
@@ -28,14 +31,7 @@ export function getProfile(userId, isPage) {
                             isOwn: profile.isOwn,
                             moments: moments,
                             activities: activities,
-                            userData: {
-                                momentCount: 0,
-                                activityCount: 0,
-                                friendCount: 0,
-                                appraiseCount: 0,
-                                dislikeCount: 0,
-                                lateCount: 0
-                            }
+                            userData: userData
                         },
                         isPage: isPage,
                         editingUser: user

@@ -8,7 +8,7 @@ import { Translate } from 'utilities';
 @connect((store) => {
     return {
         open: store.joinactivity.openApprove,
-        approveActivityId: store.activity.approveActivityId
+        approveActivity: store.joinactivity.approveActivity
     }
 })
 class ApproveJoinDialog extends Component {
@@ -17,7 +17,7 @@ class ApproveJoinDialog extends Component {
         this.props.dispatch(toggleApproveJoinDialog({ open: false }));
     }
     _handleApprove = () => {
-        this.props.dispatch(approveJoin(this.props.approveActivityId));
+        this.props.dispatch(approveJoin(this.props.approveActivity));
     }
 
     render() {
@@ -40,7 +40,7 @@ class ApproveJoinDialog extends Component {
                 actions={actions}
                 modal={false}
                 open={this.props.open}
-                onRequestClose={this.handleClose}>
+                onRequestClose={this._handleClose}>
                 {Translate.lang.approve_sure}
             </Dialog>
         );

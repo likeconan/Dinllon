@@ -31,7 +31,6 @@ export default function reducer(state = {
                 loggedUser: action.payload,
                 isAuthorize: true
             }
-            break;
         case 'EDIT_LOGIN_MOBILE':
             return {
                 ...state,
@@ -41,7 +40,6 @@ export default function reducer(state = {
                     validatedMobile: action.payload.isMobile
                 }
             }
-            break;
         case 'EDIT_LOGIN_PASSWORD':
             return {
                 ...state,
@@ -51,7 +49,6 @@ export default function reducer(state = {
                     validatedPassword: action.payload.isPassword
                 }
             }
-            break;
         case 'EDIT_REGISTER_MOBILE':
             return {
                 ...state,
@@ -61,7 +58,6 @@ export default function reducer(state = {
                     validatedMobile: action.payload.isMobile
                 }
             }
-            break;
         case 'EDIT_REGISTER_PASSWORD':
             return {
                 ...state,
@@ -71,7 +67,6 @@ export default function reducer(state = {
                     validatedPassword: action.payload.isPassword
                 }
             }
-            break;
         case 'EDIT_REGISTER_SMS':
             return {
                 ...state,
@@ -81,7 +76,6 @@ export default function reducer(state = {
                     validatedSMSCode: action.payload.isSMS
                 }
             }
-            break;
         case 'GET_USER_AUTHORIZE':
             return {
                 ...state,
@@ -93,6 +87,11 @@ export default function reducer(state = {
                 ...state,
                 loggedUser: {},
                 isAuthorize: false
+            }
+        case 'GET_USER_DATA':
+            return {
+                ...state,
+                loggedUserData: action.payload,
             }
         default:
             return state;

@@ -13,7 +13,7 @@ class InviteButton extends Component {
     }
     render() {
         return (
-            <invite-button className={this.props.className}>
+            <invite-button class={this.props.className}>
                 <RaisedButton
                     label={Translate.lang.invite_to}
                     primary={true}

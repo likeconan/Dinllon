@@ -10,12 +10,15 @@ export default function reducer(state = {
     inviteActivity: {
 
     },
+    approveActivity: {
+        joinedId: null,
+        activityId: null
+    },
     selectActivities: {
         created: [],
         joined: []
     },
     selectTab: true,
-    approveActivityId: null,
     cancelApplyJoin: {
         activityId: null,
         joinedId: null
@@ -58,7 +61,7 @@ export default function reducer(state = {
                 return {
                     ...state,
                     openApprove: action.payload.open,
-                    approveActivityId: action.payload.approveActivityId
+                    approveActivity: action.payload.approveActivity
                 }
             }
         case 'TOGGLE_SELECT_CREATE':

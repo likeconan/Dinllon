@@ -9,20 +9,23 @@ import { UserModel } from 'models';
 import LinkProfileName from 'components-dumb/LinkProfileName/LinkProfileName';
 import UserIconMenu from '../UserIconMenu/UserIconMenu';
 import { connect } from 'react-redux';
-import { getLoggedUser } from 'actions/user.action';
+import { getLoggedUser, getLoggedUserData } from 'actions/user.action';
 
 require('./top-menu.less');
 
 @connect((store) => {
-    return { isAuthorize: store.user.isAuthorize, user: store.user.loggedUser }
+    return {
+        isAuthorize: store.user.isAuthorize,
+        user: store.user.loggedUser,
+        userData: store.user.loggedUserData
+    }
 })
 
 class TopMenu extends Component {
 
     componentWillMount() {
-        this
-            .props
-            .dispatch(getLoggedUser());
+        this.props.dispatch(getLoggedUser());
+        this.props.dispatch(getLoggedUserData());
     }
 
     render() {
@@ -66,7 +69,10 @@ class TopMenu extends Component {
                                         <p className='white-text profile-nickname cursor-pointer'>{user.nickName}</p>
                                     </LinkProfileName>
                                 </div>
-                                <UserDataCon className='mb-lu-con' invisible={true} />
+                                <UserDataCon
+                                    className='mb-lu-con'
+                                    invisible={true}
+                                    data={this.props.userData} />
                             </div>
                         </div>
                     </div>

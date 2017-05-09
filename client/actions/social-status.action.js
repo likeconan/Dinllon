@@ -13,13 +13,14 @@ export function searchLife() {
     }
 }
 
-export function addStatus(status) {
+export function addStatus(status, user) {
     return function (dispatch) {
         dinaxios({
             url: 'moments',
             method: 'POST',
             data: status
         }).then((data) => {
+            data.User = user;
             dispatch({
                 type: 'ADD_STATUS',
                 payload: data

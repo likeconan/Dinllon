@@ -1,6 +1,7 @@
 import Navigate from './navigate'
 import storage from 'store2';
 import store from '../store';
+import axios from 'axios';
 
 class Authorize {
 
@@ -24,7 +25,11 @@ class Authorize {
     getLoggedUserId = () => {
         return store.getState().user.loggedUser.uuid
     }
-    
+    getUserLocation = () => {
+        axios.get('http://ip.chinaz.com/getip.aspx').then(function(res){
+            debugger
+        });
+    }
 }
 
 export default new Authorize();

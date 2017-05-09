@@ -8,6 +8,11 @@ import store from 'store';
 
 class ProfilePage extends Component {
 
+    componentWillMount() {
+        document.body.scrollTop = 0
+    }
+
+
     render() {
         return (
             <div>

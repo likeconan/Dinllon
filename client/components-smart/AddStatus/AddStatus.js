@@ -54,7 +54,7 @@ class AddStatus extends Component {
         }, this);
         this
             .props
-            .dispatch(addStatus(data));
+            .dispatch(addStatus(data, this.props.loggedUser));
     }
 
     render() {

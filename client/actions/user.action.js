@@ -96,3 +96,13 @@ export function logOut() {
         type: 'USER_LOGOUT'
     }
 }
+
+export function getLoggedUserData() {
+    return function (dispatch) {
+        dinaxios({
+            url: 'users/data/'
+        }).then((data) => {
+            dispatch({ type: 'GET_USER_DATA', payload: data })
+        });
+    }
+}

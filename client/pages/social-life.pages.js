@@ -8,6 +8,12 @@ import { searchLife } from 'actions/social-status.action';
 import { connect } from 'react-redux';
 
 class SocialLife extends Component {
+
+    componentWillMount() {
+        document.body.scrollTop = 0
+    }
+
+
     render() {
         return (
             <social-life>

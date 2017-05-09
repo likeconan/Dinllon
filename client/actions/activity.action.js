@@ -69,7 +69,7 @@ export function searchActivity(offset) {
     }
 }
 
-export function editJoinedQuickActivity(data) {
+export function editJoinedActivity(data) {
     return function (dispatch) {
         if (Navigate.getCurrentPath().indexOf('/life') >= 0) {
             dispatch({
