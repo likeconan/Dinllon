@@ -8,6 +8,7 @@ import activity from './activity.reducer';
 import toast from './toast.reducer';
 import profile from './profile.reducer';
 import joinactivity from './join-activity.reducer';
+import message from './message.reducer';
 
 
 export default combineReducers({
@@ -19,4 +20,5 @@ export default combineReducers({
     toast,
     profile,
     joinactivity,
+    message,
 });
