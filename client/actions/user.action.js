@@ -1,6 +1,7 @@
 import dinaxios from 'utilities/dinaxios';
 import validator from 'validator';
 import { Authorize, Navigate } from 'utilities';
+import { UserModel } from 'models';
 
 export function userLogin(user) {
     return function (dispatch) {
@@ -10,7 +11,7 @@ export function userLogin(user) {
         }).then((data) => {
             Authorize.setToken(data.token);
             Navigate.goToSocialLife();
-            dispatch({ type: 'USER_LOGIN_REGISTER', payload: data.user })
+            dispatch({ type: 'USER_LOGIN_REGISTER', payload: new UserModel(data.user).user })
         });
     }
 }
@@ -24,7 +25,7 @@ export function userRegister(user) {
         }).then((data) => {
             Authorize.setToken(data.token);
             Navigate.goToSocialLife();
-            dispatch({ type: 'USER_LOGIN_REGISTER', payload: data.user })
+            dispatch({ type: 'USER_LOGIN_REGISTER', payload: new UserModel(data.user).user })
         });
     }
 }
@@ -85,6 +86,10 @@ export function getLoggedUser() {
         dinaxios({
             url: 'users/authorize'
         }).then((data) => {
+            data = {
+                ...data,
+                loggedUser: new UserModel(data.loggedUser).user
+            }
             dispatch({ type: 'GET_USER_AUTHORIZE', payload: data })
         });
     }
@@ -93,7 +98,8 @@ export function getLoggedUser() {
 export function logOut() {
     Authorize.setToken(null);
     return {
-        type: 'USER_LOGOUT'
+        type: 'USER_LOGOUT',
+        payload: new UserModel().user
     }
 }
 

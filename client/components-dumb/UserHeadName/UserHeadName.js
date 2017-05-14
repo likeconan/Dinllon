@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { UserModel } from 'models';
 import LinkProfileName from '../LinkProfileName/LinkProfileName';
 import store from 'store';
 import { toggleDrawer } from 'actions/profile.action';
@@ -11,7 +10,7 @@ class UserHeadName extends Component {
     openDrawer = (userId) => store.dispatch(toggleDrawer({ toggle: true, userId: userId }))
 
     render() {
-        var user = new UserModel(this.props.user).user;
+        var user = this.props.user;
         return (
             <user-head-name>
                 <img src={user.headPic} className='user-head-img' />

@@ -82,5 +82,8 @@
     "activity_delete_sure": "你确定要删除该活动吗？若有报名成功的用户，则将视为此次组织失败",
     "activity_delete_title": "删除活动",
     "activity_deleted_faild": "抱歉，活动删除失败，我们会尽快解决",
-    "activity_deleted_success": "活动删除成功"
+    "activity_deleted_success": "活动删除成功",
+    "change_header_photo": "修改背景图像",
+    "change_profile_photo": "修改头像",
+    "change_photo_success": "修改图像成功"
 }

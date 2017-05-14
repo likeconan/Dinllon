@@ -63,14 +63,9 @@ class ProfileEditDetail extends Component {
             : {
                 ...this.props.profileUser
             };
-
-        const btn = this.props.isOwn
-            ? < EditProfileButton />:< InviteButton />;
-
         return (<ProfileDetail
             user={user}
             enableEdit={this.props.enableEdit}
-            button={btn}
             editNickName={this._editNickName}
             editGoingOn={this._editGoingOn}
             editWork={this._editWork}

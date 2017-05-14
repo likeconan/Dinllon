@@ -1,10 +1,17 @@
 import dinaxios from 'utilities/dinaxios';
+import { UserModel } from 'models';
 
 export function searchLife() {
     return function (dispatch) {
         dinaxios({
             url: 'moments'
         }).then((data) => {
+            data = data.map((val, key) => {
+                return {
+                    ...val,
+                    User: new UserModel(val.User).user
+                }
+            })
             dispatch({
                 type: 'SEARCH_LIFE',
                 payload: data

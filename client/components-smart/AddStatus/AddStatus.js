@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
-import { UserModel } from 'models';
 import IconInputImage from 'components-dumb/IconInputImage/IconInputImage';
 import { connect } from 'react-redux';
 import { addStatus, addStatusImage, editStatusText, deleteStatusImage } from 'actions/social-status.action';
@@ -58,7 +57,7 @@ class AddStatus extends Component {
     }
 
     render() {
-        var user = new UserModel(this.props.loggedUser).user;
+        var user = this.props.loggedUser;
 
         return (
             <add-status class='cyan lighten-5'>

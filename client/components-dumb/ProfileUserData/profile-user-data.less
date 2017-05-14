@@ -15,7 +15,7 @@ profile-user-data {
         .pud-epb {
             position: absolute;
             right: 100px;
-            z-index: 9;
+            z-index: 8;
         }
     }
     @media screen and (max-width:1280px) {
@@ -24,9 +24,6 @@ profile-user-data {
             justify-content: flex-end;
             .pud-epb {
                 right: 20px;
-            }
-            .pud-epb {
-                display: none;
             }
         }
     }
@@ -38,9 +35,13 @@ profile-user-data {
             padding: 0;
             .profile-udc {
                 margin-left: 0;
+                width: 100%;
                 .profile-data-con {
                     flex-wrap: wrap;
                 }
+            }
+            .pud-epb{
+                top: -45px;
             }
         }
     }

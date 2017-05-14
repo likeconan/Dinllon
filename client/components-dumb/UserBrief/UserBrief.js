@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { UserModel } from 'models';
 import Classnames from 'classnames';
 import LinkProfileName from '../LinkProfileName/LinkProfileName';
 
@@ -8,7 +7,7 @@ require('./user-brief.less');
 class UserBrief extends Component {
 
     render() {
-        var user = new UserModel(this.props.user).user;
+        var user = this.props.user;
         return (
             <user-circle-brief class={Classnames('center-flex', this.props.className)}>
                 <img src={user.headPic} className='user-head-img' />

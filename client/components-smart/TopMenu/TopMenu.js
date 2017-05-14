@@ -5,7 +5,6 @@ import SearchBar from '../SearchBar/SearchBar';
 import { IfMobile } from 'utilities';
 import DivBackImage from 'components-dumb/DivBackImage/DivBackImage';
 import UserDataCon from 'components-dumb/UserDataCon/UserDataCon';
-import { UserModel } from 'models';
 import LinkProfileName from 'components-dumb/LinkProfileName/LinkProfileName';
 import UserIconMenu from '../UserIconMenu/UserIconMenu';
 import { connect } from 'react-redux';
@@ -30,7 +29,7 @@ class TopMenu extends Component {
 
     render() {
         const activeObj = this.props.activeObj;
-        var user = new UserModel(this.props.user).user;
+        var user = this.props.user;
         return (
             <top-menu class={Classnames({ 'logged': this.props.isAuthorize })}>
                 <div

@@ -82,5 +82,8 @@
     "activity_delete_sure": "Are you sure to delete the activity? If there is approved user then your activity is regarded as failed",
     "activity_delete_title": "Delete activity",
     "activity_deleted_faild": "Sorry delete failed. We will fix as soon as possible",
-    "activity_deleted_success": "Successfully delete activity"
+    "activity_deleted_success": "Successfully delete activity",
+    "change_header_photo": "Change your header photo",
+    "change_profile_photo": "Change your profile photo",
+    "change_photo_success": "Success in changing photo"
 }

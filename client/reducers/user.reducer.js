@@ -85,13 +85,29 @@ export default function reducer(state = {
         case 'USER_LOGOUT':
             return {
                 ...state,
-                loggedUser: {},
+                loggedUser: action.payload,
                 isAuthorize: false
             }
         case 'GET_USER_DATA':
             return {
                 ...state,
                 loggedUserData: action.payload,
+            }
+        case 'CHANGE_USER_BACK_PHOTO':
+            return {
+                ...state,
+                loggedUser: {
+                    ...state.loggedUser,
+                    backPic: action.payload
+                },
+            }
+        case 'CHANGE_USER_HEAD_PHOTO':
+            return {
+                ...state,
+                loggedUser: {
+                    ...state.loggedUser,
+                    headPic: action.payload
+                },
             }
         default:
             return state;

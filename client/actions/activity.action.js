@@ -1,5 +1,6 @@
 import dinaxios from 'utilities/dinaxios';
 import Navigate from 'utilities/navigate';
+import { UserModel } from 'models';
 import { showToast } from './toast.action';
 import validator from 'validator';
 import { getUserActivities } from './profile.action';
@@ -56,12 +57,16 @@ export function searchActivity(offset) {
                 offset: offset
             }
         }).then((data) => {
+            var act = data.length ?
+                {
+                    ...data[0],
+                    User: new UserModel(data[0].User).user
+                } :
+                null
             dispatch({
                 type: 'GET_SEARCHED_ACTIVITY',
                 payload: {
-                    activity: Array.isArray(data)
-                        ? data[0]
-                        : null,
+                    activity: act,
                     offset: offset
                 }
             })

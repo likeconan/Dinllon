@@ -3,6 +3,7 @@ import axios from 'axios';
 import validator from 'validator';
 import UserModel from 'models/user.model';
 import { showToast } from './toast.action';
+import { staticServer } from 'utilities';
 
 
 
@@ -23,6 +24,12 @@ export function getProfile(userId, isPage) {
         axios.all([getUserDetail, getUserMoment, getUserActivities, getUserData])
             .then(axios.spread(function (profile, moments, activities, userData) {
                 var user = new UserModel(profile.user).user
+                moments = moments.map((val, key) => {
+                    return {
+                        ...val,
+                        User: new UserModel(val.User).user
+                    }
+                })
                 dispatch({
                     type: 'GET_PROFILE',
                     payload: {
@@ -185,6 +192,34 @@ export function deleteActivity(id) {
                 message: 'activity_deleted_success'
             }));
             dispatch(toggleDeleteActivity({ open: false }));
+        });
+    }
+}
+
+export function changeProfileImage(obj) {
+    var data = new FormData();
+    data.append('uuid', obj.uuid);
+    data.append('prop', obj.prop);
+    data.append('file', obj.file)
+    return function (dispatch) {
+        dinaxios({
+            url: '/users/editprofile/image',
+            method: 'PUT',
+            data: data
+        }).then((url) => {
+            url = staticServer + url;
+            dispatch(showToast({
+                className: 'success-toast',
+                message: 'change_photo_success'
+            }));
+            dispatch({
+                type: obj.prop === 'backPic' ? 'CHANGE_USER_BACK_PHOTO' : 'CHANGE_USER_HAED_PHOTO',
+                payload: url
+            })
+            dispatch({
+                type: obj.prop === 'backPic' ? 'SAVE_PROFILE_BACK_PHOTO' : 'SAVE_PROFILE_HEAD_PHOTO',
+                payload: url
+            });
         });
     }
 }

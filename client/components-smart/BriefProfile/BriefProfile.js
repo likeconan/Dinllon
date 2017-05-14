@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Classnames from 'classnames';
-import { UserModel } from 'models';
 import UserDataCon from 'components-dumb/UserDataCon/UserDataCon';
 import LinkProfileName from 'components-dumb/LinkProfileName/LinkProfileName';
 import DivBackImage from 'components-dumb/DivBackImage/DivBackImage';
@@ -18,7 +17,7 @@ require('./brief-profile.less');
 
 class BriefProfile extends Component {
     render() {
-        var user = new UserModel(this.props.loggedUser).user;
+        var user = this.props.loggedUser;
         return (
             <brief-profile class={Classnames(this.props.className)}>
                 <DivBackImage className='profile-back blue darken-1' imgSrc={user.backPic} />

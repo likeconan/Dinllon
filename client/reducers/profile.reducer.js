@@ -97,6 +97,36 @@ export default function reducer(state = {
                 },
                 editingUser: action.payload.user,
             }
+        case 'SAVE_PROFILE_BACK_PHOTO':
+            return {
+                ...state,
+                pageUser: {
+                    ...state.pageUser,
+                    user: {
+                        ...state.pageUser.user,
+                        backPic: action.payload
+                    }
+                },
+                editingUser: {
+                    ...state.editingUser,
+                    backPic: action.payload
+                },
+            }
+        case 'SAVE_PROFILE_HEAD_PHOTO':
+            return {
+                ...state,
+                pageUser: {
+                    ...state.pageUser,
+                    user: {
+                        ...state.pageUser.user,
+                        headPic: action.payload
+                    }
+                },
+                editingUser: {
+                    ...state.editingUser,
+                    headPic: action.payload
+                },
+            }
         case 'TOGGLE_EDIT_PROFILE':
             return { ...state, enableEdit: !state.enableEdit }
         case 'EDIT_JOINED_PROFILE': {

@@ -13,7 +13,6 @@ import { searchActivity } from 'actions/activity.action';
 import { toggleJoinDialog } from 'actions/join-activity.action';
 import ActivityTypeTag from 'components-dumb/ActivityTypeTag/ActivityTypeTag'
 import ActivityStartTime from 'components-dumb/ActivityStartTime/ActivityStartTime'
-import { UserModel } from 'models';
 import Classnames from 'classnames';
 
 require('./quick-activity.less');
@@ -39,7 +38,7 @@ class QuickActivity extends Component {
     }
 
     render() {
-        const user = new UserModel({ ...this.props.activity }.User).user;
+        const user = { ...this.props.activity }.User;
         const iconStyle = {
             color: '#bdbdbd',
             transform: 'scaleX(-1)'
